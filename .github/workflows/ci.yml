@@ -24,7 +24,7 @@ jobs:
         run: |
           yarn install
           yarn build --if-present
-          yarn test --if-present --passWithNoTests
+          yarn test --passWithNoTests
 
       - name: "Deploy to Azure Web App"
         uses: azure/webapps-deploy@v1
