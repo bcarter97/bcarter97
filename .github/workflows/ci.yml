@@ -20,14 +20,15 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: yarn install, build, and test
+      - name: npm install, build, and test
         run: |
-          yarn install
-          yarn build --if-present
-          yarn test --passWithNoTests
-
-      - name: "Deploy to Azure Web App"
-        uses: azure/webapps-deploy@v1
+          # Build and test the project, then
+          # deploy to Azure Web App.
+          npm install
+          npm run build --if-present
+          npm run test --if-present
+      - name: "Deploy to Azure WebApp"
+        uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
