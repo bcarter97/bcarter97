@@ -1,0 +1,20 @@
+.square {
+  font-size: medium;
+  justify-content: center;
+  height: 100px;
+  width: 150px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.spymaster-switch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
