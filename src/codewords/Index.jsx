@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Game } from "./GameBoard";
-import { NavLink } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import { Body } from "../components";
 
 function CodeWords({ match, location }) {
@@ -10,7 +10,17 @@ function CodeWords({ match, location }) {
   return Body(<Game gameId={gameId} />);
 }
 
-function GameHome() {
+function GameHome({ match }) {
+  const { path } = match;
+  return (
+    <Switch>
+      <Route exact path={path} component={StartGame} />
+      <Route path={`${path}/:gameId`} component={CodeWords} />
+    </Switch>
+  );
+}
+
+function StartGame() {
   const [inputGameId, setinputGameId] = useState("");
 
   return Body(
@@ -62,4 +72,4 @@ function GameHome() {
   );
 }
 
-export { CodeWords, GameHome };
+export { GameHome };
