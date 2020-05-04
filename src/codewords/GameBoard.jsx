@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { words } from "./words/words";
 import "./index.css";
 
@@ -124,62 +125,114 @@ function Game({ gameId }) {
     );
   }
 
-  function createGameBoard() {
+  function CreateGameBoard() {
     let board = [];
     // Outer loop to create parent
     let squareCounter = 0;
+    let rowCounter = 0;
     for (let i = 0; i < 5; i++) {
       let boardRow = [];
       //Inner loop to create children
       for (let j = 0; j < 5; j++) {
-        boardRow.push(<>{renderSquare(squareCounter)}</>);
+        boardRow.push(
+          <div key={squareCounter}>{renderSquare(squareCounter)}</div>
+        );
         squareCounter++;
       }
       //Create the parent and add the children
-      board.push(<div className="board-row field is-grouped">{boardRow}</div>);
+      board.push(
+        <div key={rowCounter} className="board-row field is-grouped">
+          {boardRow}
+        </div>
+      );
+      rowCounter++;
     }
     return board;
   }
 
   return (
     <>
-      <section class="hero is-light is-small">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">Game {gameId}</h1>
-            <h2 class="subtitle">
-              <p class="has-text-info">Blue: {blueSquares}</p>
-              <p class="has-text-danger">Red: {redSquares}</p>
-            </h2>
-          </div>
-        </div>
-      </section>
+      <GameInfo
+        gameId={gameId}
+        blueSquares={blueSquares}
+        redSquares={redSquares}
+      />
       <br />
       <div className="board-container">
         <div className="game">
-          <div className="game-board">{createGameBoard()}</div>
+          <div className="game-board">
+            <CreateGameBoard />
+          </div>
         </div>
       </div>
       <br />
-      <div class="columns">
-        <div class="column is-5" />
-        <div class="column is-2">
-          <div
-            className="button is-success spymaster-switch"
-            onClick={() => {
-              setSpyMaster(!spyMaster);
-              spyMaster
-                ? setCovered(new Array(25).fill(false))
-                : setCovered(new Array(25).fill(true));
-            }}
-          >
-            Spymaster view
-          </div>
+      <div className="columns">
+        <div className="column is-4" />
+        <div className="column is-2">
+          <SpyMasterButton
+            spyMaster={spyMaster}
+            setSpyMaster={setSpyMaster}
+            setCovered={setCovered}
+          />
+          <br />
         </div>
-        <div class="column is-5" />
+        <div className="column is-2">
+          <NewGameButton />
+        </div>
+        <div className="column is-4"></div>
       </div>
     </>
   );
 }
 
-export { Game };
+function GameInfo({ gameId, blueSquares, redSquares }) {
+  return (
+    <section className="hero is-light is-small">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title">Game {gameId}</h1>
+          <h2 className="subtitle">
+            <p className="has-text-info">Blue: {blueSquares}</p>
+            <p className="has-text-danger">Red: {redSquares}</p>
+          </h2>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SpyMasterButton({ spyMaster, setSpyMaster, setCovered }) {
+  return (
+    <div
+      className="button is-success spymaster-switch"
+      onClick={() => {
+        setSpyMaster(!spyMaster);
+        spyMaster
+          ? setCovered(new Array(25).fill(false))
+          : setCovered(new Array(25).fill(true));
+      }}
+    >
+      Spymaster view
+    </div>
+  );
+}
+
+function NewGameButton() {
+  return (
+    <NavLink
+      to={`/codewords/` + Math.floor(Math.random() * 99999)}
+      className="button new-game is-warning"
+    >
+      New game
+    </NavLink>
+  );
+}
+
+function GameBoard({ match }) {
+  const {
+    params: { gameId },
+  } = match;
+  return <Game gameId={gameId} />;
+}
+
+export { GameBoard };

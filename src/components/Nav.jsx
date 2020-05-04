@@ -12,8 +12,8 @@ function NavIcons(props) {
         }`}
         href="https://github.com/bcarter97"
       >
-        <span class="icon">
-          <i class="fa fa-github fa-lg" aria-hidden="true" />
+        <span className="icon">
+          <i className="fa fa-github fa-lg" aria-hidden="true" />
         </span>
       </a>
       <a
@@ -22,8 +22,8 @@ function NavIcons(props) {
         }`}
         href="https://www.linkedin.com/in/bcarter97/"
       >
-        <span class="icon">
-          <i class="fa fa-linkedin fa-lg" aria-hidden="true" />
+        <span className="icon">
+          <i className="fa fa-linkedin fa-lg" aria-hidden="true" />
         </span>
       </a>
     </>
@@ -41,11 +41,10 @@ function Nav() {
     >
       <div className="container">
         <div className="navbar-brand">
-          <div className="navbar-item">
-            <NavLink exact to="/" className="navbar-item">
-              <img src={banner} height="28" alt="Site logo" />
-            </NavLink>
-          </div>
+          <NavLink exact to="/" className="navbar-item">
+            <img src={banner} height="28" alt="Site logo" />
+          </NavLink>
+
           <NavIcons isMobile={true} />
           <div
             role="button"
@@ -66,10 +65,19 @@ function Nav() {
           className={`navbar-menu ${menuVisible ? "is-active" : ""}`}
         >
           <div className="navbar-start">
-            <NavLink exact to="/" className="navbar-item">
+            <NavLink
+              exact
+              to="/"
+              className="navbar-item"
+              onClick={() => setMenuVisible(!menuVisible)}
+            >
               Home
             </NavLink>
-            <NavLink to="/codewords" className="navbar-item">
+            <NavLink
+              to="/codewords"
+              className="navbar-item"
+              onClick={() => setMenuVisible(!menuVisible)}
+            >
               Codewords
             </NavLink>
 
@@ -80,16 +88,6 @@ function Nav() {
 
           <div className="navbar-end">
             <NavIcons isMobile={false} />
-            {/* <div className="navbar-item">
-              <div className="buttons">
-                <a href="#signup" className="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a href="#login" className="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
