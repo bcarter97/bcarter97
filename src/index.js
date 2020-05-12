@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router } from 'react-router-dom';
-
 import { history } from "./helpers";
 
 import "./App.sass";

@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 
 import banner from "../images/banner.png";
 
-function NavIcons(props) {
+function NavIcons({ isMobile }) {
   return (
     <>
       <a
         className={`navbar-item has-text-black-bis ${
-          props.isMobile ? "is-hidden-desktop" : "is-hidden-mobile"
+          isMobile ? "is-hidden-desktop" : "is-hidden-touch"
         }`}
         href="https://github.com/bcarter97"
       >
@@ -18,7 +18,7 @@ function NavIcons(props) {
       </a>
       <a
         className={`navbar-item has-text-info ${
-          props.isMobile ? "is-hidden-desktop" : "is-hidden-mobile"
+          isMobile ? "is-hidden-desktop" : "is-hidden-touch"
         }`}
         href="https://www.linkedin.com/in/bcarter97/"
       >
