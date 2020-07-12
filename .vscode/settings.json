@@ -1,8 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}",
-        ".vscode{,/**}"
-    ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/dc5e1a1e-2b54-44ca-be04-0c6bef798207/resourceGroups/bcarter97/providers/Microsoft.Web/sites/bcarter97",
-    "appService.deploySubpath": ""
-}
