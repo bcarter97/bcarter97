@@ -1,5 +1,5 @@
-import React from "react";
-import { Body } from "../components";
+import React from 'react';
+import { Body } from '../components';
 
 function Hero() {
   return (
@@ -89,6 +89,24 @@ function Tiles() {
     </div>
   );
 }
+
+const TestFunction = () => {
+  console.log('This is a test');
+  return 'this is a test';
+};
+
+const About = () => {
+  return (
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Hero title</h1>
+          <h2 class="subtitle">Hero subtitle</h2>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 function Home() {
   return Body(
