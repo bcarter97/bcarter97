@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import banner from "../images/banner.png";
+import banner from '../images/banner.png';
 
 function NavIcons({ isMobile }) {
   return (
     <>
       <a
         className={`navbar-item has-text-black-bis ${
-          isMobile ? "is-hidden-desktop" : "is-hidden-touch"
+          isMobile ? 'is-hidden-desktop' : 'is-hidden-touch'
         }`}
         href="https://github.com/bcarter97"
       >
@@ -18,7 +18,7 @@ function NavIcons({ isMobile }) {
       </a>
       <a
         className={`navbar-item has-text-info ${
-          isMobile ? "is-hidden-desktop" : "is-hidden-touch"
+          isMobile ? 'is-hidden-desktop' : 'is-hidden-touch'
         }`}
         href="https://www.linkedin.com/in/bcarter97/"
       >
@@ -48,7 +48,7 @@ function Nav() {
           <NavIcons isMobile={true} />
           <div
             role="button"
-            className={`navbar-burger burger ${menuVisible ? "is-active" : ""}`}
+            className={`navbar-burger burger ${menuVisible ? 'is-active' : ''}`}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
@@ -62,7 +62,7 @@ function Nav() {
 
         <div
           id="navbarBasicExample"
-          className={`navbar-menu ${menuVisible ? "is-active" : ""}`}
+          className={`navbar-menu ${menuVisible ? 'is-active' : ''}`}
         >
           <div className="navbar-start">
             <NavLink
