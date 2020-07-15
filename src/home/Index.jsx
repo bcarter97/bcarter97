@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Markdown from 'react-markdown';
 import { Body } from '../components';
 import pp from '../images/about/pp.jpg';
-import about from '../markdown/about.md';
 
 const SocialButtons = () => {
   return (
@@ -36,14 +35,17 @@ const ProfilePicture = () => {
 };
 
 const Details = () => {
-  const [aboutInfo, setAboutInfo] = useState('');
-  useEffect(() => {
-    fetch(about)
-      .then((res) => res.text())
-      .then((text) => setAboutInfo(text));
-  }, []);
+  return (
+    <Markdown
+      source={`---
+## Academic
 
-  return <Markdown source={aboutInfo} />;
+| University of Sussex          |         | Grade |
+|-------------------------------|---------|-------|
+| Computer Science BSc          | 2016-19 | 2.1   |
+| Advanced Computer Science MSc | 2019-20 | 1     |`}
+    />
+  );
 };
 
 const About = () => {
