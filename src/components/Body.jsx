@@ -1,13 +1,21 @@
-import React from "react";
+import React from 'react';
 
-function Body(props) {
+const Body = ({ children }) => {
   return (
     <>
       <section className="section">
-        <div className="container">{props}</div>
+        <div className="container">{children}</div>
       </section>
     </>
   );
-}
+};
 
-export { Body };
+const MiddleColumn = ({ children }) => {
+  return (
+    <div class="columns">
+      <div class="column is-6 is-offset-3">{children}</div>
+    </div>
+  );
+};
+
+export { Body, MiddleColumn };

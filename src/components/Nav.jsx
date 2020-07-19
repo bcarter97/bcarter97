@@ -3,7 +3,21 @@ import { NavLink } from 'react-router-dom';
 
 import banner from '../images/banner.png';
 
-function NavIcons({ isMobile }) {
+const NavItem = ({ to, onClick, text }) => {
+  return (
+    <NavLink
+      exact
+      to={to}
+      className="navbar-item"
+      activeClassName="is-active has-background-light"
+      onClick={onClick}
+    >
+      {text}
+    </NavLink>
+  );
+};
+
+const NavIcons = ({ isMobile }) => {
   return (
     <>
       <a
@@ -28,10 +42,38 @@ function NavIcons({ isMobile }) {
       </a>
     </>
   );
-}
+};
 
-function Nav() {
+const NavBrand = ({ menuVisible, onClick }) => {
+  return (
+    <div className="navbar-brand">
+      <NavLink exact to="/" className="navbar-item">
+        <img src={banner} height="28" alt="Site logo" />
+      </NavLink>
+
+      <NavIcons isMobile={true} />
+      <div
+        role="button"
+        className={`navbar-burger burger ${menuVisible ? 'is-active' : ''}`}
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+        onClick={onClick}
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+  );
+};
+
+const Nav = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const toggleMenuVisible = () => {
+    setMenuVisible(!menuVisible);
+  };
 
   return (
     <nav
@@ -40,50 +82,19 @@ function Nav() {
       aria-label="main navigation"
     >
       <div className="container">
-        <div className="navbar-brand">
-          <NavLink exact to="/" className="navbar-item">
-            <img src={banner} height="28" alt="Site logo" />
-          </NavLink>
-
-          <NavIcons isMobile={true} />
-          <div
-            role="button"
-            className={`navbar-burger burger ${menuVisible ? 'is-active' : ''}`}
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-            onClick={() => setMenuVisible(!menuVisible)}
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </div>
-        </div>
+        <NavBrand menuVisible={menuVisible} onClick={toggleMenuVisible} />
 
         <div
-          id="navbarBasicExample"
+          id="mainNavigation"
           className={`navbar-menu ${menuVisible ? 'is-active' : ''}`}
         >
           <div className="navbar-start">
-            <NavLink
-              exact
-              to="/"
-              className="navbar-item"
-              onClick={() => setMenuVisible(!menuVisible)}
-            >
-              Home
-            </NavLink>
-            <NavLink
+            <NavItem to="/" onClick={toggleMenuVisible} text="Home" />
+            <NavItem
               to="/codewords"
-              className="navbar-item"
-              onClick={() => setMenuVisible(!menuVisible)}
-            >
-              Codewords
-            </NavLink>
-
-            {/* <NavLink to="\documentation" className="navbar-item">
-              Documentation
-            </NavLink> */}
+              onClick={toggleMenuVisible}
+              text="Codewords"
+            />
           </div>
 
           <div className="navbar-end">
@@ -93,6 +104,6 @@ function Nav() {
       </div>
     </nav>
   );
-}
+};
 
 export { Nav };

@@ -1,29 +1,7 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import pp from '../images/about/pp.jpg';
-
-const SocialButtons = () => {
-  return (
-    <div className="field is-grouped-centered is-grouped is-spaced">
-      <a
-        className="navbar-item has-text-black"
-        href="https://github.com/bcarter97"
-      >
-        <span className="icon">
-          <i className="fa fa-github fa-lg" aria-hidden="true" />
-        </span>
-      </a>
-      <a
-        className="navbar-item has-text-info"
-        href="https://www.linkedin.com/in/bcarter97/"
-      >
-        <span className="icon">
-          <i className="fa fa-linkedin fa-lg" aria-hidden="true" />
-        </span>
-      </a>
-    </div>
-  );
-};
+import { Body, MiddleColumn } from '../components';
 
 const ProfilePicture = () => {
   return (
@@ -33,7 +11,11 @@ const ProfilePicture = () => {
   );
 };
 
-const Details = () => {
+const CardTitle = ({ text }) => {
+  return <p className="title has-text-centered">{text}</p>;
+};
+
+const AcademicDetails = () => {
   return (
     <Markdown
       source={`---
@@ -47,35 +29,83 @@ const Details = () => {
   );
 };
 
-const About = () => {
+const AboutDetails = () => {
+  return <p>Hi, my name is Ben, a software developer based in London.</p>;
+};
+
+const Card = ({ children }) => {
+  return <div class="card">{children}</div>;
+};
+
+const CardBody = ({ children }) => {
+  return <div class="card-content">{children}</div>;
+};
+
+const CardContent = ({ children }) => {
+  return <div class="content">{children}</div>;
+};
+
+const CardFooter = ({ children }) => {
   return (
-    <div class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-6 is-offset-3">
-            <div class="card">
-              <div class="card-content">
-                <ProfilePicture />
-                <p className="title has-text-centered">Ben Carter</p>
-                <div class="content">
-                  <Details />
-                </div>
-              </div>
-              <div className="card-footer">
-                <p className="card-footer-item">
-                  <SocialButtons />
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="card-footer">
+      <p className="card-footer-item">{children}</p>
     </div>
   );
 };
 
+const SocialButtons = () => {
+  return (
+    <div className="field is-grouped is-spaced">
+      <SocialButton
+        url="https://github.com/bcarter97"
+        faIcon="github"
+        color="black"
+      />
+      <SocialButton
+        url="https://www.linkedin.com/in/bcarter97/"
+        faIcon="linkedin"
+        color="info"
+      />
+    </div>
+  );
+};
+
+const SocialButton = ({ url, faIcon, color }) => {
+  return (
+    <a className={`navbar-item has-text-${color}`} href={url}>
+      <span className="icon">
+        <i className={`fa fa-${faIcon} fa-lg`} aria-hidden="true" />
+      </span>
+    </a>
+  );
+};
+
+const AboutCard = () => {
+  return (
+    <Card>
+      <CardBody>
+        <ProfilePicture />
+        <CardTitle text="Ben Carter" />
+        <CardContent>
+          <AboutDetails />
+          <AcademicDetails />
+        </CardContent>
+      </CardBody>
+      <CardFooter>
+        <SocialButtons />
+      </CardFooter>
+    </Card>
+  );
+};
+
 function Home() {
-  return <About />;
+  return (
+    <Body>
+      <MiddleColumn>
+        <AboutCard />
+      </MiddleColumn>
+    </Body>
+  );
 }
 
 export { Home };
