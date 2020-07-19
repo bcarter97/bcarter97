@@ -1,6 +1,5 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import { Body } from '../components';
 import pp from '../images/about/pp.jpg';
 
 const SocialButtons = () => {
@@ -29,7 +28,7 @@ const SocialButtons = () => {
 const ProfilePicture = () => {
   return (
     <figure class="image container is-128x128">
-      <img className="is-rounded" src={pp} alt="Profile picture" />
+      <img className="is-rounded" src={pp} alt="Profile" />
     </figure>
   );
 };
