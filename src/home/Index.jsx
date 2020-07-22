@@ -1,7 +1,15 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import pp from '../images/about/pp.jpg';
-import { Body, MiddleColumn } from '../components';
+import {
+  Body,
+  MiddleColumn,
+  CardTitle,
+  Card,
+  CardBody,
+  CardContent,
+  CardFooter,
+} from '../components';
 
 const ProfilePicture = () => {
   return (
@@ -9,10 +17,6 @@ const ProfilePicture = () => {
       <img className="is-rounded" src={pp} alt="Profile" />
     </figure>
   );
-};
-
-const CardTitle = ({ text }) => {
-  return <p className="title has-text-centered">{text}</p>;
 };
 
 const AcademicDetails = () => {
@@ -31,26 +35,6 @@ const AcademicDetails = () => {
 
 const AboutDetails = () => {
   return <p>Hi, my name is Ben, a software developer based in London.</p>;
-};
-
-const Card = ({ children }) => {
-  return <div class="card">{children}</div>;
-};
-
-const CardBody = ({ children }) => {
-  return <div class="card-content">{children}</div>;
-};
-
-const CardContent = ({ children }) => {
-  return <div class="content">{children}</div>;
-};
-
-const CardFooter = ({ children }) => {
-  return (
-    <div className="card-footer">
-      <p className="card-footer-item">{children}</p>
-    </div>
-  );
 };
 
 const SocialButtons = () => {

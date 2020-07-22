@@ -1,3 +1,4 @@
-export * from "./Nav"
-export * from "./Footer"
-export * from "./Body"
+export * from './Nav';
+export * from './Footer';
+export * from './Card';
+export * from './Body';
