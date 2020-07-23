@@ -3,7 +3,13 @@ import { Body, MiddleColumn, AboutCard } from '../components';
 import { AboutHero } from '../components/AboutHero';
 
 function Home() {
-  return <AboutHero />;
+  return (
+    <Body>
+      <MiddleColumn>
+        <AboutCard />
+      </MiddleColumn>
+    </Body>
+  );
 }
 
 export { Home };

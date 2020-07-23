@@ -1,6 +1,7 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import pp from '../images/about/pp.jpg';
+import profilePicSmall from '../images/about/profilePicSmall.jpg';
+import profilePicMedium from '../images/about/profilePicMedium.jpg';
 
 const SocialButton = ({ url, faIcon, color }) => {
   return (
@@ -46,21 +47,25 @@ const AcademicDetails = () => {
 const ProfilePicture = () => {
   return (
     <figure class="image container is-128x128">
-      <img className="is-rounded" src={pp} alt="Profile" />
+      <img className="is-rounded" src={profilePicMedium} alt="Profile" />
     </figure>
   );
 };
 
 const ProfilePictureLarge = () => {
   return (
-    <figure class="image container is-square">
-      <img className="is-rounded" src={pp} alt="Profile" />
+    <figure class="image container is-256x256">
+      <img className="is-rounded" src={profilePicMedium} alt="Profile" />
     </figure>
   );
 };
 
 const AboutDetails = () => {
-  return <p>Hi, my name is Ben, a software developer based in London.</p>;
+  return (
+    <p className="is-size-4">
+      Hi, my name is Ben, a software developer based in London.
+    </p>
+  );
 };
 
 export {

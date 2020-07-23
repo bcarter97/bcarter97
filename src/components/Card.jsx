@@ -3,15 +3,15 @@ import {
   SocialButtons,
   AcademicDetails,
   AboutDetails,
-  ProfilePicture,
+  ProfilePictureLarge,
 } from '../components/MediaElements';
 
 const CardTitle = ({ text }) => {
-  return <p className="title has-text-centered">{text}</p>;
+  return <p className="title has-text-centered is-size-1">{text}</p>;
 };
 
 const Card = ({ children }) => {
-  return <div class="card">{children}</div>;
+  return <div class="card is-shadowless">{children}</div>;
 };
 
 const CardBody = ({ children }) => {
@@ -34,11 +34,10 @@ const AboutCard = () => {
   return (
     <Card>
       <CardBody>
-        <ProfilePicture />
+        <ProfilePictureLarge />
         <CardTitle text="Ben Carter" />
         <CardContent>
           <AboutDetails />
-          <AcademicDetails />
         </CardContent>
       </CardBody>
       <CardFooter>
