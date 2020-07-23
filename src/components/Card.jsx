@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  SocialButtons,
+  AcademicDetails,
+  AboutDetails,
+  ProfilePicture,
+} from '../components/MediaElements';
 
 const CardTitle = ({ text }) => {
   return <p className="title has-text-centered">{text}</p>;
@@ -24,4 +30,22 @@ const CardFooter = ({ children }) => {
   );
 };
 
-export { CardTitle, Card, CardBody, CardContent, CardFooter };
+const AboutCard = () => {
+  return (
+    <Card>
+      <CardBody>
+        <ProfilePicture />
+        <CardTitle text="Ben Carter" />
+        <CardContent>
+          <AboutDetails />
+          <AcademicDetails />
+        </CardContent>
+      </CardBody>
+      <CardFooter>
+        <SocialButtons />
+      </CardFooter>
+    </Card>
+  );
+};
+
+export { AboutCard };
