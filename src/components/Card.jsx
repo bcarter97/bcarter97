@@ -11,7 +11,7 @@ const CardTitle = ({ text }) => {
 };
 
 const Card = ({ children }) => {
-  return <div class="card is-shadowless">{children}</div>;
+  return <div class="card">{children}</div>;
 };
 
 const CardBody = ({ children }) => {

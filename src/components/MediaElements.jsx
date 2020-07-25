@@ -1,7 +1,9 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import profilePicSmall from '../images/about/profilePicSmall.jpg';
 import profilePicMedium from '../images/about/profilePicMedium.jpg';
+
+const GitHubLink = 'https://github.com/bcarter97';
+const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
 
 const SocialButton = ({ url, faIcon, color }) => {
   return (
@@ -16,16 +18,8 @@ const SocialButton = ({ url, faIcon, color }) => {
 const SocialButtons = () => {
   return (
     <div className="field is-grouped is-spaced">
-      <SocialButton
-        url="https://github.com/bcarter97"
-        faIcon="github"
-        color="black"
-      />
-      <SocialButton
-        url="https://www.linkedin.com/in/bcarter97/"
-        faIcon="linkedin"
-        color="info"
-      />
+      <SocialButton url={GitHubLink} faIcon="github" color="black" />
+      <SocialButton url={LinkedInLink} faIcon="linkedin" color="info" />
     </div>
   );
 };
@@ -69,6 +63,8 @@ const AboutDetails = () => {
 };
 
 export {
+  GitHubLink,
+  LinkedInLink,
   SocialButtons,
   AcademicDetails,
   AboutDetails,

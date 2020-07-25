@@ -1,18 +1,17 @@
 import React from 'react';
-import bulmerLogo from '../images/made-with-bulma-badges/made-with-bulma.png';
-import { NavLink, Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className="footer has-text-centered">
-      <div className="buttons ">
-        <NavLink exact to="/" className="button is-primary">
-          Home
-        </NavLink>
-        <a href="https://github.com/bcarter97" className="button is-primary">
-          <div>GitHub</div>
+    <div className="footer has-text-centered has-background-light is-bold">
+      <p>
+        Source code licensed under{' '}
+        <a
+          className="footer-license"
+          href="https://opensource.org/licenses/mit-license.php"
+        >
+          MIT
         </a>
-      </div>
+      </p>
     </div>
   );
 }

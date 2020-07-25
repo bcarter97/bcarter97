@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { history } from './helpers';
 
-import './App.sass';
+import './App.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import App from './app/Index';
 import * as serviceWorker from './serviceWorker';

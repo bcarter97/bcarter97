@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.sass';
 import { Nav, Footer } from '../components';
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { Home } from '../home/Index';

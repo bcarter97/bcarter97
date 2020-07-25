@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { GitHubLink, LinkedInLink } from './MediaElements';
 import banner from '../images/banner.png';
 
 const NavItem = ({ to, onClick, text }) => {
   return (
-    <NavLink
-      exact
-      to={to}
-      className="navbar-item"
-      activeClassName="is-active has-background-light"
-      onClick={onClick}
-    >
-      {text}
-    </NavLink>
+    <span className="navbar-item">
+      <NavLink
+        exact
+        to={to}
+        className="navbar-module has-text-black has-background-white has-text-weight-medium"
+        activeClassName="active"
+        onClick={onClick}
+      >
+        {text}
+      </NavLink>
+    </span>
   );
 };
 
@@ -24,7 +26,7 @@ const NavIcons = ({ isMobile }) => {
         className={`navbar-item has-text-black-bis ${
           isMobile ? 'is-hidden-desktop' : 'is-hidden-touch'
         }`}
-        href="https://github.com/bcarter97"
+        href={GitHubLink}
       >
         <span className="icon">
           <i className="fa fa-github fa-lg" aria-hidden="true" />
@@ -34,7 +36,7 @@ const NavIcons = ({ isMobile }) => {
         className={`navbar-item has-text-info ${
           isMobile ? 'is-hidden-desktop' : 'is-hidden-touch'
         }`}
-        href="https://www.linkedin.com/in/bcarter97/"
+        href={LinkedInLink}
       >
         <span className="icon">
           <i className="fa fa-linkedin fa-lg" aria-hidden="true" />
