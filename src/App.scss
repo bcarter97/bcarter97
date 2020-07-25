@@ -20,10 +20,10 @@ $link-color: #ff9800;
 }
 
 .navbar-module {
+  width: 1%;
   border-bottom: $bottom-border-height solid transparent;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
-  width: 0%;
 }
 
 .navbar-module:hover,
@@ -35,11 +35,7 @@ $link-color: #ff9800;
 }
 
 .footer-license {
-  background: linear-gradient(
-    to bottom,
-    $link-color 0%,
-    $link-color 100%
-  );
+  background: linear-gradient(to bottom, $link-color 0%, $link-color 100%);
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 4px 3px;
@@ -53,6 +49,4 @@ $link-color: #ff9800;
   background-size: 4px 100%;
 }
 
-// Import only what you need from Bulma
 @import '../node_modules/bulma/bulma.sass';
-@import '../node_modules/bulma/sass/utilities/_all.sass';
