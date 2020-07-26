@@ -40,9 +40,6 @@ const AboutCard = () => {
           <AboutDetails />
         </CardContent>
       </CardBody>
-      <CardFooter>
-        <SocialButtons />
-      </CardFooter>
     </Card>
   );
 };

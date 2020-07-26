@@ -15,11 +15,31 @@ const SocialButton = ({ url, faIcon, color }) => {
   );
 };
 
+const GitHubButton = ({ classOverride = '' }) => {
+  return (
+    <SocialButton
+      url={GitHubLink}
+      faIcon="github"
+      color={`black ${classOverride}`}
+    />
+  );
+};
+
+const LinkedInButton = ({ classOverride = '' }) => {
+  return (
+    <SocialButton
+      url={LinkedInLink}
+      faIcon="linkedin"
+      color={`info ${classOverride}`}
+    />
+  );
+};
+
 const SocialButtons = () => {
   return (
     <div className="field is-grouped is-spaced">
-      <SocialButton url={GitHubLink} faIcon="github" color="black" />
-      <SocialButton url={LinkedInLink} faIcon="linkedin" color="info" />
+      <GitHubButton />
+      <LinkedInButton />
     </div>
   );
 };
@@ -57,7 +77,16 @@ const ProfilePictureLarge = () => {
 const AboutDetails = () => {
   return (
     <p className="is-size-4">
-      Hi, my name is Ben, a software developer based in London.
+      Hi, my name is Ben, a software developer based in London. You can check
+      out my stuff on{' '}
+      <a className="social-link github-link" href={GitHubLink}>
+        GitHub
+      </a>
+      , or connect with me on{' '}
+      <a className="social-link linkedin-link" href={LinkedInLink}>
+        LinkedIn
+      </a>
+      .
     </p>
   );
 };
@@ -65,6 +94,8 @@ const AboutDetails = () => {
 export {
   GitHubLink,
   LinkedInLink,
+  GitHubButton,
+  LinkedInButton,
   SocialButtons,
   AcademicDetails,
   AboutDetails,

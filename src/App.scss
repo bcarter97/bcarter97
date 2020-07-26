@@ -4,10 +4,19 @@
 
 $family-sans-serif: 'Nunito', sans-serif;
 $dimensions: 16 24 32 48 64 96 128 256 512 !default;
-$primary: hsl(171, 100%, 41%);
-$black: #000;
 $bottom-border-height: 3px;
+
+// colors
+$default-text-color: hsl(0, 0%, 21%);
 $link-color: #ff9800;
+$primary: hsl(171, 100%, 41%);
+$info: hsl(204, 86%, 53%);
+$link: hsl(217, 71%, 53%);
+$black: #000;
+$red: hsl(348, 100%, 61%);
+$grey-light: hsl(0, 0%, 71%);
+$git-color: $red;
+$linkedin-color: $info;
 
 .button-footer {
   background: transparent !important;
@@ -34,18 +43,34 @@ $link-color: #ff9800;
   width: 100%;
 }
 
-.footer-license {
+.footer-link {
   background: linear-gradient(to bottom, $link-color 0%, $link-color 100%);
+}
+
+.github-link {
+  background: linear-gradient(to bottom, $git-color 0%, $git-color 100%);
+}
+
+.linkedin-link {
+  background: linear-gradient(
+    to bottom,
+    $linkedin-color 0%,
+    $linkedin-color 100%
+  );
+}
+
+.social-link {
+  color: $default-text-color;
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 4px 3px;
-  color: $black;
   text-decoration: none;
-  transition: background-size 0.5s;
-  -webkit-transition: background-size 0.5s;
+  transition: background-size 0.2s;
+  -webkit-transition: background-size 0.2s;
 }
 
-.footer-license:hover {
+.social-link:hover {
+  color: $black;
   background-size: 4px 100%;
 }
 

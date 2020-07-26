@@ -6,7 +6,7 @@ function Footer() {
       <p>
         Source code licensed under{' '}
         <a
-          className="footer-license"
+          className="social-link footer-link"
           href="https://opensource.org/licenses/mit-license.php"
         >
           MIT
