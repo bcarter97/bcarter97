@@ -5,6 +5,7 @@
 $family-sans-serif: 'Nunito', sans-serif;
 $dimensions: 16 24 32 48 64 96 128 256 512 !default;
 $bottom-border-height: 3px;
+$default-transition-speed: 0.2s;
 
 // colors
 $default-text-color: hsl(0, 0%, 21%);
@@ -17,6 +18,8 @@ $red: hsl(348, 100%, 61%);
 $grey-light: hsl(0, 0%, 71%);
 $git-color: $red;
 $linkedin-color: $info;
+
+$highlight-size: 2px;
 
 .button-footer {
   background: transparent !important;
@@ -43,30 +46,43 @@ $linkedin-color: $info;
   width: 100%;
 }
 
+.social-container {
+  -webkit-box-sizing: content-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: content-box; /* Firefox, other Gecko */
+  box-sizing: content-box; /* Opera/IE 8+ */
+}
+
 .footer-link {
   background: linear-gradient(to bottom, $link-color 0%, $link-color 100%);
 }
 
 .github-link {
-  background: linear-gradient(to bottom, $git-color 0%, $git-color 100%);
+  background: linear-gradient(
+    to bottom,
+    lighten($git-color, 20%),
+    lighten($git-color, 20%) 100%
+  );
 }
 
 .linkedin-link {
   background: linear-gradient(
     to bottom,
-    $linkedin-color 0%,
-    $linkedin-color 100%
+    lighten($linkedin-color, 20%),
+    lighten($linkedin-color, 20%) 100%
   );
 }
 
 .social-link {
+  padding: $highlight-size;
+  margin: -$highlight-size;
   color: $default-text-color;
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: 4px 3px;
   text-decoration: none;
-  transition: background-size 0.2s;
-  -webkit-transition: background-size 0.2s;
+  transition-duration: $default-transition-speed;
+  transition-property: background-size;
+  transition-timing-function: ease-in-out;
 }
 
 .social-link:hover {

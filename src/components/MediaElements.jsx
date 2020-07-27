@@ -76,18 +76,20 @@ const ProfilePictureLarge = () => {
 
 const AboutDetails = () => {
   return (
-    <p className="is-size-4">
-      Hi, my name is Ben, a software developer based in London. You can check
-      out my stuff on{' '}
-      <a className="social-link github-link" href={GitHubLink}>
-        GitHub
-      </a>
-      , or connect with me on{' '}
-      <a className="social-link linkedin-link" href={LinkedInLink}>
-        LinkedIn
-      </a>
-      .
-    </p>
+    <div className="social-container">
+      <p className="is-size-4">
+        Hi, my name is Ben, a software developer based in London. You can check
+        out my stuff on{' '}
+        <a className="social-link github-link" href={GitHubLink}>
+          GitHub
+        </a>
+        , or connect with me on{' '}
+        <a className="social-link linkedin-link" href={LinkedInLink}>
+          LinkedIn
+        </a>
+        .
+      </p>
+    </div>
   );
 };
 
