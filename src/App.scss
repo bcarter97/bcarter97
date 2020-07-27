@@ -5,7 +5,7 @@
 $family-sans-serif: 'Nunito', sans-serif;
 $dimensions: 16 24 32 48 64 96 128 256 512 !default;
 $bottom-border-height: 3px;
-$default-transition-speed: 0.2s;
+$default-transition-speed: 0.1s;
 
 // colors
 $default-text-color: hsl(0, 0%, 21%);
@@ -53,22 +53,26 @@ $highlight-size: 2px;
 }
 
 .footer-link {
-  background: linear-gradient(to bottom, $link-color 0%, $link-color 100%);
+  background: linear-gradient(
+    to bottom,
+    lighten($link-color, 35%),
+    lighten($link-color, 35%) 100%
+  );
 }
 
 .github-link {
   background: linear-gradient(
     to bottom,
-    lighten($git-color, 20%),
-    lighten($git-color, 20%) 100%
+    lighten($git-color, 30%),
+    lighten($git-color, 30%) 100%
   );
 }
 
 .linkedin-link {
   background: linear-gradient(
     to bottom,
-    lighten($linkedin-color, 20%),
-    lighten($linkedin-color, 20%) 100%
+    lighten($linkedin-color, 30%),
+    lighten($linkedin-color, 30%) 100%
   );
 }
 
@@ -86,9 +90,21 @@ $highlight-size: 2px;
   transition-timing-function: ease-in-out;
 }
 
-.social-link:hover {
+.social-link.github-link:hover {
   border-radius: 5px;
-  color: $black;
+  color: $git-color;
+  background-size: 4px 100%;
+}
+
+.social-link.linkedin-link:hover {
+  border-radius: 5px;
+  color: $linkedin-color;
+  background-size: 4px 100%;
+}
+
+.social-link.footer-link:hover {
+  border-radius: 5px;
+  color: $link-color;
   background-size: 4px 100%;
 }
 
