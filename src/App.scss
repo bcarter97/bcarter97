@@ -73,6 +73,7 @@ $highlight-size: 2px;
 }
 
 .social-link {
+  border-radius: 0px;
   padding: $highlight-size;
   margin: -$highlight-size;
   color: $default-text-color;
@@ -81,11 +82,12 @@ $highlight-size: 2px;
   background-size: 4px 3px;
   text-decoration: none;
   transition-duration: $default-transition-speed;
-  transition-property: background-size;
+  transition-property: background-size, border-radius, color;
   transition-timing-function: ease-in-out;
 }
 
 .social-link:hover {
+  border-radius: 5px;
   color: $black;
   background-size: 4px 100%;
 }
