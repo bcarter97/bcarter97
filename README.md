@@ -1,5 +1,5 @@
-# My personal website
+**🚀 [carter.gg](https://www.carter.gg) 🚀**
 
----
+Written in React. Hosted on AWS Amplify.
 
-MIT © [Ben Carter](https://www.carter.gg/)
+Source code licensed under [MIT](https://opensource.org/licenses/mit-license.php)
