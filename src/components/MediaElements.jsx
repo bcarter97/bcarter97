@@ -69,27 +69,28 @@ const ProfilePicture = () => {
 const ProfilePictureLarge = () => {
   return (
     <figure class="image container is-256x256">
-      <img className="is-rounded" src={profilePicMedium} alt="Profile" />
+      <img
+        className="is-rounded image-module"
+        src={profilePicMedium}
+        alt="Profile"
+      />
     </figure>
   );
 };
 
 const AboutDetails = () => {
   return (
-    <div className="social-container">
-      <p className="is-size-4">
-        Hi, my name is Ben, a software developer based in London. You can check
-        out my stuff on{' '}
-        <a className="social-link github-link" href={GitHubLink}>
-          GitHub
-        </a>
-        , or connect with me on{' '}
-        <a className="social-link linkedin-link" href={LinkedInLink}>
-          LinkedIn
-        </a>
-        .
-      </p>
-    </div>
+    <p className="is-size-3 has-text-left">
+      I'm software developer based in London. You can check out my stuff on{' '}
+      <a className="social-link github-link" href={GitHubLink}>
+        GitHub
+      </a>
+      , or connect with me on{' '}
+      <a className="social-link linkedin-link" href={LinkedInLink}>
+        LinkedIn
+      </a>
+      .
+    </p>
   );
 };
 

@@ -1,20 +1,20 @@
 import React from 'react';
-import { ProfilePictureLarge } from '../components/MediaElements';
+import { ProfilePictureLarge, AboutDetails } from '../components/MediaElements';
 
 const AboutHero = () => {
   return (
-    <section className="hero is-medium">
+    <section className="hero about-hero is-medium is-bold">
       <div className="hero-body">
         <div className="container">
           <div className="columns is-vcentered is-centered">
             <div className="column is-half">
-              <ProfilePictureLarge />
-              <h1 className="title is-size-1 has-text-centered">
+              <h1 className="title is-size-1 has-text-left">
                 Hi, I'm Ben Carter.
               </h1>
-              <p className="is-size-3">
-                I'm a software developer based in London.
-              </p>
+              <AboutDetails />
+            </div>
+            <div className="column is-one-quarter">
+              <ProfilePictureLarge />
             </div>
           </div>
         </div>

@@ -46,12 +46,6 @@ $highlight-size: 2px;
   width: 100%;
 }
 
-.social-container {
-  -webkit-box-sizing: content-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: content-box; /* Firefox, other Gecko */
-  box-sizing: content-box; /* Opera/IE 8+ */
-}
-
 .footer-link {
   background: linear-gradient(
     to bottom,
@@ -106,6 +100,11 @@ $highlight-size: 2px;
   border-radius: 5px;
   color: $link-color;
   background-size: 4px 100%;
+}
+
+// Add a drop shadow to profile picture
+.image-module {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 @import '../node_modules/bulma/bulma.sass';
