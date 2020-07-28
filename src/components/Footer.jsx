@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="footer has-text-centered has-background-light is-bold">
+    <div className="footer has-text-centered has-background-white is-bold">
       <p>
         Source code licensed under{' '}
         <a
