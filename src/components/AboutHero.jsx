@@ -3,7 +3,7 @@ import { ProfilePictureLarge, AboutDetails } from '../components/MediaElements';
 
 const AboutHero = () => {
   return (
-    <section className="hero about-hero is-medium  is-bold">
+    <section className="hero about-hero is-medium is-bold">
       <div className="hero-body">
         <div className="container">
           <div className="columns is-vcentered is-centered">

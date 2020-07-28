@@ -1,5 +1,6 @@
 import React from 'react';
-import { Nav, Footer } from '../components';
+import { Nav } from '../components/Nav';
+import { Footer } from '../components/Footer';
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { Home } from '../home/Index';
 import { GameHome } from '../codewords/Index';
