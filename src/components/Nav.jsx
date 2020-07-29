@@ -70,6 +70,7 @@ const Nav = () => {
               onClick={toggleMenuVisible}
               text="Codewords"
             />
+            <NavItem to="/contact" onClick={toggleMenuVisible} text="Contact" />
           </div>
 
           <div className="navbar-end">
