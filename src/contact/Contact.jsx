@@ -17,7 +17,7 @@ const ContactLayout = ({ children }) => {
 
 const ContactForm = () => {
   return (
-    <form name="contact" method="post">
+    <form name="contact" method="post" action="/contact/success">
       <input type="hidden" name="form-name" value="contact" />
       <div className="field">
         <label className="label">Name</label>
