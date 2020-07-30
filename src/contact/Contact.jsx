@@ -17,7 +17,13 @@ const ContactLayout = ({ children }) => {
 
 const ContactForm = () => {
   return (
-    <form name="contact" method="post" action="/contact/success">
+    <form
+      name="contact" // important: Give your form a name
+      method="POST" // important: make sure there is some way the data is transfered like here with an HTML request
+      data-netlify="true" // important: enable your form in netlify
+      netlify-honeypot="bot-field"
+      action="/contact/success"
+    >
       <input type="hidden" name="form-name" value="contact" />
       <div className="field">
         <label className="label">Name</label>
