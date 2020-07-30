@@ -1,9 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import React from 'react';
+import { Switch, Route, NavLink } from 'react-router-dom';
+
+const ContactLayout = ({ children }) => {
+  return (
+    <section className="hero about-hero is-medium is-bold">
+      <div className="hero-body">
+        <div className="container">
+          <div className="columns is-vcentered is-centered">
+            <div className="column is-half">{children}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const ContactForm = () => {
   return (
-    <form name="contact" method="post">
+    <form name="contact" method="post" action="/contact/success">
       <input type="hidden" name="form-name" value="contact" />
       <div className="field">
         <label className="label">Name</label>
@@ -34,7 +48,7 @@ const ContactForm = () => {
   );
 };
 
-const SuccessMessage = () => {
+const SuccessPage = () => {
   return (
     <p className="is-size-3 has-text-centered">
       Thanks! I'll get back to you as soon as I can.{' '}
@@ -50,24 +64,13 @@ const SuccessMessage = () => {
 };
 
 const ContactPage = () => {
-  const [success, setSuccess] = useState(false);
-  const location = useLocation();
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    setSuccess(params.get('success') === 'true');
-  }, [location]);
   return (
-    <section className="hero about-hero is-medium is-bold">
-      <div className="hero-body">
-        <div className="container">
-          <div className="columns is-vcentered is-centered">
-            <div className="column is-half">
-              {success ? <SuccessMessage /> : <ContactForm />}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ContactLayout>
+      <Switch>
+        <Route exact path="/contact" component={ContactForm} />
+        <Route exact path="/contact/success" component={SuccessPage} />
+      </Switch>
+    </ContactLayout>
   );
 };
 

@@ -16,7 +16,7 @@ function App() {
         <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
         <Route exact path="/" component={Home} />
         <Route path="/codewords" component={GameHome} />
-        <Route exact path="/contact" component={ContactPage} />
+        <Route path="/contact" component={ContactPage} />
         <Redirect from="*" to="/" />
       </Switch>
       <Footer />

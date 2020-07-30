@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { GitHubButton, LinkedInButton } from './MediaElements';
 import banner from '../images/banner.png';
 
-const NavItem = ({ to, onClick, text }) => {
+const NavItem = ({ to, onClick, text, exact }) => {
   return (
     <span className="navbar-item">
       <NavLink
-        exact
+        exact={exact}
         to={to}
         className="navbar-module has-text-black has-background-white has-text-weight-medium"
         activeClassName="active"
@@ -64,13 +64,24 @@ const Nav = () => {
           className={`navbar-menu ${menuVisible ? 'is-active' : ''}`}
         >
           <div className="navbar-start">
-            <NavItem to="/" onClick={toggleMenuVisible} text="Home" />
+            <NavItem
+              to="/"
+              onClick={toggleMenuVisible}
+              text="Home"
+              exact={true}
+            />
             <NavItem
               to="/codewords"
               onClick={toggleMenuVisible}
               text="Codewords"
+              exact={false}
             />
-            <NavItem to="/contact" onClick={toggleMenuVisible} text="Contact" />
+            <NavItem
+              to="/contact"
+              onClick={toggleMenuVisible}
+              text="Contact"
+              exact={false}
+            />
           </div>
 
           <div className="navbar-end">
