@@ -4,8 +4,9 @@
 
 $family-sans-serif: 'Nunito', sans-serif;
 $dimensions: 16 24 32 48 64 96 128 256 512 !default;
-$bottom-border-height: 3px;
+$bottom-border-height: 2px;
 $default-transition-speed: 0.1s;
+$underline-speed: 0.4s;
 
 // colors
 $default-text-color: hsl(0, 0%, 21%);
@@ -32,16 +33,20 @@ $highlight-size: 2px;
 }
 
 .navbar-module {
-  width: 0%;
+  width: 0.01%;
   border-bottom: $bottom-border-height solid $primary;
-  transition: 0.5s ease-out;
+  transition-duration: $underline-speed;
+  transition-property: width;
+  transition-timing-function: transform;
 }
 
 .navbar-module:hover,
 .navbar-module.active {
-  transition: 0.5s ease-out;
-  border-bottom: $bottom-border-height solid $primary;
   width: 100%;
+  border-bottom: $bottom-border-height solid $primary;
+  transition-duration: $underline-speed;
+  transition-property: width;
+  transition-timing-function: transform;
 }
 
 .footer-link {
