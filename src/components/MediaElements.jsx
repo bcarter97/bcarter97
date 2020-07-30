@@ -81,7 +81,7 @@ const ProfilePictureLarge = () => {
 const AboutDetails = () => {
   return (
     <p className="is-size-3 has-text-left">
-      I'm software developer based in London. You can check out my stuff on{' '}
+      I'm a software developer based in London. You can check out my stuff on{' '}
       <a className="social-link github-link" href={GitHubLink}>
         GitHub
       </a>
