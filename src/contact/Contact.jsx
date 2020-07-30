@@ -45,9 +45,7 @@ const ContactForm = () => {
       </div>
       <div className="field">
         <div className="control">
-          <button className="button is-primary" type="submit">
-            Send
-          </button>
+          <button type="submit">Send</button>
         </div>
       </div>
     </form>
