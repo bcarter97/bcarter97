@@ -32,16 +32,14 @@ $highlight-size: 2px;
 }
 
 .navbar-module {
-  width: 1%;
-  border-bottom: $bottom-border-height solid transparent;
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
+  width: 0%;
+  border-bottom: $bottom-border-height solid $primary;
+  transition: 0.5s ease-out;
 }
 
 .navbar-module:hover,
 .navbar-module.active {
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
+  transition: 0.5s ease-out;
   border-bottom: $bottom-border-height solid $primary;
   width: 100%;
 }
