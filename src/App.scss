@@ -4,8 +4,9 @@
 
 $family-sans-serif: 'Nunito', sans-serif;
 $dimensions: 16 24 32 48 64 96 128 256 512 !default;
-$bottom-border-height: 3px;
+$bottom-border-height: 2px;
 $default-transition-speed: 0.1s;
+$underline-speed: 0.4s;
 
 // colors
 $default-text-color: hsl(0, 0%, 21%);
@@ -21,10 +22,6 @@ $linkedin-color: $info;
 
 $highlight-size: 2px;
 
-.button-footer {
-  background: transparent !important;
-}
-
 .navbar-item {
   position: relative;
   display: inline-block;
@@ -32,18 +29,18 @@ $highlight-size: 2px;
 }
 
 .navbar-module {
-  width: 1%;
-  border-bottom: $bottom-border-height solid transparent;
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
+  width: 0.01%;
+  border-bottom: $bottom-border-height solid $primary;
+  transition-duration: $underline-speed;
+  transition-property: width;
 }
 
 .navbar-module:hover,
 .navbar-module.active {
-  -webkit-transition: 0.5s ease;
-  transition: 0.5s ease;
-  border-bottom: $bottom-border-height solid $primary;
   width: 100%;
+  border-bottom: $bottom-border-height solid $primary;
+  transition-duration: $underline-speed;
+  transition-property: width;
 }
 
 .footer-link {
@@ -67,6 +64,14 @@ $highlight-size: 2px;
     to bottom,
     lighten($linkedin-color, 30%),
     lighten($linkedin-color, 30%) 100%
+  );
+}
+
+.home-link {
+  background: linear-gradient(
+    to bottom,
+    lighten($primary, 45%),
+    lighten($primary, 45%) 100%
   );
 }
 
@@ -99,6 +104,12 @@ $highlight-size: 2px;
 .social-link.footer-link:hover {
   border-radius: 5px;
   color: $link-color;
+  background-size: 4px 100%;
+}
+
+.social-link.home-link:hover {
+  border-radius: 5px;
+  color: $primary;
   background-size: 4px 100%;
 }
 
