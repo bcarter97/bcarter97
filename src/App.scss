@@ -22,10 +22,6 @@ $linkedin-color: $info;
 
 $highlight-size: 2px;
 
-.button-footer {
-  background: transparent !important;
-}
-
 .navbar-item {
   position: relative;
   display: inline-block;
@@ -37,7 +33,6 @@ $highlight-size: 2px;
   border-bottom: $bottom-border-height solid $primary;
   transition-duration: $underline-speed;
   transition-property: width;
-  transition-timing-function: transform;
 }
 
 .navbar-module:hover,
@@ -46,7 +41,6 @@ $highlight-size: 2px;
   border-bottom: $bottom-border-height solid $primary;
   transition-duration: $underline-speed;
   transition-property: width;
-  transition-timing-function: transform;
 }
 
 .footer-link {
@@ -70,6 +64,14 @@ $highlight-size: 2px;
     to bottom,
     lighten($linkedin-color, 30%),
     lighten($linkedin-color, 30%) 100%
+  );
+}
+
+.home-link {
+  background: linear-gradient(
+    to bottom,
+    lighten($primary, 45%),
+    lighten($primary, 45%) 100%
   );
 }
 
@@ -102,6 +104,12 @@ $highlight-size: 2px;
 .social-link.footer-link:hover {
   border-radius: 5px;
   color: $link-color;
+  background-size: 4px 100%;
+}
+
+.social-link.home-link:hover {
+  border-radius: 5px;
+  color: $primary;
   background-size: 4px 100%;
 }
 
