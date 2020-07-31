@@ -38,7 +38,6 @@ $highlight-size: 2px;
 .navbar-module:hover,
 .navbar-module.active {
   width: 100%;
-  border-bottom: $bottom-border-height solid $primary;
   transition-duration: $underline-speed;
   transition-property: width;
 }
