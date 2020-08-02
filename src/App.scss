@@ -118,4 +118,9 @@ $highlight-size: 2px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
+.cookie-module {
+  left: 0;
+  right: 0;
+  position: fixed !important;
+}
 @import '../node_modules/bulma/bulma.sass';

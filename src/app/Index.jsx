@@ -41,8 +41,8 @@ function App() {
           <Redirect from="*" to="/" />
         </Switch>
         <Footer />
-        <CookieBar />
       </div>
+      <CookieBar />
     </Router>
   );
 }
