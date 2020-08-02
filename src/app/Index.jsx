@@ -7,6 +7,7 @@ import { Route, Router, Switch, Redirect, useLocation } from 'react-router-dom';
 import { Home } from '../home/Index';
 import { GameHome } from '../codewords/Index';
 import { ContactPage } from '../contact/Contact';
+import { CookieBar } from '../components/Cookies';
 
 import { history } from '../helpers/history';
 
@@ -40,6 +41,7 @@ function App() {
           <Redirect from="*" to="/" />
         </Switch>
         <Footer />
+        <CookieBar />
       </div>
     </Router>
   );
