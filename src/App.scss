@@ -30,13 +30,14 @@ $highlight-size: 2px;
 
 .navbar-module {
   width: 0.01%;
-  border-bottom: $bottom-border-height solid $primary;
+  border-bottom: $bottom-border-height solid transparent;
   transition-duration: $underline-speed;
-  transition-property: width;
+  transition-property: width, border-bottom;
 }
 
 .navbar-module:hover,
 .navbar-module.active {
+  border-bottom: $bottom-border-height solid $primary;
   width: 100%;
   transition-duration: $underline-speed;
   transition-property: width;
