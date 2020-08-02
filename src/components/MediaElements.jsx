@@ -60,7 +60,7 @@ const AcademicDetails = () => {
 
 const ProfilePicture = () => {
   return (
-    <figure class="image container is-128x128">
+    <figure className="image container is-128x128">
       <img className="is-rounded" src={profilePicMedium} alt="Profile" />
     </figure>
   );
@@ -68,7 +68,7 @@ const ProfilePicture = () => {
 
 const ProfilePictureLarge = () => {
   return (
-    <figure class="image container is-256x256">
+    <figure className="image container is-256x256">
       <img
         className="is-rounded image-module"
         src={profilePicMedium}
