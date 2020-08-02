@@ -6,17 +6,24 @@ import { Footer } from '../components/Footer';
 import { Route, Router, Switch, Redirect, useLocation } from 'react-router-dom';
 import { Home } from '../home/Index';
 import { GameHome } from '../codewords/Index';
-import { ContactPage } from '../contact/Contact.jsx';
+import { ContactPage } from '../contact/Contact';
 
-import { history } from '../helpers/history.js';
+import { history } from '../helpers/history';
 
 // Initialize google analytics page view tracking
-ReactGA.initialize(process.env.REACT_APP_GA_ID);
 
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname }); // Update the user's current page
-  ReactGA.pageview(location.pathname); // Record a pageview for the given page
-});
+const trackPageView = (location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+};
+
+const initGa = (history) => {
+  ReactGA.initialize(process.env.REACT_APP_GA_ID);
+  trackPageView(history.location);
+  history.listen(trackPageView);
+};
+
+initGa(history);
 
 function App() {
   const { pathname } = useLocation();
