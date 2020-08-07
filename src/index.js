@@ -1,17 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router } from 'react-router-dom';
+import { createStore } from 'redux';
 import { history } from './helpers';
+import { rootReducer } from './reducers/rootReducer';
+import { Provider } from 'react-redux';
 
 import './App.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import App from './app/Index';
 import * as serviceWorker from './serviceWorker';
 
+const store = createStore(rootReducer);
+
 render(
-  <Router history={history}>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

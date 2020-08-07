@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import CookieConsent from 'react-cookie-consent';
+import { acceptObj, declineObj } from '../reducers/cookieActions';
 
 const CookieBar = () => {
+  const dispatch = useDispatch();
+
   const [cookieInfoVisible, setCookieInfoVisible] = useState(false);
 
   const closeCookieInfo = () => {
@@ -13,9 +17,19 @@ const CookieBar = () => {
       disableStyles={true}
       disableButtonStyles={true}
       sameSite="strict"
+      enableDeclineButton
+      buttonWrapperClasses="buttons is-centered"
       containerClasses="notification cookie-module has-text-centered has-background-light"
-      buttonClasses="button is-danger is-outlined"
+      buttonClasses="button is-success"
+      declineButtonClasses="button is-danger is-outlined"
+      declineButtonText="No thanks"
       contentClasses="has-text-black"
+      onAccept={() => {
+        dispatch(acceptObj);
+      }}
+      onDecline={() => {
+        dispatch(declineObj);
+      }}
     >
       <p className="has-text-weight-semibold">
         This website uses cookies to enhance the user experience.
@@ -44,6 +58,11 @@ const CookieInfo = ({ cookieInfoVisible, closeCookieInfo }) => {
       <div className="modal-background" onClick={closeCookieInfo}></div>
       <div className="modal-content">
         <div className="notification has-text-left is-light is-size-4">
+          <button
+            className="delete is-large"
+            aria-label="close"
+            onClick={closeCookieInfo}
+          ></button>
           <p>
             I use analytics to track generic user engagement (device type, e.g
             mobile or desktop) and other anonymous info. Nothing on this website
