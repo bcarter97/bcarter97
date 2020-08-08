@@ -19,14 +19,12 @@ function App() {
   const cookieReducer = useSelector((state) => state.cookieReducer);
   const dispatch = useDispatch();
 
-  // Initialize google analytics page view tracking
   const trackPageView = (location) => {
     ReactGA.set({ page: location.pathname });
     ReactGA.pageview(location.pathname);
   };
 
   const initGa = (history) => {
-    console.log('tracking started');
     ReactGA.initialize(process.env.REACT_APP_GA_ID);
     trackPageView(history.location);
     history.listen(trackPageView);
