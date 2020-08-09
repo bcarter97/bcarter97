@@ -1,6 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import profilePicMedium from '../images/about/profilePicMedium.jpg';
+import profilePic from '../images/about/profilePicXSmall.jpg';
 
 const GitHubLink = 'https://github.com/bcarter97';
 const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
@@ -61,7 +61,7 @@ const AcademicDetails = () => {
 const ProfilePicture = () => {
   return (
     <figure className="image container is-128x128">
-      <img className="is-rounded" src={profilePicMedium} alt="Profile" />
+      <img className="is-rounded" src={profilePic} alt="Profile" />
     </figure>
   );
 };
@@ -69,11 +69,7 @@ const ProfilePicture = () => {
 const ProfilePictureLarge = () => {
   return (
     <figure className="image container is-256x256">
-      <img
-        className="is-rounded image-module"
-        src={profilePicMedium}
-        alt="Profile"
-      />
+      <img className="is-rounded image-module" src={profilePic} alt="Profile" />
     </figure>
   );
 };

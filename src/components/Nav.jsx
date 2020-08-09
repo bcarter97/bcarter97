@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GitHubButton, LinkedInButton } from './MediaElements';
-import banner from '../images/banner.png';
+import banner from '../images/bannerSmall.png';
 
 const NavItem = ({ to, onClick, text, exact }) => {
   return (
@@ -23,7 +23,7 @@ const NavBrand = ({ menuVisible, onClick }) => {
   return (
     <div className="navbar-brand">
       <NavLink exact to="/" className="navbar-item">
-        <img src={banner} height="28" alt="Site logo" />
+        <img src={banner} height="28" width="135" alt="Site logo" />
       </NavLink>
       <GitHubButton classOverride="is-hidden-desktop" />
       <LinkedInButton classOverride="is-hidden-desktop" />
