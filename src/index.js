@@ -7,7 +7,7 @@ import { rootReducer } from './reducers/rootReducer';
 import { Provider } from 'react-redux';
 
 import './App.scss';
-import 'font-awesome/css/font-awesome.min.css';
+import '@fortawesome/fontawesome-free/css/all.css'
 import App from './app/Index';
 import * as serviceWorker from './serviceWorker';
 
