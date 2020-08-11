@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { GitHubButton, LinkedInButton } from './MediaElements';
+import { GitHubButton, LinkedInButton, MailButton } from './MediaElements';
 import banner from '../images/bannerSmall.png';
 
 const NavItem = ({ to, onClick, text, exact }) => {
@@ -27,6 +27,7 @@ const NavBrand = ({ menuVisible, onClick }) => {
       </NavLink>
       <GitHubButton classOverride="is-hidden-desktop" />
       <LinkedInButton classOverride="is-hidden-desktop" />
+      <MailButton classOverride="is-hidden-desktop" />
       <div
         role="button"
         className={`navbar-burger burger ${menuVisible ? 'is-active' : ''}`}
@@ -87,6 +88,7 @@ const Nav = () => {
           <div className="navbar-end">
             <GitHubButton classOverride="is-hidden-touch" />
             <LinkedInButton classOverride="is-hidden-touch" />
+            <MailButton classOverride="is-hidden-touch" />
           </div>
         </div>
       </div>
