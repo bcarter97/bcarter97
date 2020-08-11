@@ -17,6 +17,7 @@ $link: hsl(217, 71%, 53%);
 $black: #000;
 $red: hsl(348, 100%, 61%);
 $grey-light: hsl(0, 0%, 71%);
+$grey-lighter: hsl(0, 0%, 86%);
 $git-color: $red;
 $linkedin-color: $info;
 
@@ -124,4 +125,17 @@ $highlight-size: 2px;
   right: 0;
   position: fixed !important;
 }
+
+.navbar-item.navbar-icon {
+  margin: 0 0.25em;
+  border-radius: 50% !important;
+  transition-duration: 0.2s;
+  transition-property: color, background-color;
+  transition-timing-function: linear;
+}
+
+.navbar-item.navbar-icon:hover {
+  color: $link !important;
+}
+
 @import '../node_modules/bulma/bulma.sass';
