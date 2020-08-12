@@ -5,9 +5,15 @@ const GitHubLink = 'https://github.com/bcarter97';
 const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
 const MailLink = 'mailto:ben@carter.gg';
 
-const SocialButton = ({ url, faIcon, color }) => {
+const SocialButton = ({ url, faIcon, mobile }) => {
+  const desktopStyle = mobile
+    ? 'is-hidden-desktop mobile-icon'
+    : 'is-hidden-touch desktop-icon';
   return (
-    <a className={`navbar-item navbar-icon has-text-${color}`} href={url}>
+    <a
+      className={`navbar-item navbar-icon has-text-black ${desktopStyle}`}
+      href={url}
+    >
       <span className="icon is-medium">
         <i className={`${faIcon} fa-lg`} aria-hidden="true" />
       </span>
@@ -15,51 +21,25 @@ const SocialButton = ({ url, faIcon, color }) => {
   );
 };
 
-const GitHubButton = ({ classOverride = '' }) => {
+const GitHubButton = ({ mobile }) => {
   return (
-    <SocialButton
-      url={GitHubLink}
-      faIcon="fab fa-github"
-      color={`black ${classOverride}`}
-    />
+    <SocialButton url={GitHubLink} faIcon="fab fa-github" mobile={mobile} />
   );
 };
 
-const LinkedInButton = ({ classOverride = '' }) => {
+const LinkedInButton = ({ mobile }) => {
   return (
     <SocialButton
       url={LinkedInLink}
       faIcon="fab fa-linkedin-in"
-      color={`black ${classOverride}`}
+      mobile={mobile}
     />
   );
 };
 
-const MailButton = ({ classOverride = '' }) => {
+const MailButton = ({ mobile }) => {
   return (
-    <SocialButton
-      url={MailLink}
-      faIcon="fas fa-envelope"
-      color={`black ${classOverride}`}
-    />
-  );
-};
-
-const SocialButtons = () => {
-  return (
-    <div className="field is-grouped">
-      <GitHubButton />
-      <LinkedInButton />
-      <MailButton />
-    </div>
-  );
-};
-
-const ProfilePicture = () => {
-  return (
-    <figure className="image container is-128x128">
-      <img className="is-rounded" src={profilePic} alt="Profile" />
-    </figure>
+    <SocialButton url={MailLink} faIcon="fas fa-envelope" mobile={mobile} />
   );
 };
 
@@ -93,8 +73,6 @@ export {
   GitHubButton,
   LinkedInButton,
   MailButton,
-  SocialButtons,
   AboutDetails,
-  ProfilePicture,
   ProfilePictureLarge,
 };
