@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
+import { Seo } from '../components/Seo';
 
 const ContactLayout = ({ children }) => {
   return (
@@ -92,12 +93,15 @@ const SuccessPage = () => {
 
 const ContactPage = () => {
   return (
-    <ContactLayout>
-      <Switch>
-        <Route exact path="/contact" component={ContactForm} />
-        <Route exact path="/contact/success" component={SuccessPage} />
-      </Switch>
-    </ContactLayout>
+    <>
+      <Seo title="Contact" />
+      <ContactLayout>
+        <Switch>
+          <Route exact path="/contact" component={ContactForm} />
+          <Route exact path="/contact/success" component={SuccessPage} />
+        </Switch>
+      </ContactLayout>
+    </>
   );
 };
 
