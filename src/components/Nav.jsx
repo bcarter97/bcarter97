@@ -25,15 +25,15 @@ const NavBrand = ({ menuVisible, onClick }) => {
       <NavLink exact to="/" className="navbar-item">
         <img src={banner} height="28" width="135" alt="Site logo" />
       </NavLink>
-      <GitHubButton classOverride="is-hidden-desktop" />
-      <LinkedInButton classOverride="is-hidden-desktop" />
-      <MailButton classOverride="is-hidden-desktop" />
+      <GitHubButton mobile />
+      <LinkedInButton mobile />
+      <MailButton mobile />
       <div
         role="button"
         className={`navbar-burger burger ${menuVisible ? 'is-active' : ''}`}
         aria-label="menu"
         aria-expanded="false"
-        data-target="navbarBasicExample"
+        data-target="mainNavigation"
         onClick={onClick}
       >
         <span aria-hidden="true"></span>
@@ -86,9 +86,9 @@ const Nav = () => {
           </div>
 
           <div className="navbar-end">
-            <GitHubButton classOverride="is-hidden-touch" />
-            <LinkedInButton classOverride="is-hidden-touch" />
-            <MailButton classOverride="is-hidden-touch" />
+            <GitHubButton />
+            <LinkedInButton />
+            <MailButton />
           </div>
         </div>
       </div>
@@ -96,4 +96,4 @@ const Nav = () => {
   );
 };
 
-export { Nav, NavItem };
+export { Nav };
