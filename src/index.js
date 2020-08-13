@@ -6,7 +6,7 @@ import { history } from './helpers';
 import { rootReducer } from './reducers/rootReducer';
 import { Provider } from 'react-redux';
 
-import './styles.scss';
+import './styles/styles.scss';
 import '@fortawesome/fontawesome-free/css/all.css'
 import App from './app/Index';
 import * as serviceWorker from './serviceWorker';
