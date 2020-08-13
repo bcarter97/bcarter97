@@ -6,16 +6,7 @@
 @import '../components/nav';
 @import '../components/socialLinks';
 @import '../components/navIcons';
-
-// Add a drop shadow to profile picture
-.image-module {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cookie-module {
-  left: 0;
-  right: 0;
-  position: fixed !important;
-}
+@import '../components/cookies';
+@import '../components/images';
 
 @import '../../node_modules/bulma/bulma.sass';
