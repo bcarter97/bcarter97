@@ -6,8 +6,16 @@ console.log(pic.toString());
 const Seo = ({ title }) => {
   return (
     <Helmet defaultTitle="Ben Carter | Home" titleTemplate="Ben Carter | %s">
-      {/* <!-- HTML Meta Tags --> */}
       <title>{title}</title>
+    </Helmet>
+  );
+};
+
+const DefaultSeo = () => {
+  return (
+    <Helmet>
+      {/* <!-- HTML Meta Tags --> */}
+      <title>Ben Carter</title>
       <meta
         name="description"
         content="Hi, my name is Ben, a software developer based in London."
@@ -43,4 +51,4 @@ const Seo = ({ title }) => {
   );
 };
 
-export { Seo };
+export { Seo, DefaultSeo };

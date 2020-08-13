@@ -10,15 +10,19 @@ import './App.scss';
 import '@fortawesome/fontawesome-free/css/all.css'
 import App from './app/Index';
 import * as serviceWorker from './serviceWorker';
+import { DefaultSeo } from './components/Seo';
 
 const store = createStore(rootReducer);
 
 render(
-  <Provider store={store}>
-    <Router history={history}>
-      <App />
-    </Router>
-  </Provider>,
+  <main>
+    <DefaultSeo />
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>
+  </main>,
   document.getElementById('root')
 );
 
