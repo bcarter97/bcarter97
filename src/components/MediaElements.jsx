@@ -10,10 +10,7 @@ const SocialButton = ({ url, faIcon, mobile }) => {
     ? 'is-hidden-desktop mobile-icon'
     : 'is-hidden-touch desktop-icon';
   return (
-    <a
-      className={`navbar-item navbar-icon has-text-black ${desktopStyle}`}
-      href={url}
-    >
+    <a className={`navbar-item navbar-icon ${desktopStyle}`} href={url}>
       <span className="icon is-medium">
         <i className={`${faIcon} fa-lg`} aria-hidden="true" />
       </span>

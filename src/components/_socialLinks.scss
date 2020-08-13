@@ -1,0 +1,36 @@
+$social-links: (
+  footer-link: $link-color,
+  github-link: $git-color,
+  linkedin-link: $linkedin-color,
+  home-link: $primary,
+);
+
+@each $social-name, $social-color in $social-links {
+  .#{$social-name} {
+    background: linear-gradient(
+      to bottom,
+      lighten($social-color, 30%),
+      lighten($social-color, 30%) 100%
+    );
+  }
+  .#{$social-name}:hover {
+    border-radius: 5px;
+    background-size: 4px 100%;
+    color: $social-color;
+  }
+}
+
+.social-link {
+  cursor: pointer;
+  border-radius: 0px;
+  padding: $highlight-size;
+  margin: -$highlight-size;
+  color: $default-text-color;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 3px;
+  text-decoration: none;
+  transition-duration: $default-transition-speed;
+  transition-property: background-size, border-radius, color;
+  transition-timing-function: ease-in-out;
+}
