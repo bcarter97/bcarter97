@@ -5,12 +5,15 @@ const GitHubLink = 'https://github.com/bcarter97';
 const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
 const MailLink = 'mailto:ben@carter.gg';
 
-const SocialButton = ({ url, faIcon, mobile }) => {
-  const desktopStyle = mobile
+const desktopStyle = (mobile) => {
+  return mobile
     ? 'is-hidden-desktop mobile-icon'
     : 'is-hidden-touch desktop-icon';
+};
+
+const SocialButton = ({ url, faIcon, mobile }) => {
   return (
-    <a className={`navbar-item navbar-icon ${desktopStyle}`} href={url}>
+    <a className={`navbar-item navbar-icon ${desktopStyle(mobile)}`} href={url}>
       <span className="icon is-medium">
         <i className={`${faIcon} fa-lg`} aria-hidden="true" />
       </span>
@@ -72,4 +75,5 @@ export {
   MailButton,
   AboutDetails,
   ProfilePictureLarge,
+  desktopStyle,
 };

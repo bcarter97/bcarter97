@@ -11,6 +11,7 @@ import { Home } from '../home/Index';
 import { GameHome } from '../codewords/Index';
 import { ContactPage } from '../contact/Contact';
 import { SignUp } from '../auth/SignUp';
+import { Login } from '../auth/Login';
 import { CookieBar } from '../components/Cookies';
 import { history } from '../helpers/history';
 
@@ -53,7 +54,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/codewords" component={GameHome} />
         <Route path="/contact" component={ContactPage} />
-        <Route path="/signup" component={SignUp} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/login" component={Login} />
         <Redirect from="*" to="/" />
       </Switch>
       <Footer />

@@ -6,9 +6,10 @@ import { validationSchema } from './FormTemplate';
 import { CenterLayoutSmaller } from '../components/Layout';
 import { history } from '../helpers/history';
 
-const SignUp = () => {
+const Login = () => {
   const [mask, setMask] = useState(false);
-  const { signupUser } = useIdentityContext();
+  const [loginError, setLoginError] = useState('');
+  const { loginUser } = useIdentityContext();
 
   const {
     values,
@@ -25,12 +26,22 @@ const SignUp = () => {
     },
     validationSchema,
     onSubmit: async ({ email, password }) => {
-      await signupUser(email, password)
+      await loginUser(email, password)
         .then((user) => {
-          console.log('Success! Signed up', user);
           history.push('/'); // Redirect back to main page
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          console.log(err);
+          if (err.message === 'invalid_grant: Email not confirmed') {
+            setLoginError('Email not confirmed');
+          } else if (
+            err.message === 'invalid_grant: No user found with this email'
+          ) {
+            setLoginError('No user found with this email');
+          } else if ((err.message = 'invalid_grant: Invalid Password')) {
+            setLoginError('Invalid password');
+          }
+        });
     },
   });
 
@@ -38,7 +49,7 @@ const SignUp = () => {
     <CenterLayoutSmaller>
       <form onSubmit={handleSubmit}>
         <div className="field">
-          <h1 className="title is-size-2 has-text-centered">Sign up</h1>
+          <h1 className="title is-size-2 has-text-centered">Login</h1>
         </div>
         <div className="field">
           <label className="label">Email</label>
@@ -96,6 +107,15 @@ const SignUp = () => {
             <p className="help is-danger">{errors.password}</p>
           )}
         </div>
+        {loginError && (
+          <>
+            <div className="field">
+              <div className="control">
+                <p className="has-text-danger is-size">{loginError}</p>
+              </div>
+            </div>
+          </>
+        )}
         <div className="field">
           <div className="control">
             <button
@@ -103,7 +123,7 @@ const SignUp = () => {
               type="submit"
               disabled={isSubmitting}
             >
-              Sign up
+              Login
             </button>
           </div>
         </div>
@@ -112,4 +132,4 @@ const SignUp = () => {
   );
 };
 
-export { SignUp };
+export { Login };
