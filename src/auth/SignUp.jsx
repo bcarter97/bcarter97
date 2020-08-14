@@ -8,6 +8,7 @@ import { history } from '../helpers/history';
 
 const SignUp = () => {
   const [mask, setMask] = useState(false);
+  const [signupError, setSignupError] = useState('');
   const { signupUser } = useIdentityContext();
 
   const {
@@ -27,10 +28,16 @@ const SignUp = () => {
     onSubmit: async ({ email, password }) => {
       await signupUser(email, password)
         .then((user) => {
-          console.log('Success! Signed up', user);
           history.push('/'); // Redirect back to main page
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          console.error(err.message);
+          if (err.message === 'Signups not allowed for this instance') {
+            setSignupError(
+              'Signups are invite only. If you have received an invite, follow the link in your email then register again.'
+            );
+          }
+        });
     },
   });
 
@@ -96,6 +103,15 @@ const SignUp = () => {
             <p className="help is-danger">{errors.password}</p>
           )}
         </div>
+        {signupError && (
+          <>
+            <div className="field">
+              <div className="control">
+                <p className="has-text-danger is-size">{signupError}</p>
+              </div>
+            </div>
+          </>
+        )}
         <div className="field">
           <div className="control">
             <button
