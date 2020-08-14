@@ -36,7 +36,7 @@ const LinkedInButton = ({ mobile }) => {
 
 const MailButton = ({ mobile }) => {
   return (
-    <SocialButton url={MailLink} faIcon="fas fa-envelope" mobile={mobile} />
+    <SocialButton url={MailLink} faIcon="far fa-envelope" mobile={mobile} />
   );
 };
 
