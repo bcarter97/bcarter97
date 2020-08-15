@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useIdentityContext } from 'react-netlify-identity';
 
 import { history } from '../helpers/history';
 import { GitHubButton, LinkedInButton, MailButton } from './MediaElements';
@@ -87,14 +86,7 @@ const NavBrand = ({ menuVisible, onClick }) => {
 };
 
 const Nav = () => {
-  const { user, logoutUser } = useIdentityContext();
   const [menuVisible, setMenuVisible] = useState(false);
-
-  const Logout = () => {
-    logoutUser();
-    history.push('/');
-    closeMenu();
-  };
 
   const toggleMenuVisible = () => {
     setMenuVisible(!menuVisible);
@@ -134,16 +126,6 @@ const Nav = () => {
           </div>
 
           <div className="navbar-end">
-            {user ? (
-              <LogoutButton onClick={Logout} />
-            ) : (
-              <span className="navbar-items">
-                <div className="buttons">
-                  <LoginButton onClick={closeMenu} />
-                  <SignupButton onClick={closeMenu} />
-                </div>
-              </span>
-            )}
             <GitHubButton />
             <LinkedInButton />
             <MailButton />

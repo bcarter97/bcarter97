@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { useIdentityContext } from 'react-netlify-identity';
 
 import { validationSchema } from './FormTemplate';
 import { CenterLayoutSmaller } from '../components/Layout';
@@ -9,7 +8,6 @@ import { history } from '../helpers/history';
 const Login = () => {
   const [mask, setMask] = useState(false);
   const [loginError, setLoginError] = useState('');
-  const { loginUser } = useIdentityContext();
 
   const {
     values,
@@ -25,24 +23,7 @@ const Login = () => {
       password: '',
     },
     validationSchema,
-    onSubmit: async ({ email, password }) => {
-      await loginUser(email, password)
-        .then((user) => {
-          history.push('/'); // Redirect back to main page
-        })
-        .catch((err) => {
-          console.log(err);
-          if (err.message === 'invalid_grant: Email not confirmed') {
-            setLoginError('Email not confirmed');
-          } else if (
-            err.message === 'invalid_grant: No user found with this email'
-          ) {
-            setLoginError('No user found with this email');
-          } else if ((err.message = 'invalid_grant: Invalid Password')) {
-            setLoginError('Invalid password');
-          }
-        });
-    },
+    onSubmit: async ({ email, password }) => {},
   });
 
   return (

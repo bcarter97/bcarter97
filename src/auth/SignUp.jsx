@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { useIdentityContext } from 'react-netlify-identity';
 
 import { validationSchema } from './FormTemplate';
 import { CenterLayoutSmaller } from '../components/Layout';
@@ -9,7 +8,6 @@ import { history } from '../helpers/history';
 const SignUp = () => {
   const [mask, setMask] = useState(false);
   const [signupError, setSignupError] = useState('');
-  const { signupUser } = useIdentityContext();
 
   const {
     values,
@@ -25,20 +23,7 @@ const SignUp = () => {
       password: '',
     },
     validationSchema,
-    onSubmit: async ({ email, password }) => {
-      await signupUser(email, password)
-        .then((user) => {
-          history.push('/'); // Redirect back to main page
-        })
-        .catch((err) => {
-          console.error(err.message);
-          if (err.message === 'Signups not allowed for this instance') {
-            setSignupError(
-              'Signups are invite only. If you have received an invite, follow the link in your email then register again.'
-            );
-          }
-        });
-    },
+    onSubmit: async ({ email, password }) => {},
   });
 
   return (
