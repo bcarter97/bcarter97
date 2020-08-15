@@ -3,11 +3,11 @@ import { useFormik } from 'formik';
 
 import { validationSchema } from './FormTemplate';
 import { CenterLayoutSmaller } from '../components/Layout';
-import { history } from '../helpers/history';
 
 const SignUp = () => {
   const [mask, setMask] = useState(false);
   const [signupError, setSignupError] = useState('');
+  setSignupError('');
 
   const {
     values,

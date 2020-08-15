@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { history } from '../helpers/history';
 import { GitHubButton, LinkedInButton, MailButton } from './MediaElements';
 import banner from '../images/bannerSmall.png';
 
@@ -18,45 +17,6 @@ const NavItem = ({ to, onClick, text, exact }) => {
         {text}
       </NavLink>
     </span>
-  );
-};
-
-const NavButton = ({ to, text, color, outlined = false, onClick }) => {
-  return (
-    <NavLink
-      exact
-      to={to}
-      className={`button ${color} ${outlined ? 'is-outlined' : ''}`}
-      onClick={onClick}
-    >
-      {text}
-    </NavLink>
-  );
-};
-
-const LoginButton = ({ onClick }) => {
-  return (
-    <NavButton to="/login" text="Login" color="is-white" onClick={onClick} />
-  );
-};
-
-const SignupButton = ({ onClick }) => {
-  return (
-    <NavButton
-      to="/signup"
-      text="Sign up"
-      color="is-black"
-      onClick={onClick}
-      outlined
-    />
-  );
-};
-
-const LogoutButton = ({ onClick }) => {
-  return (
-    <button className="button is-white" onClick={onClick}>
-      Logout
-    </button>
   );
 };
 
