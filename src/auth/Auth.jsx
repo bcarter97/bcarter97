@@ -100,7 +100,12 @@ const useAuth = (url, onAuthChange = () => {}) => {
     return _setUser(undefined);
   }, [user, _setUser]);
 
-  return { user, signupUser, loginUser, logoutUser };
+  const requestRecoveryEmail = useCallback(
+    (email) => goTrueInstance.requestPasswordRecovery(email),
+    [goTrueInstance]
+  );
+
+  return { user, signupUser, loginUser, logoutUser, requestRecoveryEmail };
 };
 
 const reduceHash = (hash) => {

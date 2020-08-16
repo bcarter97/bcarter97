@@ -110,7 +110,7 @@ const SignUpForm = ({ setUser }) => {
       <div className="field">
         <div className="control">
           <button
-            className="button is-primary"
+            className="button is-primary is-fullwidth"
             type="submit"
             disabled={isSubmitting}
           >

@@ -11,9 +11,10 @@ import { Home } from '../home/Index';
 import { ContactPage } from '../contact/Contact';
 import { SignUp } from '../auth/SignUp';
 import { Login } from '../auth/Login';
+import { Reset } from '../auth/Reset';
+import { ProtectedRoute, UnprotectedRoute } from '../auth/ProtectedRoute';
 import { CookieBar } from '../components/Cookies';
 import { history } from '../helpers/history';
-import { ProtectedRoute, UnprotectedRoute } from '../auth/ProtectedRoute';
 import { Profile } from '../profile/Profile';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/contact" component={ContactPage} />
         <UnprotectedRoute exact path="/signup" component={SignUp} />
         <UnprotectedRoute exact path="/login" component={Login} />
+        <UnprotectedRoute exact path="/reset" component={Reset} />
         <ProtectedRoute path="/profile" component={Profile} />
         <Redirect from="*" to="/" />
       </Switch>

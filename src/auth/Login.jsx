@@ -6,6 +6,7 @@ import { validationSchema } from './FormTemplate';
 import { CenterLayoutSmaller } from '../components/Layout';
 import { useAuthContext } from './Auth';
 import { history } from '../helpers/history';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const [mask, setMask] = useState(false);
@@ -110,12 +111,17 @@ const LoginForm = () => {
         <div className="field">
           <div className="control">
             <button
-              className="button is-primary"
+              className="button is-primary is-fullwidth"
               type="submit"
               disabled={isSubmitting}
             >
               Login
             </button>
+          </div>
+        </div>
+        <div className="field">
+          <div className="control has-text-centered">
+            <Link to="/reset">Forgot password?</Link>
           </div>
         </div>
       </form>

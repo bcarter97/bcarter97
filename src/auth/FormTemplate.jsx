@@ -7,4 +7,8 @@ const validationSchema = Yup.object({
     .required('Password is required'),
 });
 
-export { validationSchema };
+const resetValidationSchema = Yup.object({
+  email: Yup.string().email().required('Email is required'),
+});
+
+export { validationSchema, resetValidationSchema };
