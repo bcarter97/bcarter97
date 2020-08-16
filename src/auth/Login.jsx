@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 
+import { Seo } from '../components/Seo';
 import { validationSchema } from './FormTemplate';
 import { CenterLayoutSmaller } from '../components/Layout';
+import { useAuthContext } from './Auth';
+import { history } from '../helpers/history';
 
-const Login = () => {
+const LoginForm = () => {
   const [mask, setMask] = useState(false);
   const [loginError, setLoginError] = useState('');
-  setLoginError('');
+
+  const { loginUser } = useAuthContext();
 
   const {
     values,
@@ -23,7 +27,13 @@ const Login = () => {
       password: '',
     },
     validationSchema,
-    onSubmit: async ({ email, password }) => {},
+    onSubmit: async ({ email, password }) => {
+      await loginUser(email, password)
+        .then((user) => history.push('/'))
+        .catch((error) =>
+          setLoginError(error.message.replace('invalid_grant: ', ''))
+        );
+    },
   });
 
   return (
@@ -110,6 +120,15 @@ const Login = () => {
         </div>
       </form>
     </CenterLayoutSmaller>
+  );
+};
+
+const Login = () => {
+  return (
+    <>
+      <Seo title="Log in" />
+      <LoginForm />
+    </>
   );
 };
 

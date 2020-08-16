@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { GitHubButton, LinkedInButton, MailButton } from './MediaElements';
+import { useAuthContext } from '../auth/Auth';
+import {
+  GitHubButton,
+  LinkedInButton,
+  MailButton,
+  LogoutButton,
+} from './MediaElements';
 import banner from '../images/bannerSmall.png';
 
 const NavItem = ({ to, onClick, text, exact }) => {
@@ -46,6 +52,7 @@ const NavBrand = ({ menuVisible, onClick }) => {
 };
 
 const Nav = () => {
+  const { user, logoutUser } = useAuthContext();
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenuVisible = () => {
@@ -86,6 +93,7 @@ const Nav = () => {
           </div>
 
           <div className="navbar-end">
+            {user && <LogoutButton onClick={logoutUser} />}
             <GitHubButton />
             <LinkedInButton />
             <MailButton />

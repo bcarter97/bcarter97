@@ -4,6 +4,7 @@ import { Router } from "react-router-dom"
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { rootReducer } from './reducers/rootReducer';
+import { AuthContextProvider } from './auth/Auth';
 
 import './styles/styles.scss';
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -12,12 +13,15 @@ import { history } from "./helpers/history"
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(rootReducer);
+const apiURL = 'https://carter.gg/.netlify/identity';
 
 render(
   <Router history={history}>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <AuthContextProvider url={apiURL}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </AuthContextProvider>
   </Router>
   ,
   document.getElementById('root')

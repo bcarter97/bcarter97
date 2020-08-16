@@ -5,6 +5,14 @@ const GitHubLink = 'https://github.com/bcarter97';
 const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
 const MailLink = 'mailto:ben@carter.gg';
 
+const LogoutButton = ({ onClick }) => {
+  return (
+    <button className="nav-item button is-outlined" onClick={onClick}>
+      Log out
+    </button>
+  );
+};
+
 const desktopStyle = (mobile) => {
   return mobile
     ? 'is-hidden-desktop mobile-icon'
@@ -76,4 +84,5 @@ export {
   AboutDetails,
   ProfilePictureLarge,
   desktopStyle,
+  LogoutButton,
 };
