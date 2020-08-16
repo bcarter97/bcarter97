@@ -8,12 +8,13 @@ import { Nav } from '../components/Nav';
 import { Footer } from '../components/Footer';
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import { Home } from '../home/Index';
-import { GameHome } from '../codewords/Index';
 import { ContactPage } from '../contact/Contact';
 import { SignUp } from '../auth/SignUp';
 import { Login } from '../auth/Login';
 import { CookieBar } from '../components/Cookies';
 import { history } from '../helpers/history';
+import { ProtectedRoute, UnprotectedRoute } from '../auth/ProtectedRoute';
+import { Profile } from '../profile/Profile';
 
 function App() {
   const { pathname } = useLocation();
@@ -52,10 +53,10 @@ function App() {
       <Switch>
         <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
         <Route exact path="/" component={Home} />
-        <Route path="/codewords" component={GameHome} />
         <Route path="/contact" component={ContactPage} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
+        <UnprotectedRoute exact path="/signup" component={SignUp} />
+        <UnprotectedRoute exact path="/login" component={Login} />
+        <ProtectedRoute path="/profile" component={Profile} />
         <Redirect from="*" to="/" />
       </Switch>
       <Footer />

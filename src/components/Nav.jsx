@@ -7,10 +7,12 @@ import {
   LinkedInButton,
   MailButton,
   LogoutButton,
+  LoginButton,
+  SignupButton,
 } from './MediaElements';
 import banner from '../images/bannerSmall.png';
 
-const NavItem = ({ to, onClick, text, exact }) => {
+const NavItem = ({ to, onClick, text, exact = true }) => {
   return (
     <span className="navbar-item">
       <NavLink
@@ -26,10 +28,10 @@ const NavItem = ({ to, onClick, text, exact }) => {
   );
 };
 
-const NavBrand = ({ menuVisible, onClick }) => {
+const NavBrand = ({ menuVisible, onBurgerClick, onBannerClick }) => {
   return (
     <div className="navbar-brand">
-      <NavLink exact to="/" className="navbar-item">
+      <NavLink exact to="/" className="navbar-item" onClick={onBannerClick}>
         <img src={banner} height="28" width="135" alt="Site logo" />
       </NavLink>
       <GitHubButton mobile />
@@ -41,7 +43,7 @@ const NavBrand = ({ menuVisible, onClick }) => {
         aria-label="menu"
         aria-expanded="false"
         data-target="mainNavigation"
-        onClick={onClick}
+        onClick={onBurgerClick}
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -70,30 +72,48 @@ const Nav = () => {
       aria-label="main navigation"
     >
       <div className="container">
-        <NavBrand menuVisible={menuVisible} onClick={toggleMenuVisible} />
+        <NavBrand
+          menuVisible={menuVisible}
+          onBurgerClick={toggleMenuVisible}
+          onBannerClick={closeMenu}
+        />
 
         <div
           id="mainNavigation"
           className={`navbar-menu ${menuVisible ? 'is-active' : ''}`}
         >
           <div className="navbar-start">
-            <NavItem to="/" onClick={closeMenu} text="Home" exact={true} />
-            <NavItem
-              to="/codewords"
-              onClick={closeMenu}
-              text="Codewords"
-              exact={false}
-            />
+            <NavItem to="/" onClick={closeMenu} text="Home" />
             <NavItem
               to="/contact"
               onClick={closeMenu}
               text="Contact"
               exact={false}
             />
+            {user && (
+              <NavItem to="/profile" onClick={closeMenu} text="Profile" />
+            )}
           </div>
 
           <div className="navbar-end">
-            {user && <LogoutButton onClick={logoutUser} />}
+            <div className="navbar-item">
+              <div className="field is-grouped is-grouped-multiline">
+                {user ? (
+                  <LogoutButton
+                    text="Log out"
+                    onClick={() => {
+                      logoutUser();
+                      closeMenu();
+                    }}
+                  />
+                ) : (
+                  <>
+                    <LoginButton onClick={closeMenu} />
+                    <SignupButton onClick={closeMenu} />
+                  </>
+                )}
+              </div>
+            </div>
             <GitHubButton />
             <LinkedInButton />
             <MailButton />

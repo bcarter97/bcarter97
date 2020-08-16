@@ -60,10 +60,15 @@ const useAuth = (url, onAuthChange = () => {}) => {
       const hashObject = reduceHash(hash);
       console.log(hashObject);
       if (hashObject.confirmation_token) {
+        let confirmation = false;
         goTrueInstance
           .confirm(hashObject.confirmation_token, true)
-          .then(_setUser);
-        history.push('/?confirmation=true');
+          .then((_user) => {
+            _setUser(_user);
+            confirmation = true;
+          })
+          .catch(() => (confirmation = false));
+        history.push(`?confirmation=${confirmation}`);
       }
     }
   }, [hash, goTrueInstance, _setUser]);

@@ -1,15 +1,40 @@
 import React from 'react';
 import profilePic from '../images/about/profilePicXSmall.jpg';
+import { Link } from 'react-router-dom';
 
 const GitHubLink = 'https://github.com/bcarter97';
 const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
 const MailLink = 'mailto:ben@carter.gg';
 
+const AuthButtonStyle = 'nav-item button is-outlined is-rounded';
+
 const LogoutButton = ({ onClick }) => {
   return (
-    <button className="nav-item button is-outlined" onClick={onClick}>
-      Log out
-    </button>
+    <p className="control">
+      <button className={AuthButtonStyle} onClick={onClick}>
+        Log out
+      </button>
+    </p>
+  );
+};
+
+const LoginButton = ({ onClick }) => {
+  return (
+    <p className="control">
+      <Link className={AuthButtonStyle} to="/login" onClick={onClick}>
+        Login
+      </Link>
+    </p>
+  );
+};
+
+const SignupButton = ({ onClick }) => {
+  return (
+    <p className="control">
+      <Link className={AuthButtonStyle} to="/signup" onClick={onClick}>
+        Sign up
+      </Link>
+    </p>
   );
 };
 
@@ -85,4 +110,6 @@ export {
   ProfilePictureLarge,
   desktopStyle,
   LogoutButton,
+  LoginButton,
+  SignupButton,
 };
