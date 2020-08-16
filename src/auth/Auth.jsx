@@ -53,23 +53,31 @@ const useAuth = (url, onAuthChange = () => {}) => {
   );
 
   useEffect(() => {
+    // Shortest possible termination
     if (!hash) {
       return;
     }
-    if (hash) {
-      const hashObject = reduceHash(hash);
-      console.log(hashObject);
-      if (hashObject.confirmation_token) {
-        let confirmation = false;
-        goTrueInstance
-          .confirm(hashObject.confirmation_token, true)
-          .then((_user) => {
-            _setUser(_user);
-            confirmation = true;
-          })
-          .catch(() => (confirmation = false));
-        history.push(`?confirmation=${confirmation}`);
-      }
+    if (!hash.match(/^#(confirmation_token|recovery_token|invite_token).*$/)) {
+      return;
+    }
+    const hashObject = reduceHash(hash);
+
+    if (hashObject.confirmation_token) {
+      let confirmation = false;
+      goTrueInstance
+        .confirm(hashObject.confirmation_token, true)
+        .then((_user) => {
+          _setUser(_user);
+          confirmation = true;
+        })
+        .catch(() => (confirmation = false));
+      history.push(`?confirmation=${confirmation}`);
+    } else if (hashObject.recovery_token) {
+      // TODO Handle recovery
+      console.log('Handle recovery');
+    } else if (hashObject.invite_token) {
+      // TODO handle invite
+      console.log('Handle invite');
     }
   }, [hash, goTrueInstance, _setUser]);
 
