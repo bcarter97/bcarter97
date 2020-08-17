@@ -8,7 +8,6 @@ import React, {
 } from 'react';
 import GoTrue from 'gotrue-js';
 import { useLocation } from 'react-router-dom';
-import { history } from '../helpers/history';
 
 const createAuthContext = () => {
   const AuthContext = createContext(undefined);
@@ -41,6 +40,7 @@ const useAuth = (url, onAuthChange = () => {}) => {
   );
 
   const [user, setUser] = useState(goTrueInstance.currentUser() || undefined);
+
   const { hash } = useLocation();
 
   const _setUser = useCallback(
@@ -52,6 +52,8 @@ const useAuth = (url, onAuthChange = () => {}) => {
     [onAuthChange]
   );
 
+  const [tokenParam, setTokenParam] = useState(undefined);
+
   useEffect(() => {
     // Shortest possible termination
     if (!hash) {
@@ -61,25 +63,8 @@ const useAuth = (url, onAuthChange = () => {}) => {
       return;
     }
     const hashObject = reduceHash(hash);
-
-    if (hashObject.confirmation_token) {
-      let confirmation = false;
-      goTrueInstance
-        .confirm(hashObject.confirmation_token, true)
-        .then((_user) => {
-          _setUser(_user);
-          confirmation = true;
-        })
-        .catch(() => (confirmation = false));
-      history.push(`?confirmation=${confirmation}`);
-    } else if (hashObject.recovery_token) {
-      // TODO Handle recovery
-      console.log('Handle recovery');
-    } else if (hashObject.invite_token) {
-      // TODO handle invite
-      console.log('Handle invite');
-    }
-  }, [hash, goTrueInstance, _setUser]);
+    setTokenParam(hashObject);
+  }, [hash]);
 
   const signupUser = useCallback(
     (email, password, data, directLogin = true) =>
@@ -108,12 +93,26 @@ const useAuth = (url, onAuthChange = () => {}) => {
     return _setUser(undefined);
   }, [user, _setUser]);
 
+  const confirmUser = useCallback(
+    (confirmToken, remember = true) =>
+      goTrueInstance.confirm(confirmToken, remember).then(setUser),
+    [goTrueInstance]
+  );
+
   const requestRecoveryEmail = useCallback(
     (email) => goTrueInstance.requestPasswordRecovery(email),
     [goTrueInstance]
   );
 
-  return { user, signupUser, loginUser, logoutUser, requestRecoveryEmail };
+  return {
+    user,
+    tokenParam,
+    signupUser,
+    loginUser,
+    logoutUser,
+    confirmUser,
+    requestRecoveryEmail,
+  };
 };
 
 const reduceHash = (hash) => {

@@ -5,6 +5,7 @@ import { Seo } from '../components/Seo';
 import { resetValidationSchema } from './FormTemplate';
 import { CenterLayoutSmaller, CenterLayout } from '../components/Layout';
 import { useAuthContext } from './Auth';
+import { useParams } from 'react-router-dom';
 
 const ResetForm = ({ setResetSuccess }) => {
   const [resetError, setResetError] = useState('');
@@ -92,8 +93,12 @@ const ResetSuccess = () => {
     </div>
   );
 };
+
 const Reset = () => {
+  const { token } = useParams();
+  console.log(token);
   const [resetSuccess, setResetSuccess] = useState(false);
+
   return (
     <>
       <Seo title="Reset" />

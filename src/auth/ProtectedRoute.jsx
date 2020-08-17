@@ -1,17 +1,15 @@
 import React from 'react';
 import { useAuthContext } from './Auth';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-const ProtectedRoute = ({ component }) => {
-  const Component = component;
+const ProtectedRoute = (props) => {
   const { user } = useAuthContext();
-  return user ? <Component /> : <Redirect to={{ pathname: '/login' }} />;
+  return user ? <Route {...props} /> : <Redirect to={{ pathname: '/login' }} />;
 };
 
-const UnprotectedRoute = ({ component }) => {
-  const Component = component;
+const UnprotectedRoute = (props) => {
   const { user } = useAuthContext();
-  return user ? <Redirect to={{ pathname: '/' }} /> : <Component />;
+  return user ? <Redirect to={{ pathname: '/' }} /> : <Route {...props} />;
 };
 
 export { ProtectedRoute, UnprotectedRoute };

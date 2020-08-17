@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { AboutHero } from '../components/AboutHero';
 import { Seo } from '../components/Seo';
 import { history } from '../helpers/history';
+import { useAuthContext } from '../auth/Auth';
 
 const EmailConfirmationDialog = ({ onClick, success }) => {
   return success ? (
@@ -24,30 +24,24 @@ const EmailConfirmationDialog = ({ onClick, success }) => {
 };
 
 function Home() {
-  const { search } = useLocation();
-  const [showEmailBanner, setShowEmailBanner] = useState(false);
-  const [emailConfirmation, setEmailConfirmation] = useState(false);
-
-  const handleBannerClick = () => {
-    setShowEmailBanner(false);
-    history.push('/');
-  };
+  const { tokenParam } = useAuthContext();
+  const [confirmationSuccess, setConfirmationSuccess] = useState(true);
 
   useEffect(() => {
-    const confirmed = new URLSearchParams(search).get('confirmation');
-    setEmailConfirmation(confirmed === 'true');
-    setShowEmailBanner(!!confirmed);
-  }, [search]);
+    if (tokenParam) {
+      if (tokenParam.confirmation_token) {
+        setConfirmationSuccess(true);
+      } else if (tokenParam.recovery_token) {
+        history.push(`/reset/${tokenParam.recovery_token}`);
+      }
+    }
+  }, [tokenParam]);
+  console.log(confirmationSuccess);
 
   return (
     <>
       <Seo title="Home" />
-      {showEmailBanner && (
-        <EmailConfirmationDialog
-          onClick={handleBannerClick}
-          confirmed={emailConfirmation}
-        />
-      )}
+      {confirmationSuccess && <EmailConfirmationDialog success={true} />}
       <AboutHero />
     </>
   );

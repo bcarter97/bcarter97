@@ -57,7 +57,7 @@ function App() {
         <Route path="/contact" component={ContactPage} />
         <UnprotectedRoute exact path="/signup" component={SignUp} />
         <UnprotectedRoute exact path="/login" component={Login} />
-        <UnprotectedRoute exact path="/reset" component={Reset} />
+        <UnprotectedRoute exact path="/reset/:token" component={Reset} />
         <ProtectedRoute path="/profile" component={Profile} />
         <Redirect from="*" to="/" />
       </Switch>
