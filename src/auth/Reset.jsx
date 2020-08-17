@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 
+import { history } from '../helpers/history';
 import { Seo } from '../components/Seo';
 import {
   resetEmailValidationSchema,
@@ -29,7 +30,7 @@ const ResetEmailForm = ({ setResetSuccess }) => {
     validationSchema: resetEmailValidationSchema,
     onSubmit: async ({ email }) => {
       await requestRecoveryEmail(email)
-        .then(() => setResetSuccess(true))
+        .then(() => history.push('/profile'))
         .catch((error) => {
           console.log(error);
           setResetError(error.message);

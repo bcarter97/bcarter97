@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { history } from '../helpers/history';
 import { useAuthContext } from '../auth/Auth';
 import {
   GitHubButton,
@@ -101,8 +102,9 @@ const Nav = () => {
                 {user ? (
                   <LogoutButton
                     text="Log out"
-                    onClick={() => {
-                      logoutUser();
+                    onClick={async () => {
+                      await logoutUser();
+                      history.push('/');
                       closeMenu();
                     }}
                   />

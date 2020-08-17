@@ -31,9 +31,14 @@ const SignUpForm = ({ setUser }) => {
         .then((user) => {
           setUser(user);
         })
-        .catch((error) =>
-          setSignupError(error.message.replace('invalid_grant: ', ''))
-        );
+        .catch((error) => {
+          const errorMessage = error.message.replace('invalid_grant: ', '');
+          if (errorMessage === 'Signups not allowed for this instance') {
+            setSignupError('Signups are currently invite only.');
+          } else {
+            setSignupError(errorMessage);
+          }
+        });
     },
   });
 
@@ -98,15 +103,6 @@ const SignUpForm = ({ setUser }) => {
           <p className="help is-danger">{errors.password}</p>
         )}
       </div>
-      {signupError && (
-        <>
-          <div className="field">
-            <div className="control">
-              <p className="has-text-danger is-size">{signupError}</p>
-            </div>
-          </div>
-        </>
-      )}
       <div className="field">
         <div className="control">
           <button
@@ -118,6 +114,15 @@ const SignUpForm = ({ setUser }) => {
           </button>
         </div>
       </div>
+      {signupError && (
+        <>
+          <div className="field">
+            <div className="control has-text-centered">
+              <p className="has-text-danger is-size">{signupError}</p>
+            </div>
+          </div>
+        </>
+      )}
     </form>
   );
 };

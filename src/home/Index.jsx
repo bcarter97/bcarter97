@@ -14,6 +14,8 @@ function Home() {
         history.push(`/confirm/${tokenParam.confirmation_token}`);
       } else if (tokenParam.recovery_token) {
         history.push(`/reset/${tokenParam.recovery_token}`);
+      } else if (tokenParam.invite_token) {
+        history.push(`/accept/${tokenParam.invite_token}`);
       }
     }
   }, [tokenParam]);

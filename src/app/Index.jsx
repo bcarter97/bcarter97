@@ -18,6 +18,7 @@ import { CookieBar } from '../components/Cookies';
 import { history } from '../helpers/history';
 import { Profile } from '../profile/Profile';
 import { NotFound } from '../auth/NotFound';
+import { Accept } from '../auth/Accept';
 
 function App() {
   const { pathname } = useLocation();
@@ -62,6 +63,7 @@ function App() {
         <Route path="/reset/:token?" component={Reset} />
         <Route exact path="/confirm/:token" component={Confirm} />
         <ProtectedRoute path="/profile" component={Profile} />
+        <Route exact path="/accept/:token?" component={Accept} />
         <Route component={NotFound} />
       </Switch>
       <Footer />

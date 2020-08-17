@@ -102,7 +102,7 @@ const LoginForm = () => {
         {loginError && (
           <>
             <div className="field">
-              <div className="control">
+              <div className="control has-text-centered">
                 <p className="has-text-danger is-size">{loginError}</p>
               </div>
             </div>

@@ -131,6 +131,15 @@ const useAuth = (url, onAuthChange = () => {}) => {
     [goTrueInstance, _setUser]
   );
 
+  const acceptInvite = useCallback(
+    async (token, password, remember = true) => {
+      await goTrueInstance
+        .acceptInvite(token, password, remember)
+        .then(_setUser);
+    },
+    [goTrueInstance, _setUser]
+  );
+
   return {
     user,
     tokenParam,
@@ -141,6 +150,7 @@ const useAuth = (url, onAuthChange = () => {}) => {
     requestRecoveryEmail,
     recoverUser,
     updateUser,
+    acceptInvite,
   };
 };
 
