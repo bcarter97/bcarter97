@@ -30,7 +30,7 @@ const LoginForm = () => {
     validationSchema,
     onSubmit: async ({ email, password }) => {
       await loginUser(email, password)
-        .then((user) => history.push('/'))
+        .then((user) => history.push('/profile'))
         .catch((error) =>
           setLoginError(error.message.replace('invalid_grant: ', ''))
         );
