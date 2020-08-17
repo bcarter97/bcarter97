@@ -57,9 +57,11 @@ const useAuth = (url, onAuthChange = () => {}) => {
   useEffect(() => {
     // Shortest possible termination
     if (!hash) {
+      setTokenParam(undefined);
       return;
     }
     if (!hash.match(/^#(confirmation_token|recovery_token|invite_token).*$/)) {
+      setTokenParam(undefined);
       return;
     }
     const hashObject = reduceHash(hash);
@@ -69,12 +71,9 @@ const useAuth = (url, onAuthChange = () => {}) => {
   const signupUser = useCallback(
     (email, password, data, directLogin = true) =>
       goTrueInstance.signup(email, password, data).then((user) => {
-        if (directLogin) {
-          return _setUser(user);
-        }
         return user;
       }),
-    [goTrueInstance, _setUser]
+    [goTrueInstance]
   );
 
   const loginUser = useCallback(
@@ -104,6 +103,34 @@ const useAuth = (url, onAuthChange = () => {}) => {
     [goTrueInstance]
   );
 
+  const updateUser = useCallback(
+    async (fields) => {
+      if (!user) {
+        return Promise.reject('user is empty');
+      }
+      await user
+        .update(fields)
+        .then(_setUser)
+        .catch((error) => console.log(error));
+    },
+    [_setUser, user]
+  );
+
+  const recoverUser = useCallback(
+    async (token, fields, remember = true) => {
+      const user = await goTrueInstance.recover(token, remember);
+      console.log('received user promise');
+      if (user) {
+        console.log('user exists. updating...');
+        return user
+          .update(fields)
+          .then(_setUser)
+          .catch((error) => console.log(error));
+      }
+    },
+    [goTrueInstance, _setUser]
+  );
+
   return {
     user,
     tokenParam,
@@ -112,6 +139,8 @@ const useAuth = (url, onAuthChange = () => {}) => {
     logoutUser,
     confirmUser,
     requestRecoveryEmail,
+    recoverUser,
+    updateUser,
   };
 };
 

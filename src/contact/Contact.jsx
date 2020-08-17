@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { CenterLayout } from '../components/Layout';
 
@@ -54,16 +54,20 @@ const ContactForm = () => {
 
 const SuccessPage = () => {
   return (
-    <p className="is-size-3 has-text-centered">
-      Thanks! I'll get back to you as soon as I can.{' '}
-      <NavLink
-        exact
-        to="/"
-        className="has-text-weight-semibold social-link home-link"
-      >
-        Home
-      </NavLink>
-    </p>
+    <>
+      <p className="is-size-3 has-text-centered">
+        Thanks! I'll get back to you as soon as I can.
+      </p>
+      <p className="is-size-3 has-text-centered">
+        <Link
+          exact
+          to="/"
+          className="has-text-weight-semibold social-link home-link"
+        >
+          Home
+        </Link>
+      </p>
+    </>
   );
 };
 

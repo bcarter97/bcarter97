@@ -125,7 +125,7 @@ const SignUpForm = ({ setUser }) => {
 const VerificationNeeded = () => {
   return (
     <div className="verification-warning">
-      <p className="is-size-2 has-text-centered has-text-weight-semibold">
+      <p className="is-size-3 has-text-centered has-text-weight-semibold">
         You're all signed up!
       </p>
       <p className="is-size-3 has-text-centered">

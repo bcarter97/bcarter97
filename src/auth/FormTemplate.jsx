@@ -7,8 +7,18 @@ const validationSchema = Yup.object({
     .required('Password is required'),
 });
 
-const resetValidationSchema = Yup.object({
+const resetEmailValidationSchema = Yup.object({
   email: Yup.string().email().required('Email is required'),
 });
 
-export { validationSchema, resetValidationSchema };
+const resetPasswordValidationScema = Yup.object({
+  password: Yup.string()
+    .min(5, 'Password must be at least 5 characters')
+    .required('Password is required'),
+});
+
+export {
+  validationSchema,
+  resetEmailValidationSchema,
+  resetPasswordValidationScema,
+};

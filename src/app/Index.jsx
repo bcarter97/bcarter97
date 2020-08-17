@@ -12,10 +12,12 @@ import { ContactPage } from '../contact/Contact';
 import { SignUp } from '../auth/SignUp';
 import { Login } from '../auth/Login';
 import { Reset } from '../auth/Reset';
+import { Confirm } from '../auth/Confirm';
 import { ProtectedRoute, UnprotectedRoute } from '../auth/ProtectedRoute';
 import { CookieBar } from '../components/Cookies';
 import { history } from '../helpers/history';
 import { Profile } from '../profile/Profile';
+import { NotFound } from '../auth/NotFound';
 
 function App() {
   const { pathname } = useLocation();
@@ -57,9 +59,10 @@ function App() {
         <Route path="/contact" component={ContactPage} />
         <UnprotectedRoute exact path="/signup" component={SignUp} />
         <UnprotectedRoute exact path="/login" component={Login} />
-        <UnprotectedRoute exact path="/reset/:token" component={Reset} />
+        <Route path="/reset/:token?" component={Reset} />
+        <Route exact path="/confirm/:token" component={Confirm} />
         <ProtectedRoute path="/profile" component={Profile} />
-        <Redirect from="*" to="/" />
+        <Route component={NotFound} />
       </Switch>
       <Footer />
       <CookieBar />

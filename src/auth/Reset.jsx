@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 
 import { Seo } from '../components/Seo';
-import { resetValidationSchema } from './FormTemplate';
+import {
+  resetEmailValidationSchema,
+  resetPasswordValidationScema,
+} from './FormTemplate';
 import { CenterLayoutSmaller, CenterLayout } from '../components/Layout';
 import { useAuthContext } from './Auth';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
-const ResetForm = ({ setResetSuccess }) => {
+const ResetEmailForm = ({ setResetSuccess }) => {
   const [resetError, setResetError] = useState('');
   const { requestRecoveryEmail } = useAuthContext();
 
@@ -23,11 +26,14 @@ const ResetForm = ({ setResetSuccess }) => {
     initialValues: {
       email: '',
     },
-    validationSchema: resetValidationSchema,
+    validationSchema: resetEmailValidationSchema,
     onSubmit: async ({ email }) => {
       await requestRecoveryEmail(email)
         .then(() => setResetSuccess(true))
-        .catch((error) => setResetError(error.message));
+        .catch((error) => {
+          console.log(error);
+          setResetError(error.message);
+        });
     },
   });
   return (
@@ -94,9 +100,119 @@ const ResetSuccess = () => {
   );
 };
 
+const ResetPasswordForm = ({ token }) => {
+  const [ableToReset, setAbleToReset] = useState(true);
+  const [mask, setMask] = useState(false);
+  const [resetError, setResetError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const { user, recoverUser } = useAuthContext();
+
+  useEffect(() => {
+    if (user) {
+      setResetError("You're already signed in!");
+      setAbleToReset(false);
+    }
+  }, [user]);
+
+  const {
+    values,
+    touched,
+    errors,
+    isSubmitting,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useFormik({
+    initialValues: {
+      password: '',
+    },
+    validationSchema: resetPasswordValidationScema,
+    onSubmit: async ({ password }) => {
+      if (!user) {
+        await recoverUser(token, { password: password })
+          .then(() => {
+            setSuccessMessage('Password updated');
+            setAbleToReset(false);
+          })
+          .catch((error) => console.log('Something went wrong ', error));
+      }
+    },
+  });
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="field">
+        <h1 className="title is-size-3 has-text-centered">Reset Password</h1>
+      </div>
+      <div className="field">
+        <label className="label">Password</label>
+        <div className="control has-icons-left has-icons-right">
+          <input
+            className={`input ${
+              errors.password && touched.password ? 'is-danger' : ''
+            }`}
+            name="password"
+            id="password"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            values={values.password}
+            type={`${mask ? 'text' : 'password'}`}
+            placeholder="Password"
+            autoComplete="on"
+            disabled={!ableToReset}
+          />
+          <span className="icon is-small is-left">
+            <i className="fas fa-lock"></i>
+          </span>
+          <span
+            className="icon mask-icon is-small is-right"
+            onClick={() => {
+              setMask(!mask);
+            }}
+          >
+            <i className={`far fa-eye${mask ? '' : '-slash'}`}></i>
+          </span>
+        </div>
+        {errors.password && touched.password && (
+          <p className="help is-danger">{errors.password}</p>
+        )}
+      </div>
+      {successMessage && (
+        <div className="field">
+          <div className="control">
+            <p className="has-text-success">{successMessage}</p>
+          </div>
+        </div>
+      )}
+      <div className="field">
+        <div className="control">
+          <button
+            className="button is-primary is-fullwidth"
+            type="submit"
+            disabled={isSubmitting || resetError}
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+      {resetError && (
+        <>
+          <div className="field">
+            <div className="control has-text-centered">
+              <p className="has-text-danger">
+                {resetError} Perhaps you want to{' '}
+                <Link to="/profile/update">change password?</Link>
+              </p>
+            </div>
+          </div>
+        </>
+      )}
+    </form>
+  );
+};
+
 const Reset = () => {
   const { token } = useParams();
-  console.log(token);
   const [resetSuccess, setResetSuccess] = useState(false);
 
   return (
@@ -108,10 +224,14 @@ const Reset = () => {
         </CenterLayout>
       ) : (
         <CenterLayoutSmaller>
-          <ResetForm
-            resetSuccess={resetSuccess}
-            setResetSuccess={setResetSuccess}
-          />
+          {token ? (
+            <ResetPasswordForm token={token} />
+          ) : (
+            <ResetEmailForm
+              resetSuccess={resetSuccess}
+              setResetSuccess={setResetSuccess}
+            />
+          )}
         </CenterLayoutSmaller>
       )}
     </>
