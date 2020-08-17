@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { GitHubButton, LinkedInButton, MailButton } from './MediaElements';
+
+import { history } from '../helpers/history';
+import { useAuthContext } from '../auth/Auth';
+import {
+  GitHubButton,
+  LinkedInButton,
+  MailButton,
+  LogoutButton,
+  LoginButton,
+  SignupButton,
+} from './MediaElements';
 import banner from '../images/bannerSmall.png';
 
-const NavItem = ({ to, onClick, text, exact }) => {
+const NavItem = ({ to, onClick, text, exact = true }) => {
   return (
     <span className="navbar-item">
       <NavLink
@@ -19,10 +29,10 @@ const NavItem = ({ to, onClick, text, exact }) => {
   );
 };
 
-const NavBrand = ({ menuVisible, onClick }) => {
+const NavBrand = ({ menuVisible, onBurgerClick, onBannerClick }) => {
   return (
     <div className="navbar-brand">
-      <NavLink exact to="/" className="navbar-item">
+      <NavLink exact to="/" className="navbar-item" onClick={onBannerClick}>
         <img src={banner} height="28" width="135" alt="Site logo" />
       </NavLink>
       <GitHubButton mobile />
@@ -34,7 +44,7 @@ const NavBrand = ({ menuVisible, onClick }) => {
         aria-label="menu"
         aria-expanded="false"
         data-target="mainNavigation"
-        onClick={onClick}
+        onClick={onBurgerClick}
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -45,10 +55,15 @@ const NavBrand = ({ menuVisible, onClick }) => {
 };
 
 const Nav = () => {
+  const { user, logoutUser } = useAuthContext();
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenuVisible = () => {
     setMenuVisible(!menuVisible);
+  };
+
+  const closeMenu = () => {
+    setMenuVisible(false);
   };
 
   return (
@@ -58,34 +73,49 @@ const Nav = () => {
       aria-label="main navigation"
     >
       <div className="container">
-        <NavBrand menuVisible={menuVisible} onClick={toggleMenuVisible} />
+        <NavBrand
+          menuVisible={menuVisible}
+          onBurgerClick={toggleMenuVisible}
+          onBannerClick={closeMenu}
+        />
 
         <div
           id="mainNavigation"
           className={`navbar-menu ${menuVisible ? 'is-active' : ''}`}
         >
           <div className="navbar-start">
-            <NavItem
-              to="/"
-              onClick={toggleMenuVisible}
-              text="Home"
-              exact={true}
-            />
-            <NavItem
-              to="/codewords"
-              onClick={toggleMenuVisible}
-              text="Codewords"
-              exact={false}
-            />
+            <NavItem to="/" onClick={closeMenu} text="Home" />
             <NavItem
               to="/contact"
-              onClick={toggleMenuVisible}
+              onClick={closeMenu}
               text="Contact"
               exact={false}
             />
+            {user && (
+              <NavItem to="/profile" onClick={closeMenu} text="Profile" />
+            )}
           </div>
 
           <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="field is-grouped is-grouped-multiline">
+                {user ? (
+                  <LogoutButton
+                    text="Log out"
+                    onClick={async () => {
+                      await logoutUser();
+                      history.push('/');
+                      closeMenu();
+                    }}
+                  />
+                ) : (
+                  <>
+                    <LoginButton onClick={closeMenu} />
+                    <SignupButton onClick={closeMenu} />
+                  </>
+                )}
+              </div>
+            </div>
             <GitHubButton />
             <LinkedInButton />
             <MailButton />

@@ -9,6 +9,8 @@
     "@testing-library/react": "^10.4.8",
     "@testing-library/user-event": "^12.1.1",
     "bulma": "^0.9.0",
+    "formik": "^2.1.5",
+    "gotrue-js": "^0.9.26",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.14.1",
     "random-seed": "^0.3.0",
@@ -21,7 +23,8 @@
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,6 +48,8 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0"
+    "babel-eslint": "^10.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4"
   }
 }

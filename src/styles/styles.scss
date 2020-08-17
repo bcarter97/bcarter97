@@ -9,4 +9,9 @@
 @import '../components/cookies';
 @import '../components/images';
 
+.mask-icon {
+  pointer-events: all !important;
+  cursor: pointer;
+}
+
 @import '../../node_modules/bulma/bulma.sass';

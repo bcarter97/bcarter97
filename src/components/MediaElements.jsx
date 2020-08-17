@@ -1,16 +1,52 @@
 import React from 'react';
 import profilePic from '../images/about/profilePicXSmall.jpg';
+import { Link } from 'react-router-dom';
 
 const GitHubLink = 'https://github.com/bcarter97';
 const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
 const MailLink = 'mailto:ben@carter.gg';
 
-const SocialButton = ({ url, faIcon, mobile }) => {
-  const desktopStyle = mobile
+const AuthButtonStyle = 'nav-item button is-outlined is-rounded';
+
+const LogoutButton = ({ onClick }) => {
+  return (
+    <p className="control">
+      <button className={AuthButtonStyle} onClick={onClick}>
+        Log out
+      </button>
+    </p>
+  );
+};
+
+const LoginButton = ({ onClick }) => {
+  return (
+    <p className="control">
+      <Link className={AuthButtonStyle} to="/login" onClick={onClick}>
+        Login
+      </Link>
+    </p>
+  );
+};
+
+const SignupButton = ({ onClick }) => {
+  return (
+    <p className="control">
+      <Link className={AuthButtonStyle} to="/signup" onClick={onClick}>
+        Sign up
+      </Link>
+    </p>
+  );
+};
+
+const desktopStyle = (mobile) => {
+  return mobile
     ? 'is-hidden-desktop mobile-icon'
     : 'is-hidden-touch desktop-icon';
+};
+
+const SocialButton = ({ url, faIcon, mobile }) => {
   return (
-    <a className={`navbar-item navbar-icon ${desktopStyle}`} href={url}>
+    <a className={`navbar-item navbar-icon ${desktopStyle(mobile)}`} href={url}>
       <span className="icon is-medium">
         <i className={`${faIcon} fa-lg`} aria-hidden="true" />
       </span>
@@ -36,7 +72,7 @@ const LinkedInButton = ({ mobile }) => {
 
 const MailButton = ({ mobile }) => {
   return (
-    <SocialButton url={MailLink} faIcon="fas fa-envelope" mobile={mobile} />
+    <SocialButton url={MailLink} faIcon="far fa-envelope" mobile={mobile} />
   );
 };
 
@@ -72,4 +108,8 @@ export {
   MailButton,
   AboutDetails,
   ProfilePictureLarge,
+  desktopStyle,
+  LogoutButton,
+  LoginButton,
+  SignupButton,
 };

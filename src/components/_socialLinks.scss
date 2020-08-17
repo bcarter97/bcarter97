@@ -2,7 +2,7 @@ $social-links: (
   footer-link: $link-color,
   github-link: $git-color,
   linkedin-link: $linkedin-color,
-  home-link: $primary,
+  home-link: $info,
 );
 
 @each $social-name, $social-color in $social-links {
