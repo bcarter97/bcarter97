@@ -30,7 +30,7 @@ const ResetEmailForm = ({ setResetSuccess }) => {
     validationSchema: resetEmailValidationSchema,
     onSubmit: async ({ email }) => {
       await requestRecoveryEmail(email)
-        .then(() => history.push('/profile'))
+        .then(() => setResetSuccess(true))
         .catch((error) => {
           console.log(error);
           setResetError(error.message);
@@ -105,7 +105,6 @@ const ResetPasswordForm = ({ token }) => {
   const [ableToReset, setAbleToReset] = useState(true);
   const [mask, setMask] = useState(false);
   const [resetError, setResetError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
   const { user, recoverUser } = useAuthContext();
 
   useEffect(() => {
@@ -131,10 +130,7 @@ const ResetPasswordForm = ({ token }) => {
     onSubmit: async ({ password }) => {
       if (!user) {
         await recoverUser(token, { password: password })
-          .then(() => {
-            setSuccessMessage('Password updated');
-            setAbleToReset(false);
-          })
+          .then(() => history.push('/profile'))
           .catch((error) => console.log('Something went wrong ', error));
       }
     },
@@ -178,13 +174,6 @@ const ResetPasswordForm = ({ token }) => {
           <p className="help is-danger">{errors.password}</p>
         )}
       </div>
-      {successMessage && (
-        <div className="field">
-          <div className="control">
-            <p className="has-text-success">{successMessage}</p>
-          </div>
-        </div>
-      )}
       <div className="field">
         <div className="control">
           <button
