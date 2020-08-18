@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import profilePic from "../images/about/profilePicXSmall.jpg";
 
@@ -22,9 +22,9 @@ const LogoutButton = ({ onClick }) => {
 const LoginButton = ({ onClick }) => {
   return (
     <p className="control">
-      <Link className={AuthButtonStyle} to="/login" onClick={onClick}>
+      <NavLink className={AuthButtonStyle} to="/login" onClick={onClick}>
         Login
-      </Link>
+      </NavLink>
     </p>
   );
 };
@@ -32,9 +32,9 @@ const LoginButton = ({ onClick }) => {
 const SignupButton = ({ onClick }) => {
   return (
     <p className="control">
-      <Link className={AuthButtonStyle} to="/signup" onClick={onClick}>
+      <NavLink className={AuthButtonStyle} to="/signup" onClick={onClick}>
         Sign up
-      </Link>
+      </NavLink>
     </p>
   );
 };
@@ -47,9 +47,9 @@ const desktopStyle = (mobile) => {
 
 const SocialButton = ({ url, faIcon, mobile }) => {
   return (
-    <a className={`navbar-item navbar-icon ${desktopStyle(mobile)}`} href={url}>
-      <span className="icon is-medium">
-        <i className={`${faIcon} fa-lg`} aria-hidden="true" />
+    <a className="navbar-item navbar-icon" href={url}>
+      <span className="icon is-large">
+        <i className={`${faIcon} fa-2x`} aria-hidden="true" />
       </span>
     </a>
   );
@@ -57,30 +57,36 @@ const SocialButton = ({ url, faIcon, mobile }) => {
 
 const GitHubButton = ({ mobile }) => {
   return (
-    <SocialButton url={GitHubLink} faIcon="fab fa-github" mobile={mobile} />
+    <span className="github-button">
+      <SocialButton url={GitHubLink} faIcon="fab fa-github" mobile={mobile} />
+    </span>
   );
 };
 
 const LinkedInButton = ({ mobile }) => {
   return (
-    <SocialButton
-      url={LinkedInLink}
-      faIcon="fab fa-linkedin-in"
-      mobile={mobile}
-    />
+    <span className="linkedin-button">
+      <SocialButton
+        url={LinkedInLink}
+        faIcon="fab fa-linkedin-in"
+        mobile={mobile}
+      />
+    </span>
   );
 };
 
 const MailButton = ({ mobile }) => {
   return (
-    <SocialButton url={MailLink} faIcon="far fa-envelope" mobile={mobile} />
+    <span className="mail-button">
+      <SocialButton url={MailLink} faIcon="far fa-envelope" mobile={mobile} />
+    </span>
   );
 };
 
 const ProfilePictureLarge = () => {
   return (
     <figure className="image container is-256x256">
-      <img className="is-rounded image-module" src={profilePic} alt="Profile" />
+      <img className="image-module" src={profilePic} alt="Profile" />
     </figure>
   );
 };
@@ -89,15 +95,8 @@ const AboutDetails = () => {
   return (
     <span className="is-size-3 has-text-left">
       <p>
-        I'm a software developer based in London. You can check out my stuff on{" "}
-        <a className="social-link github-link" href={GitHubLink}>
-          GitHub
-        </a>
-        , or connect with me on{" "}
-        <a className="social-link linkedin-link" href={LinkedInLink}>
-          LinkedIn
-        </a>
-        .
+        I write code and sometimes it works. Click these cool buttons to see me
+        in different places.
       </p>
     </span>
   );
