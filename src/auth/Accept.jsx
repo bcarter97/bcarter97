@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import { history } from '../helpers/history';
-import { CenterLayoutSmaller } from '../components/Layout';
-import { useAuthContext } from './Auth';
-import { resetPasswordValidationScema } from '../auth/FormTemplate';
+import { resetPasswordValidationScema } from "../auth/FormTemplate";
+import { CenterLayoutSmaller } from "../components/Layout";
+import { history } from "../helpers/history";
+import { useAuthContext } from "./Auth";
 
 const Accept = () => {
   const { token } = useParams();
@@ -20,7 +20,7 @@ const Accept = () => {
 const AcceptInviteForm = ({ token }) => {
   const [ableToSet, setAbleToSet] = useState(true);
   const [mask, setMask] = useState(false);
-  const [inviteError, setInviteError] = useState('');
+  const [inviteError, setInviteError] = useState("");
   const { user, acceptInvite } = useAuthContext();
 
   useEffect(() => {
@@ -40,12 +40,12 @@ const AcceptInviteForm = ({ token }) => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      password: '',
+      password: "",
     },
     validationSchema: resetPasswordValidationScema,
     onSubmit: async ({ password }) => {
       await acceptInvite(token, password)
-        .then(() => history.push('/profile'))
+        .then(() => history.push("/profile"))
         .catch(() =>
           setInviteError(
             "Something's up! Have you already accepted the invite?"
@@ -64,14 +64,14 @@ const AcceptInviteForm = ({ token }) => {
         <div className="control has-icons-left has-icons-right">
           <input
             className={`input ${
-              errors.password && touched.password ? 'is-danger' : ''
+              errors.password && touched.password ? "is-danger" : ""
             }`}
             name="password"
             id="password"
             onChange={handleChange}
             onBlur={handleBlur}
             values={values.password}
-            type={`${mask ? 'text' : 'password'}`}
+            type={`${mask ? "text" : "password"}`}
             placeholder="Password"
             autoComplete="on"
             disabled={!ableToSet}
@@ -85,7 +85,7 @@ const AcceptInviteForm = ({ token }) => {
               setMask(!mask);
             }}
           >
-            <i className={`far fa-eye${mask ? '' : '-slash'}`}></i>
+            <i className={`far fa-eye${mask ? "" : "-slash"}`}></i>
           </span>
         </div>
         {errors.password && touched.password && (

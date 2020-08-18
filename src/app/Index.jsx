@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import ReactGA from 'react-ga';
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
+import React, { useEffect } from "react";
+import ReactGA from "react-ga";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 
-import { acceptObj, declineObj } from '../reducers/cookieActions';
-import { Nav } from '../components/Nav';
-import { Footer } from '../components/Footer';
-import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
-import { Home } from '../home/Index';
-import { ContactPage } from '../contact/Contact';
-import { SignUp } from '../auth/SignUp';
-import { Login } from '../auth/Login';
-import { Reset } from '../auth/Reset';
-import { Confirm } from '../auth/Confirm';
-import { ProtectedRoute, UnprotectedRoute } from '../auth/ProtectedRoute';
-import { CookieBar } from '../components/Cookies';
-import { history } from '../helpers/history';
-import { Profile } from '../profile/Profile';
-import { NotFound } from '../auth/NotFound';
-import { Accept } from '../auth/Accept';
+import { Accept } from "../auth/Accept";
+import { Confirm } from "../auth/Confirm";
+import { Login } from "../auth/Login";
+import { NotFound } from "../auth/NotFound";
+import { ProtectedRoute, UnprotectedRoute } from "../auth/ProtectedRoute";
+import { Reset } from "../auth/Reset";
+import { SignUp } from "../auth/SignUp";
+import { CookieBar } from "../components/Cookies";
+import { Footer } from "../components/Footer";
+import { Nav } from "../components/Nav";
+import { ContactPage } from "../contact/Contact";
+import { history } from "../helpers/history";
+import { Home } from "../home/Index";
+import { Profile } from "../profile/Profile";
+import { acceptObj, declineObj } from "../reducers/cookieActions";
 
 function App() {
   const { pathname } = useLocation();
@@ -37,7 +37,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (Cookies.get('CookieConsent') === 'true') {
+    if (Cookies.get("CookieConsent") === "true") {
       dispatch(acceptObj);
     } else {
       dispatch(declineObj);

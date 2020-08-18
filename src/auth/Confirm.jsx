@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { CenterLayout } from '../components/Layout';
-import { useAuthContext } from './Auth';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import { CenterLayout } from "../components/Layout";
+import { useAuthContext } from "./Auth";
 
 const Confirm = () => {
   const { token } = useParams();

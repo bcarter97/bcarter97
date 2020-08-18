@@ -1,12 +1,13 @@
-import React from 'react';
-import profilePic from '../images/about/profilePicXSmall.jpg';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-const GitHubLink = 'https://github.com/bcarter97';
-const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
-const MailLink = 'mailto:ben@carter.gg';
+import profilePic from "../images/about/profilePicXSmall.jpg";
 
-const AuthButtonStyle = 'nav-item button is-outlined is-rounded';
+const GitHubLink = "https://github.com/bcarter97";
+const LinkedInLink = "https://www.linkedin.com/in/bcarter97/";
+const MailLink = "mailto:ben@carter.gg";
+
+const AuthButtonStyle = "nav-item auth-button button is-outlined is-rounded";
 
 const LogoutButton = ({ onClick }) => {
   return (
@@ -21,9 +22,9 @@ const LogoutButton = ({ onClick }) => {
 const LoginButton = ({ onClick }) => {
   return (
     <p className="control">
-      <Link className={AuthButtonStyle} to="/login" onClick={onClick}>
+      <NavLink className={AuthButtonStyle} to="/login" onClick={onClick}>
         Login
-      </Link>
+      </NavLink>
     </p>
   );
 };
@@ -31,24 +32,24 @@ const LoginButton = ({ onClick }) => {
 const SignupButton = ({ onClick }) => {
   return (
     <p className="control">
-      <Link className={AuthButtonStyle} to="/signup" onClick={onClick}>
+      <NavLink className={AuthButtonStyle} to="/signup" onClick={onClick}>
         Sign up
-      </Link>
+      </NavLink>
     </p>
   );
 };
 
 const desktopStyle = (mobile) => {
   return mobile
-    ? 'is-hidden-desktop mobile-icon'
-    : 'is-hidden-touch desktop-icon';
+    ? "is-hidden-desktop mobile-icon"
+    : "is-hidden-touch desktop-icon";
 };
 
 const SocialButton = ({ url, faIcon, mobile }) => {
   return (
-    <a className={`navbar-item navbar-icon ${desktopStyle(mobile)}`} href={url}>
-      <span className="icon is-medium">
-        <i className={`${faIcon} fa-lg`} aria-hidden="true" />
+    <a className="navbar-item navbar-icon" href={url}>
+      <span className="icon is-large">
+        <i className={`${faIcon} fa-2x`} aria-hidden="true" />
       </span>
     </a>
   );
@@ -56,47 +57,48 @@ const SocialButton = ({ url, faIcon, mobile }) => {
 
 const GitHubButton = ({ mobile }) => {
   return (
-    <SocialButton url={GitHubLink} faIcon="fab fa-github" mobile={mobile} />
+    <span className="github-button">
+      <SocialButton url={GitHubLink} faIcon="fab fa-github" mobile={mobile} />
+    </span>
   );
 };
 
 const LinkedInButton = ({ mobile }) => {
   return (
-    <SocialButton
-      url={LinkedInLink}
-      faIcon="fab fa-linkedin-in"
-      mobile={mobile}
-    />
+    <span className="linkedin-button">
+      <SocialButton
+        url={LinkedInLink}
+        faIcon="fab fa-linkedin-in"
+        mobile={mobile}
+      />
+    </span>
   );
 };
 
 const MailButton = ({ mobile }) => {
   return (
-    <SocialButton url={MailLink} faIcon="far fa-envelope" mobile={mobile} />
+    <span className="mail-button">
+      <SocialButton url={MailLink} faIcon="far fa-envelope" mobile={mobile} />
+    </span>
   );
 };
 
 const ProfilePictureLarge = () => {
   return (
     <figure className="image container is-256x256">
-      <img className="is-rounded image-module" src={profilePic} alt="Profile" />
+      <img className="image-module" src={profilePic} alt="Profile" />
     </figure>
   );
 };
 
 const AboutDetails = () => {
   return (
-    <p className="is-size-3 has-text-left">
-      I'm a software developer based in London. You can check out my stuff on{' '}
-      <a className="social-link github-link" href={GitHubLink}>
-        GitHub
-      </a>
-      , or connect with me on{' '}
-      <a className="social-link linkedin-link" href={LinkedInLink}>
-        LinkedIn
-      </a>
-      .
-    </p>
+    <span className="is-size-3 has-text-left">
+      <p>
+        I write code and sometimes it works. Click these cool buttons to see me
+        in different places.
+      </p>
+    </span>
   );
 };
 

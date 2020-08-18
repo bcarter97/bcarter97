@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-import { history } from '../helpers/history';
-import { Seo } from '../components/Seo';
+import { CenterLayout, CenterLayoutSmaller } from "../components/Layout";
+import { Seo } from "../components/Seo";
+import { history } from "../helpers/history";
+import { useAuthContext } from "./Auth";
 import {
   resetEmailValidationSchema,
   resetPasswordValidationScema,
-} from './FormTemplate';
-import { CenterLayoutSmaller, CenterLayout } from '../components/Layout';
-import { useAuthContext } from './Auth';
-import { useParams, Link } from 'react-router-dom';
+} from "./FormTemplate";
 
 const ResetEmailForm = ({ setResetSuccess }) => {
-  const [resetError, setResetError] = useState('');
+  const [resetError, setResetError] = useState("");
   const { requestRecoveryEmail } = useAuthContext();
 
   const {
@@ -25,14 +25,13 @@ const ResetEmailForm = ({ setResetSuccess }) => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      email: '',
+      email: "",
     },
     validationSchema: resetEmailValidationSchema,
     onSubmit: async ({ email }) => {
       await requestRecoveryEmail(email)
-        .then(() => history.push('/profile'))
+        .then(() => setResetSuccess(true))
         .catch((error) => {
-          console.log(error);
           setResetError(error.message);
         });
     },
@@ -40,14 +39,14 @@ const ResetEmailForm = ({ setResetSuccess }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="field">
-        <h1 className="title is-size-3 has-text-centered">Recover password</h1>
+        <h1 className="title is-size-3 has-text-centered">Reset password</h1>
       </div>
       <div className="field">
         <label className="label">Email</label>
         <div className="control has-icons-left has-icons-right">
           <input
             className={`input ${
-              errors.email && touched.email ? 'is-danger' : ''
+              errors.email && touched.email ? "is-danger" : ""
             }`}
             name="email"
             id="email"
@@ -104,8 +103,7 @@ const ResetSuccess = () => {
 const ResetPasswordForm = ({ token }) => {
   const [ableToReset, setAbleToReset] = useState(true);
   const [mask, setMask] = useState(false);
-  const [resetError, setResetError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [resetError, setResetError] = useState("");
   const { user, recoverUser } = useAuthContext();
 
   useEffect(() => {
@@ -125,17 +123,14 @@ const ResetPasswordForm = ({ token }) => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      password: '',
+      password: "",
     },
     validationSchema: resetPasswordValidationScema,
     onSubmit: async ({ password }) => {
       if (!user) {
         await recoverUser(token, { password: password })
-          .then(() => {
-            setSuccessMessage('Password updated');
-            setAbleToReset(false);
-          })
-          .catch((error) => console.log('Something went wrong ', error));
+          .then(() => history.push("/profile"))
+          .catch((error) => console.log("Something went wrong ", error));
       }
     },
   });
@@ -150,14 +145,14 @@ const ResetPasswordForm = ({ token }) => {
         <div className="control has-icons-left has-icons-right">
           <input
             className={`input ${
-              errors.password && touched.password ? 'is-danger' : ''
+              errors.password && touched.password ? "is-danger" : ""
             }`}
             name="password"
             id="password"
             onChange={handleChange}
             onBlur={handleBlur}
             values={values.password}
-            type={`${mask ? 'text' : 'password'}`}
+            type={`${mask ? "text" : "password"}`}
             placeholder="Password"
             autoComplete="on"
             disabled={!ableToReset}
@@ -171,20 +166,13 @@ const ResetPasswordForm = ({ token }) => {
               setMask(!mask);
             }}
           >
-            <i className={`far fa-eye${mask ? '' : '-slash'}`}></i>
+            <i className={`far fa-eye${mask ? "" : "-slash"}`}></i>
           </span>
         </div>
         {errors.password && touched.password && (
           <p className="help is-danger">{errors.password}</p>
         )}
       </div>
-      {successMessage && (
-        <div className="field">
-          <div className="control">
-            <p className="has-text-success">{successMessage}</p>
-          </div>
-        </div>
-      )}
       <div className="field">
         <div className="control">
           <button
@@ -201,7 +189,7 @@ const ResetPasswordForm = ({ token }) => {
           <div className="field">
             <div className="control has-text-centered">
               <p className="has-text-danger">
-                {resetError} Perhaps you want to{' '}
+                {resetError} Perhaps you want to{" "}
                 <Link to="/profile/update">change password?</Link>
               </p>
             </div>

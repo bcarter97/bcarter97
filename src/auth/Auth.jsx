@@ -121,7 +121,6 @@ const useAuth = (url, onAuthChange = () => {}) => {
       const user = await goTrueInstance.recover(token, remember);
       console.log('received user promise');
       if (user) {
-        console.log('user exists. updating...');
         return user
           .update(fields)
           .then(_setUser)

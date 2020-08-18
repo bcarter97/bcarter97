@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
-import { history } from '../helpers/history';
-import { useAuthContext } from '../auth/Auth';
-import {
-  GitHubButton,
-  LinkedInButton,
-  MailButton,
-  LogoutButton,
-  LoginButton,
-  SignupButton,
-} from './MediaElements';
-import banner from '../images/bannerSmall.png';
+import { useAuthContext } from "../auth/Auth";
+import { history } from "../helpers/history";
+import banner from "../images/bannerSmall.png";
+import { LoginButton, LogoutButton, SignupButton } from "./MediaElements";
 
 const NavItem = ({ to, onClick, text, exact = true }) => {
   return (
@@ -35,12 +28,10 @@ const NavBrand = ({ menuVisible, onBurgerClick, onBannerClick }) => {
       <NavLink exact to="/" className="navbar-item" onClick={onBannerClick}>
         <img src={banner} height="28" width="135" alt="Site logo" />
       </NavLink>
-      <GitHubButton mobile />
-      <LinkedInButton mobile />
-      <MailButton mobile />
+
       <div
         role="button"
-        className={`navbar-burger burger ${menuVisible ? 'is-active' : ''}`}
+        className={`navbar-burger burger ${menuVisible ? "is-active" : ""}`}
         aria-label="menu"
         aria-expanded="false"
         data-target="mainNavigation"
@@ -81,7 +72,7 @@ const Nav = () => {
 
         <div
           id="mainNavigation"
-          className={`navbar-menu ${menuVisible ? 'is-active' : ''}`}
+          className={`navbar-menu ${menuVisible ? "is-active" : ""}`}
         >
           <div className="navbar-start">
             <NavItem to="/" onClick={closeMenu} text="Home" />
@@ -104,7 +95,7 @@ const Nav = () => {
                     text="Log out"
                     onClick={async () => {
                       await logoutUser();
-                      history.push('/');
+                      history.push("/");
                       closeMenu();
                     }}
                   />
@@ -116,9 +107,6 @@ const Nav = () => {
                 )}
               </div>
             </div>
-            <GitHubButton />
-            <LinkedInButton />
-            <MailButton />
           </div>
         </div>
       </div>

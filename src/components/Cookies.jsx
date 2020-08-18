@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import CookieConsent from 'react-cookie-consent';
-import { acceptObj, declineObj } from '../reducers/cookieActions';
+import React, { useState } from "react";
+import CookieConsent from "react-cookie-consent";
+import { useDispatch } from "react-redux";
+
+import { acceptObj, declineObj } from "../reducers/cookieActions";
 
 const CookieBar = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const CookieBar = () => {
         This website uses cookies to enhance the user experience.
       </p>
       <p>
-        By continuing to use the site you accept the use of cookies.{' '}
+        By continuing to use the site you accept the use of cookies.{" "}
         <span
           className="social-link footer-link"
           onClick={() => setCookieInfoVisible(true)}
@@ -54,7 +55,7 @@ const CookieBar = () => {
 
 const CookieInfo = ({ cookieInfoVisible, closeCookieInfo }) => {
   return (
-    <div className={`modal ${cookieInfoVisible ? 'is-active' : ''}`}>
+    <div className={`modal ${cookieInfoVisible ? "is-active" : ""}`}>
       <div className="modal-background" onClick={closeCookieInfo}></div>
       <div className="modal-content">
         <div className="notification has-text-left is-light is-size-4">
