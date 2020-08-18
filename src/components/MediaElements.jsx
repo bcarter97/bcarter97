@@ -7,7 +7,7 @@ const GitHubLink = "https://github.com/bcarter97";
 const LinkedInLink = "https://www.linkedin.com/in/bcarter97/";
 const MailLink = "mailto:ben@carter.gg";
 
-const AuthButtonStyle = "nav-item button is-outlined is-rounded";
+const AuthButtonStyle = "nav-item auth-button button is-outlined is-rounded";
 
 const LogoutButton = ({ onClick }) => {
   return (
@@ -87,17 +87,19 @@ const ProfilePictureLarge = () => {
 
 const AboutDetails = () => {
   return (
-    <p className="is-size-3 has-text-left">
-      I'm a software developer based in London. You can check out my stuff on{" "}
-      <a className="social-link github-link" href={GitHubLink}>
-        GitHub
-      </a>
-      , or connect with me on{" "}
-      <a className="social-link linkedin-link" href={LinkedInLink}>
-        LinkedIn
-      </a>
-      .
-    </p>
+    <span className="is-size-3 has-text-left">
+      <p>
+        I'm a software developer based in London. You can check out my stuff on{" "}
+        <a className="social-link github-link" href={GitHubLink}>
+          GitHub
+        </a>
+        , or connect with me on{" "}
+        <a className="social-link linkedin-link" href={LinkedInLink}>
+          LinkedIn
+        </a>
+        .
+      </p>
+    </span>
   );
 };
 

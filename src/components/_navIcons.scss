@@ -18,3 +18,14 @@
 .navbar-item.navbar-icon:hover {
   color: $link !important;
 }
+
+.auth-button {
+  background-color: transparent;
+  transition-property: color, border-color;
+  transition-timing-function: linear;
+  transition-duration: 0.2s;
+}
+
+.auth-button:hover {
+  border-color: $black;
+}
