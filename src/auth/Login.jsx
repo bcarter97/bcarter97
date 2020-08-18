@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Seo } from '../components/Seo';
-import { validationSchema } from './FormTemplate';
-import { CenterLayoutSmaller } from '../components/Layout';
-import { useAuthContext } from './Auth';
-import { history } from '../helpers/history';
-import { Link } from 'react-router-dom';
+import { CenterLayoutSmaller } from "../components/Layout";
+import { Seo } from "../components/Seo";
+import { history } from "../helpers/history";
+import { useAuthContext } from "./Auth";
+import { validationSchema } from "./FormTemplate";
 
 const LoginForm = () => {
   const [mask, setMask] = useState(false);
-  const [loginError, setLoginError] = useState('');
+  const [loginError, setLoginError] = useState("");
 
   const { loginUser } = useAuthContext();
 
@@ -24,15 +24,15 @@ const LoginForm = () => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
     validationSchema,
     onSubmit: async ({ email, password }) => {
       await loginUser(email, password)
-        .then((user) => history.push('/profile'))
+        .then((user) => history.push("/profile"))
         .catch((error) =>
-          setLoginError(error.message.replace('invalid_grant: ', ''))
+          setLoginError(error.message.replace("invalid_grant: ", ""))
         );
     },
   });
@@ -48,7 +48,7 @@ const LoginForm = () => {
           <div className="control has-icons-left has-icons-right">
             <input
               className={`input ${
-                errors.email && touched.email ? 'is-danger' : ''
+                errors.email && touched.email ? "is-danger" : ""
               }`}
               name="email"
               id="email"
@@ -72,14 +72,14 @@ const LoginForm = () => {
           <div className="control has-icons-left has-icons-right">
             <input
               className={`input ${
-                errors.password && touched.password ? 'is-danger' : ''
+                errors.password && touched.password ? "is-danger" : ""
               }`}
               name="password"
               id="password"
               onChange={handleChange}
               onBlur={handleBlur}
               values={values.password}
-              type={`${mask ? 'text' : 'password'}`}
+              type={`${mask ? "text" : "password"}`}
               placeholder="Password"
               autoComplete="on"
             />
@@ -92,7 +92,7 @@ const LoginForm = () => {
                 setMask(!mask);
               }}
             >
-              <i className={`far fa-eye${mask ? '' : '-slash'}`}></i>
+              <i className={`far fa-eye${mask ? "" : "-slash"}`}></i>
             </span>
           </div>
           {errors.password && touched.password && (

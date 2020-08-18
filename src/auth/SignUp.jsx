@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
+import React, { useState } from "react";
 
-import { Seo } from '../components/Seo';
-import { useAuthContext } from './Auth';
-import { validationSchema } from './FormTemplate';
-import { CenterLayoutSmaller } from '../components/Layout';
+import { CenterLayoutSmaller } from "../components/Layout";
+import { Seo } from "../components/Seo";
+import { useAuthContext } from "./Auth";
+import { validationSchema } from "./FormTemplate";
 
 const SignUpForm = ({ setUser }) => {
   const [mask, setMask] = useState(false);
-  const [signupError, setSignupError] = useState('');
-
+  const [signupError, setSignupError] = useState("");
   const { signupUser } = useAuthContext();
 
   const {
@@ -22,8 +21,8 @@ const SignUpForm = ({ setUser }) => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
     validationSchema,
     onSubmit: async ({ email, password }) => {
@@ -32,9 +31,9 @@ const SignUpForm = ({ setUser }) => {
           setUser(user);
         })
         .catch((error) => {
-          const errorMessage = error.message.replace('invalid_grant: ', '');
-          if (errorMessage === 'Signups not allowed for this instance') {
-            setSignupError('Signups are currently invite only.');
+          const errorMessage = error.message.replace("invalid_grant: ", "");
+          if (errorMessage === "Signups not allowed for this instance") {
+            setSignupError("Signups are currently invite only.");
           } else {
             setSignupError(errorMessage);
           }
@@ -52,7 +51,7 @@ const SignUpForm = ({ setUser }) => {
         <div className="control has-icons-left has-icons-right">
           <input
             className={`input ${
-              errors.email && touched.email ? 'is-danger' : ''
+              errors.email && touched.email ? "is-danger" : ""
             }`}
             name="email"
             id="email"
@@ -76,14 +75,14 @@ const SignUpForm = ({ setUser }) => {
         <div className="control has-icons-left has-icons-right">
           <input
             className={`input ${
-              errors.password && touched.password ? 'is-danger' : ''
+              errors.password && touched.password ? "is-danger" : ""
             }`}
             name="password"
             id="password"
             onChange={handleChange}
             onBlur={handleBlur}
             values={values.password}
-            type={`${mask ? 'text' : 'password'}`}
+            type={`${mask ? "text" : "password"}`}
             placeholder="Password"
             autoComplete="on"
           />
@@ -96,7 +95,7 @@ const SignUpForm = ({ setUser }) => {
               setMask(!mask);
             }}
           >
-            <i className={`far fa-eye${mask ? '' : '-slash'}`}></i>
+            <i className={`far fa-eye${mask ? "" : "-slash"}`}></i>
           </span>
         </div>
         {errors.password && touched.password && (
@@ -142,12 +141,6 @@ const VerificationNeeded = () => {
 
 const SignUp = () => {
   const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    if (user && user.confirmation_sent_at) {
-      console.log('Awaiting verification');
-    }
-  }, [user]);
 
   return (
     <>

@@ -1,5 +1,6 @@
-import React from 'react';
-import { ProfilePictureLarge, AboutDetails } from '../components/MediaElements';
+import React from "react";
+
+import { AboutDetails, ProfilePictureLarge } from "../components/MediaElements";
 
 const AboutHero = () => {
   return (

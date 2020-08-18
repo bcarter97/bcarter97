@@ -1,12 +1,13 @@
-import React from 'react';
-import profilePic from '../images/about/profilePicXSmall.jpg';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const GitHubLink = 'https://github.com/bcarter97';
-const LinkedInLink = 'https://www.linkedin.com/in/bcarter97/';
-const MailLink = 'mailto:ben@carter.gg';
+import profilePic from "../images/about/profilePicXSmall.jpg";
 
-const AuthButtonStyle = 'nav-item button is-outlined is-rounded';
+const GitHubLink = "https://github.com/bcarter97";
+const LinkedInLink = "https://www.linkedin.com/in/bcarter97/";
+const MailLink = "mailto:ben@carter.gg";
+
+const AuthButtonStyle = "nav-item button is-outlined is-rounded";
 
 const LogoutButton = ({ onClick }) => {
   return (
@@ -40,8 +41,8 @@ const SignupButton = ({ onClick }) => {
 
 const desktopStyle = (mobile) => {
   return mobile
-    ? 'is-hidden-desktop mobile-icon'
-    : 'is-hidden-touch desktop-icon';
+    ? "is-hidden-desktop mobile-icon"
+    : "is-hidden-touch desktop-icon";
 };
 
 const SocialButton = ({ url, faIcon, mobile }) => {
@@ -87,11 +88,11 @@ const ProfilePictureLarge = () => {
 const AboutDetails = () => {
   return (
     <p className="is-size-3 has-text-left">
-      I'm a software developer based in London. You can check out my stuff on{' '}
+      I'm a software developer based in London. You can check out my stuff on{" "}
       <a className="social-link github-link" href={GitHubLink}>
         GitHub
       </a>
-      , or connect with me on{' '}
+      , or connect with me on{" "}
       <a className="social-link linkedin-link" href={LinkedInLink}>
         LinkedIn
       </a>

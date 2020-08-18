@@ -1,7 +1,8 @@
-import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import { Seo } from '../components/Seo';
-import { CenterLayout } from '../components/Layout';
+import React from "react";
+import { Link, Route, Switch } from "react-router-dom";
+
+import { CenterLayout } from "../components/Layout";
+import { Seo } from "../components/Seo";
 
 const ContactForm = () => {
   return (
