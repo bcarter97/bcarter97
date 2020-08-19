@@ -2,7 +2,7 @@ import React from "react";
 
 const DefaultLayout = ({ children }) => {
   return (
-    <section className="hero is-medium is-bold">
+    <section className="hero is-medium is-bold content-hero">
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">{children}</div>

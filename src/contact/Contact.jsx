@@ -10,7 +10,7 @@ const ContactForm = () => {
       <div className="field">
         <h1 className="title is-size-2">Get in touch.</h1>
         <p className="is-size-3 has-text-left">
-          Feel free to get in touch. Or don't. I made this for fun.
+          Or don't. I made this for fun.
         </p>
       </div>
       <div className="field">
@@ -37,7 +37,11 @@ const ContactForm = () => {
           <div className="field">
             <label className="label">Message</label>
             <div className="control">
-              <textarea className="textarea" name="message" required></textarea>
+              <textarea
+                className="textarea has-fixed-size"
+                name="message"
+                required
+              ></textarea>
             </div>
           </div>
           <div className="field">

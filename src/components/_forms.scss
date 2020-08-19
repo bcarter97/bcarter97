@@ -2,3 +2,13 @@
   pointer-events: all !important;
   cursor: pointer;
 }
+
+.input,
+.button[type="submit"] {
+  border-radius: 290486px !important;
+  transition: 0.5s all;
+}
+
+.textarea {
+  border-radius: 20px !important;
+}

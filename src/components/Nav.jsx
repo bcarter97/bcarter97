@@ -12,7 +12,7 @@ const NavItem = ({ to, onClick, text, exact = true }) => {
       <NavLink
         exact={exact}
         to={to}
-        className="navbar-module has-text-black has-background-white has-text-weight-medium"
+        className="navbar-module has-text-black has-text-weight-medium"
         activeClassName="active"
         onClick={onClick}
       >
@@ -59,7 +59,7 @@ const Nav = () => {
 
   return (
     <nav
-      className="navbar has-shadow is-spaced"
+      className="navbar is-spaced"
       role="navigation"
       aria-label="main navigation"
     >
