@@ -8,7 +8,7 @@ function Footer() {
         Source code licensed under{" "}
         <a
           className="social-link footer-link"
-          href="https://opensource.org/licenses/mit-license.php"
+          href="https://raw.githubusercontent.com/bcarter97/bcarter97/master/LICENSE"
         >
           MIT
         </a>
