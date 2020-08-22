@@ -13,12 +13,10 @@ const AboutHero = () => {
     <section className="hero about-hero is-medium is-bold is-primary">
       <div className="hero-body">
         <div className="container">
-          <div className="columns is-vcentered is-centered">
-            <div className="column is-one-quarter">
+          <div className="columns is-multiline is-vcentered is-centered">
+            <div className="image-column column is-one-quarter">
               <div className="field">
-                <div className="control">
-                  <ProfilePictureLarge />
-                </div>
+                <ProfilePictureLarge />
               </div>
             </div>
             <div className="column is-half">
@@ -29,12 +27,10 @@ const AboutHero = () => {
                 <AboutDetails />
               </div>
               <div className="field">
-                <div className="control">
-                  <div className="buttons social-buttons is-centered">
-                    <GitHubButton />
-                    <LinkedInButton />
-                    <MailButton />
-                  </div>
+                <div className="buttons social-buttons is-centered">
+                  <GitHubButton />
+                  <LinkedInButton />
+                  <MailButton />
                 </div>
               </div>
             </div>
