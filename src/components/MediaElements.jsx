@@ -96,7 +96,7 @@ const AboutDetails = () => {
     <span className="is-size-3 has-text-left">
       <p>
         I write code and sometimes it works. Click these cool buttons to see me
-        in different places. This page will now self destruct.
+        in different places.
       </p>
     </span>
   );
