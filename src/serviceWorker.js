@@ -66,13 +66,7 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
-              if (registration && registration.waiting) {
-                registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-              }
-              window.location.reload(); // Reload the page when content is available
+              window.location.reload(true); // Reload the page when content is available
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
