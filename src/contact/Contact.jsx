@@ -9,9 +9,6 @@ const ContactForm = () => {
     <>
       <div className="field">
         <h1 className="title is-size-2">Get in touch.</h1>
-        <p className="is-size-3 has-text-left">
-          Or don't. I made this for fun.
-        </p>
       </div>
       <div className="field">
         <form name="contact" method="post" action="/contact/success">
@@ -21,7 +18,13 @@ const ContactForm = () => {
               <div className="field">
                 <label className="label">Name</label>
                 <div className="control">
-                  <input className="input" type="text" name="name" required />
+                  <input
+                    className="input"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Leonard"
+                  />
                 </div>
               </div>
             </div>
@@ -29,7 +32,13 @@ const ContactForm = () => {
               <div className="field">
                 <label className="label">Email</label>
                 <div className="control">
-                  <input className="input" type="email" name="email" required />
+                  <input
+                    className="input"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="lmccoy@enterprise.ufp"
+                  />
                 </div>
               </div>
             </div>
@@ -41,14 +50,22 @@ const ContactForm = () => {
                 className="textarea has-fixed-size"
                 name="message"
                 required
+                placeholder="Damn it Jim, I'm a doctor, not a form field."
               ></textarea>
             </div>
           </div>
-          <div className="field">
-            <div className="control">
-              <button className="button is-primary" type="submit">
-                Send
-              </button>
+          <div className="columns">
+            <div className="column is-fullwidth">
+              <div className="field">
+                <div className="control">
+                  <button
+                    className="button is-primary is-fullwidth"
+                    type="submit"
+                  >
+                    Send
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </form>
