@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^12.1.3",
     "bulma": "^0.9.0",
     "formik": "^2.1.5",
-    "gotrue-js": "^0.9.26",
+    "gotrue-js": "^0.9.27",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.14.1",
     "random-seed": "^0.3.0",
