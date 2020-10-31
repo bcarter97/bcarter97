@@ -8,6 +8,8 @@ $highlight-size: 2px;
 
 .layout-default {
   top: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   overflow: hidden;
   background-repeat: no-repeat;
   background-attachment: fixed;
