@@ -58,6 +58,7 @@ function App() {
       className="layout-default"
       style={{
         backgroundImage: `url(${wave})`,
+        height: document.documentElement?.clientHeight || window.innerHeight,
       }}
     >
       <Nav />
