@@ -20,6 +20,8 @@ import { Home } from "../home/Index";
 import { Profile } from "../profile/Profile";
 import { acceptObj, declineObj } from "../reducers/cookieActions";
 
+import wave from "../images/wave.svg";
+
 function App() {
   const { pathname } = useLocation();
   const cookieReducer = useSelector((state) => state.cookieReducer);
@@ -52,7 +54,12 @@ function App() {
   }, [cookieReducer]);
 
   return (
-    <div className="layout-default">
+    <div
+      className="layout-default"
+      style={{
+        backgroundImage: `url(${wave})`,
+      }}
+    >
       <Nav />
       <Switch>
         <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />

@@ -1,17 +1,33 @@
+$grey-light: hsl(0, 0%, 71%);
+$grey-lighter: hsl(0, 0%, 86%);
+$primary: hsl(171, 100%, 41%);
+$primary-dark: hsl(171, 100%, 29%);
+$primary-light: hsl(171, 100%, 96%);
+
 .image-column {
   width: auto !important;
+  justify-content: center !important;
   padding-right: 3em !important;
   padding-left: 3em !important;
 }
 
+.image-container {
+  height: 256px !important;
+  width: 256px !important;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2),
+    0px 3px 15px rgba(0, 0, 0, 0.2) inset !important;
+  background-color: #fff !important;
+  border-radius: 50% !important;
+  overflow: hidden;
+  border: 10px solid #fff;
+}
+
 // Add a drop shadow to profile picture
 .image-module {
-  transition: 20s all ease-out;
-  border-radius: 10px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  transition: 2s all ease-in-out;
 }
 
 .image-module:hover {
-  transition: 500s all ease-in-out;
-  transform: rotate(3600000deg);
+  transform: scale(1.05);
+  // transform: rotate(3600000deg);
 }

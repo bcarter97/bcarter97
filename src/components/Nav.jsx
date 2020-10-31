@@ -59,7 +59,7 @@ const Nav = () => {
 
   return (
     <nav
-      className="navbar is-spaced"
+      className="navbar is-spaced has-shadow"
       role="navigation"
       aria-label="main navigation"
     >

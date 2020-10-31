@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import profilePic from "../images/about/profilePicXSmall.jpg";
+// import profilePic from "../images/about/profilePicXSmall.jpg";
+import profilePic from "../images/about/nobackground_zoom_med_light.png";
 
 const GitHubLink = "https://github.com/bcarter97";
 const LinkedInLink = "https://www.linkedin.com/in/bcarter97/";
@@ -85,8 +86,12 @@ const MailButton = ({ mobile }) => {
 
 const ProfilePictureLarge = () => {
   return (
-    <figure className="image container is-256x256">
-      <img className="image-module" src={profilePic} alt="Profile" />
+    <figure className="image container image-container is-256x256">
+      <img
+        className="image-module is-rounded"
+        src={profilePic}
+        alt="Headshot"
+      />
     </figure>
   );
 };

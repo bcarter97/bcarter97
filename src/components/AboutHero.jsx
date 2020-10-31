@@ -2,15 +2,15 @@ import React from "react";
 
 import {
   AboutDetails,
-  ProfilePictureLarge,
   GitHubButton,
   LinkedInButton,
   MailButton,
+  ProfilePictureLarge,
 } from "../components/MediaElements";
 
 const AboutHero = () => {
   return (
-    <section className="hero about-hero is-medium is-bold is-primary">
+    <section className="hero about-hero is-medium">
       <div className="hero-body">
         <div className="container">
           <div className="columns is-multiline is-vcentered is-centered">
