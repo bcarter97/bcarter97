@@ -13,4 +13,8 @@
 @import "../components/authButtons";
 @import "../components/footer";
 
+html {
+  overflow-y: auto !important;
+}
+
 @import "bulma";
