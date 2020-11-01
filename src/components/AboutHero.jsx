@@ -27,7 +27,7 @@ const AboutHero = () => {
                 <AboutDetails />
               </div>
               <div className="field">
-                <div className="buttons social-buttons is-centered">
+                <div className="buttons social-buttons">
                   <GitHubButton />
                   <LinkedInButton />
                   <MailButton />
