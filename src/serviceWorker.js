@@ -66,7 +66,7 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === "installed") {
             if (navigator.serviceWorker.controller) {
-              window.location.reload(true); // Reload the page when content is available
+              window.location.reload(); // Reload the page when content is available
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
@@ -106,7 +106,7 @@ function checkValidServiceWorker(swUrl, config) {
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then((registration) => {
           registration.unregister().then(() => {
-            window.location.reload(true);
+            window.location.reload();
           });
         });
       } else {
@@ -127,7 +127,7 @@ export function unregister() {
       .then((registration) => {
         registration.unregister();
       })
-      .then(() => window.location.reload(true))
+      .then(() => window.location.reload())
       .catch((error) => {
         console.error(error.message);
       });
