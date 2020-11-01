@@ -1,7 +1,3 @@
-import Cookies from "js-cookie";
-import React, { useEffect } from "react";
-import ReactGA from "react-ga";
-import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 
 import { Accept } from "../auth/Accept";
@@ -11,47 +7,15 @@ import { NotFound } from "../auth/NotFound";
 import { ProtectedRoute, UnprotectedRoute } from "../auth/ProtectedRoute";
 import { Reset } from "../auth/Reset";
 import { SignUp } from "../auth/SignUp";
-import { CookieBar } from "../components/Cookies";
 import { Footer } from "../components/Footer";
 import { Nav } from "../components/Nav";
 import { ContactPage } from "../contact/Contact";
-import { history } from "../helpers/history";
 import { Home } from "../home/Index";
-import { Profile } from "../profile/Profile";
-import { acceptObj, declineObj } from "../reducers/cookieActions";
-
 import wave from "../images/wave.svg";
+import { Profile } from "../profile/Profile";
 
 function App() {
   const { pathname } = useLocation();
-  const cookieReducer = useSelector((state) => state.cookieReducer);
-  const dispatch = useDispatch();
-
-  const trackPageView = (location) => {
-    ReactGA.set({ page: location.pathname });
-    ReactGA.pageview(location.pathname);
-  };
-
-  const initGa = (history) => {
-    ReactGA.initialize(process.env.REACT_APP_GA_ID);
-    trackPageView(history.location);
-    history.listen(trackPageView);
-  };
-
-  useEffect(() => {
-    if (Cookies.get("CookieConsent") === "true") {
-      dispatch(acceptObj);
-    } else {
-      dispatch(declineObj);
-    }
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (cookieReducer.accept) {
-      initGa(history);
-    }
-    // eslint-disable-next-line
-  }, [cookieReducer]);
 
   return (
     <div
@@ -75,7 +39,6 @@ function App() {
         <Route component={NotFound} />
       </Switch>
       <Footer />
-      <CookieBar />
     </div>
   );
 }
