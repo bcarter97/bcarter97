@@ -123,8 +123,10 @@ function checkValidServiceWorker(swUrl, config) {
 
 export function unregister() {
   // Attempt to unregister all SWs
-  navigator.serviceWorker.getRegistrations().then((reg) => {
-    reg.unregister();
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    registrations.forEach((reg) => {
+      reg.unregister();
+    });
   });
 
   if ("serviceWorker" in navigator) {
