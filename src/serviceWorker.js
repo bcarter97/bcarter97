@@ -139,4 +139,21 @@ export function unregister() {
         console.error(error.message);
       });
   }
+  
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (let registration of registrations) {
+      registration
+        .unregister()
+        .then(() => {
+          return self.clients.matchAll();
+        })
+        .then((clients) => {
+          clients.forEach((client) => {
+            if (client.url && "navigate" in client) {
+              client.navigate(client.url);
+            }
+          });
+        });
+    }
+  });
 }
