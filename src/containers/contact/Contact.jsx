@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import queryString from "query-string";
 
-const ContactForm = ({ handleSubmit }) => {
+const ContactForm = () => {
   return (
     <>
       <div className="field">
         <h1 className="title is-size-2">Get in touch.</h1>
       </div>
       <div className="field">
-        <form name="contact" method="post" onSubmit={handleSubmit}>
+        <form name="contact" method="post" action="/contact?success=true">
           <input type="hidden" name="form-name" value="contact" />
           <div className="columns">
             <div className="column is-half">
@@ -78,7 +79,7 @@ const SubmitMessage = () => {
         Thanks! I'll get back to you as soon as I can.
       </p>
       <p className="is-size-4 has-text-centered">
-        <Link exact to="/" className="has-text-weight-semibold social-link">
+        <Link to="/" className="has-text-weight-semibold social-link">
           Home
         </Link>
       </p>
@@ -87,12 +88,13 @@ const SubmitMessage = () => {
 };
 
 const Contact = () => {
+  const location = useLocation();
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  useEffect(() => {
+    const { success } = queryString.parse(location.search);
+    setSubmitted(!!success);
+  }, [location]);
 
   return (
     <section className="hero about-hero">
@@ -100,11 +102,7 @@ const Contact = () => {
         <div className="container">
           <div className="columns is-multiline is-vcentered is-centered">
             <div className="column image-column is-half">
-              {submitted ? (
-                <SubmitMessage />
-              ) : (
-                <ContactForm handleSubmit={handleSubmit} />
-              )}
+              {submitted ? <SubmitMessage /> : <ContactForm />}
             </div>
           </div>
         </div>
