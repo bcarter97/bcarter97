@@ -34,7 +34,7 @@ const MailButton = () => {
 const Home = () => {
   return (
     <section className="hero about-hero">
-      <div className="hero-body">
+      <div className="hero-body about-hero-body">
         <div className="container">
           <div className="columns is-multiline is-vcentered is-centered">
             <div className="column image-column is-half">
