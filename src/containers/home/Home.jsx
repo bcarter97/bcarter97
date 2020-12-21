@@ -1,3 +1,4 @@
+import AboutInfo from "../../components/AboutInfo";
 import ProfilePicture from "../../media/ProfilePicture";
 
 const githubUrl = "https://github.com/bcarter97";
@@ -46,13 +47,8 @@ const Home = () => {
               <h1 className="title is-size-3 has-text-centered has-text-weight-bold">
                 Hi, I'm Ben.
               </h1>
-              <p className="is-size-5-touch is-size-4-desktop has-text-weight-bold">
-                Associate Software Developer at{" "}
-                <a className="social-link" href="https://www.sky.com/">
-                  Sky
-                </a>
-                . I use coding and algorithms to turn bugs into money.
-              </p>
+
+              <AboutInfo />
             </div>
           </div>
         </div>
