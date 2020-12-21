@@ -1,6 +1,6 @@
+import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import queryString from "query-string";
 
 const ContactForm = () => {
   return (
