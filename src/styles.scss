@@ -138,11 +138,12 @@ html {
 
 .image-column {
   justify-content: center !important;
+  border-bottom: 2px solid #000 !important;
+  padding-bottom: 0 !important;
 }
 
 .image-container {
   min-height: 256px;
-  border-bottom: 2px solid #000 !important;
 }
 
 .image-module {
@@ -152,6 +153,7 @@ html {
 
 .about-column {
   border-bottom: 2px solid #000 !important;
+  padding: 2rem 0 !important;
 }
 
 .about-hero-body {
@@ -239,6 +241,11 @@ html {
 
 .title {
   margin-bottom: 5px !important;
+}
+
+.message-next-button {
+  width: 4rem !important;
+  height: 4rem !important;
 }
 
 @import "bulma";
