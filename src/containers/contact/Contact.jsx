@@ -8,7 +8,7 @@ const ContactForm = ({ handleSubmit }) => {
         <h1 className="title is-size-2">Get in touch.</h1>
       </div>
       <div className="field">
-        <form onSubmit={handleSubmit}>
+        <form name="contact" method="post" onSubmit={handleSubmit}>
           <input type="hidden" name="form-name" value="contact" />
           <div className="columns">
             <div className="column is-half">
