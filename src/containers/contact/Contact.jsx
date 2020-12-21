@@ -97,7 +97,7 @@ const Contact = () => {
       <div className="hero-body">
         <div className="container">
           <div className="columns is-multiline is-vcentered is-centered">
-            <div className="column image-column is-half">
+            <div className="column is-half">
               {submitted ? <SubmitMessage /> : <ContactForm />}
             </div>
           </div>
