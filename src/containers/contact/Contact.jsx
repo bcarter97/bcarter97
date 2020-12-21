@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import queryString from "query-string";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ContactForm = ({ handleSubmit }) => {
   return (
