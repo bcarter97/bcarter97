@@ -1,23 +1,4 @@
-import { useEffect, useState } from "react";
-
-import quirkyMessages from "../util/quirky";
-
-const useMessage = () => {
-  const [messageCount, setMessageCount] = useState(0);
-  const [message, setMessage] = useState(quirkyMessages[messageCount]);
-
-  useEffect(() => {
-    setMessage(quirkyMessages[messageCount]);
-  }, [messageCount]);
-
-  const incrementMessage = () => {
-    setMessageCount((messageCount + 1) % quirkyMessages.length);
-  };
-
-  return [message, incrementMessage];
-};
-const AboutInfo = () => {
-  const [message] = useMessage();
+const AboutInfo = ({ message }) => {
   return (
     <div className="columns info-columns is-multiline is-vcentered is-centered is-gapless">
       <div className="column is-12">
@@ -26,7 +7,7 @@ const AboutInfo = () => {
           <a className="social-link" href="https://www.sky.com/">
             Sky
           </a>
-          . {message}.
+          . <span className="about-message">{message}</span>.
         </p>
       </div>
     </div>
