@@ -1,4 +1,5 @@
 import AboutInfo from "../../components/AboutInfo";
+import Seo from "../../components/Seo";
 import ProfilePicture from "../../media/ProfilePicture";
 import useMessage from "../../util/useMessage";
 
@@ -37,34 +38,37 @@ const Home = () => {
   const [message, incrementMessage] = useMessage();
 
   return (
-    <section className="hero about-hero">
-      <div className="hero-body about-hero-body">
-        <div className="container">
-          <div className="columns is-multiline is-vcentered is-centered">
-            <div className="column image-column is-half">
-              <ProfilePicture incrementMessage={incrementMessage} />
+    <>
+      <Seo title="Home" />
+      <section className="hero about-hero">
+        <div className="hero-body about-hero-body">
+          <div className="container">
+            <div className="columns is-multiline is-vcentered is-centered">
+              <div className="column image-column is-half">
+                <ProfilePicture incrementMessage={incrementMessage} />
+              </div>
+            </div>
+            <div className="columns is-multiline is-vcentered is-centered">
+              <div className="column is-half about-column">
+                <h1 className="title is-size-3 has-text-centered has-text-weight-bold">
+                  Hi, I'm Ben.
+                </h1>
+
+                <AboutInfo message={message} />
+              </div>
             </div>
           </div>
-          <div className="columns is-multiline is-vcentered is-centered">
-            <div className="column is-half about-column">
-              <h1 className="title is-size-3 has-text-centered has-text-weight-bold">
-                Hi, I'm Ben.
-              </h1>
 
-              <AboutInfo message={message} />
+          <div className="columns is-multiline is-vcentered is-centered">
+            <div className="column is-half is-pulled-right has-text-right button-column">
+              <MailButton />
+              <LinkedinButton />
+              <GitHubButton />
             </div>
           </div>
         </div>
-
-        <div className="columns is-multiline is-vcentered is-centered">
-          <div className="column is-half is-pulled-right has-text-right button-column">
-            <MailButton />
-            <LinkedinButton />
-            <GitHubButton />
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
