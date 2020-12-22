@@ -1,5 +1,6 @@
 import AboutInfo from "../../components/AboutInfo";
 import ProfilePicture from "../../media/ProfilePicture";
+import useMessage from "../../util/useMessage";
 
 const githubUrl = "https://github.com/bcarter97";
 const linkedinUrl = "https://www.linkedin.com/in/bcarter97/";
@@ -33,13 +34,15 @@ const MailButton = () => {
 };
 
 const Home = () => {
+  const [message, incrementMessage] = useMessage();
+
   return (
     <section className="hero about-hero">
       <div className="hero-body about-hero-body">
         <div className="container">
           <div className="columns is-multiline is-vcentered is-centered">
             <div className="column image-column is-half">
-              <ProfilePicture />
+              <ProfilePicture incrementMessage={incrementMessage} />
             </div>
           </div>
           <div className="columns is-multiline is-vcentered is-centered">
@@ -48,7 +51,7 @@ const Home = () => {
                 Hi, I'm Ben.
               </h1>
 
-              <AboutInfo />
+              <AboutInfo message={message} />
             </div>
           </div>
         </div>
