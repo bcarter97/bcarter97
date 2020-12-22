@@ -2,6 +2,8 @@ import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import Seo from "../../components/Seo";
+
 const ContactForm = () => {
   return (
     <>
@@ -88,22 +90,27 @@ const SubmitMessage = () => {
 const Contact = () => {
   const location = useLocation();
   const [submitted, setSubmitted] = useState(false);
+
   useEffect(() => {
     const { success } = queryString.parse(location.search);
     setSubmitted(!!success);
   }, [location]);
+
   return (
-    <section className="hero about-hero">
-      <div className="hero-body">
-        <div className="container">
-          <div className="columns is-multiline is-vcentered is-centered">
-            <div className="column is-half">
-              {submitted ? <SubmitMessage /> : <ContactForm />}
+    <>
+      <Seo title="Contact" />
+      <section className="hero about-hero">
+        <div className="hero-body">
+          <div className="container">
+            <div className="columns is-multiline is-vcentered is-centered">
+              <div className="column is-half">
+                {submitted ? <SubmitMessage /> : <ContactForm />}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 export default Contact;
