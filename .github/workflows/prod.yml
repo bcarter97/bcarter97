@@ -11,13 +11,21 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
-
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2 # setup the repository in the runner        
         with:
           node-version: 14.x
-      - run: npm install
+
+      - name: Setup Node.js # setup Node.js in the runner
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - run: npm ci # install dependencies
+      - run: npm run ci:test
       - run: npm run build --if-present
 
       - name: Deploy to netlify
