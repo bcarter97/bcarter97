@@ -10,15 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-      - uses: actions/checkout@v2 # setup the repository in the runner        
-        with:
-          node-version: 14.x
-
+      - uses: actions/checkout@v2 # setup the repository in the runner
       - name: Setup Node.js # setup Node.js in the runner
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '12'
       - uses: actions/cache@v2
         with:
           path: ~/.npm
