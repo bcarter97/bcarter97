@@ -26,7 +26,6 @@ const NavIcon = ({ to, icon, end }) => {
       className={`navbar-item is-hidden-desktop ${
         end ? "navbar-item-right" : ""
       }`}
-      // activeClassName="is-active"
     >
       <span className="icon is-medium">
         <i className={`${icon} fa-lg`}></i>
