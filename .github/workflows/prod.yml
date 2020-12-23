@@ -25,5 +25,6 @@ jobs:
         with:
           args: deploy --dir=/build --prod --build
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.STAGING_NETLIFY_SITE_ID }}
