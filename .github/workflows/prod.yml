@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=/build --prod --build
+          args: deploy --dir=build --prod --build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
