@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "unit-test": "react-scripts test --watchAll=false --coverage",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "ci:test": "run-s unit-test"
   },
   "eslintConfig": {
     "extends": [
