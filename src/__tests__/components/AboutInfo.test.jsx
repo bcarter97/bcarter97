@@ -1,4 +1,5 @@
 import { mount } from "enzyme";
+
 import AboutInfo from "../../components/AboutInfo";
 
 describe(`<AboutInfo />`, () => {
