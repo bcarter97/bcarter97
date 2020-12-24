@@ -15,6 +15,10 @@
     <img src="https://david-dm.org/bcarter97/bcarter97.svg" alt="dependency status"/>
   </a>
 
+  <a href="https://codecov.io/gh/bcarter97/bcarter97">
+   <img src="https://codecov.io/gh/bcarter97/bcarter97/branch/master/graph/badge.svg?token=70MYOY4ADE"/>
+  </a>
+
   <br>
   <br>
 
