@@ -41,6 +41,7 @@ const Nav = () => {
       className="navbar has-shadow is-spaced"
       role="navigation"
       aria-label="main navigation"
+      data-test-id="navbar"
     >
       <div className="container">
         <div className="navbar-brand">
