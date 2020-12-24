@@ -23,6 +23,11 @@ jobs:
       - run: npm ci # install dependencies
       - run: npm run ci:test
       - run: npm run build --if-present
+        
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not needed for public repo, included in case it goes private
 
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
