@@ -8,6 +8,17 @@ window.addEventListener("install", () => {
 
 export function unregister() {
   console.log("attempting to remove this sites broken service worker");
+
+  if ("caches" in window) {
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          return caches.delete(key);
+        })
+      );
+    });
+  }
+
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.ready.then((registration) => {
       registration.unregister();
