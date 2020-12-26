@@ -1,4 +1,4 @@
 [[headers]]
-  for = "/sw.js"
+  for = "/serviceWorker.js"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
