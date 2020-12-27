@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./app/App";
-import { unregister } from "./serviceWorker";
 
 import "./styles.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-unregister();
+navigator.serviceWorker.getRegistrations().then((registrations) => {
+  if (registrations.length === 0 || !registrations) {
+    window.location.reload(true);
+  }
+});
