@@ -8,6 +8,7 @@
   from = "/service-worker.js"
   to = "/service-worker.js"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/*"
