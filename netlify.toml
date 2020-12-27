@@ -5,12 +5,6 @@
     content-type = "text/javascript"
 
 [[redirects]]
-  from = "/service-worker.js"
-  to = "/service-worker.js"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
