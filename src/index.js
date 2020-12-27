@@ -9,7 +9,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 ReactDOM.render(<App />, document.getElementById("root"));
 
 navigator.serviceWorker.getRegistrations().then((registrations) => {
-  if (registrations.length === 0 || !registrations) {
+  if (registrations.length !== 0) {
     window.location.reload(true);
   }
 });
