@@ -1,7 +1,7 @@
 [[headers]]
-  for = "/service-worker.js"
+  for = "/static/js/serviceWorker.js"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+    cache-control = "max-age=0,no-cache,no-store,must-revalidate"
 
 [[redirects]]
   from = "/*"
