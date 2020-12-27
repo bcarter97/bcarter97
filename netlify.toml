@@ -2,6 +2,7 @@
   for = "/static/js/serviceWorker.js"
   [headers.values]
     cache-control = "max-age=0,no-cache,no-store,must-revalidate"
+    content-type = "text/javascript"
 
 [[redirects]]
   from = "/*"
