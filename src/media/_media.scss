@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+.image {
+  max-width: 256px;
+  margin: auto;
+}
+
+.image-column {
+  justify-content: center !important;
+  border-bottom: 2px solid #000 !important;
+  padding-bottom: 0 !important;
+}
+
+.image-container {
+  min-height: 256px;
+}
+
+.image-module {
+  height: auto !important;
+  width: 100% !important;
+  transition: 0.5s ease all !important;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

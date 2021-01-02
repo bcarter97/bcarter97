@@ -1,69 +1,12 @@
 import { NavLink } from "react-router-dom";
 
-import banner from "../images/banner/bannerSmall.png";
-import logo from "../images/banner/logoSmall.png";
+import Banner from "./Banner";
+import { ContactIcon, HomeIcon, KofiIcon, NavIcon } from "./NavIcons";
 
 const KOFI_ATTRIBS = {
   href: "https://ko-fi.com/L4L4345QX",
   target: "_blank",
   rel: "noopener noreferrer",
-};
-
-const Icon = ({ icon }) => {
-  return (
-    <span className="icon is-medium text-icon">
-      <i className={`${icon} fa-lg navbar-icon`}></i>
-    </span>
-  );
-};
-
-const HomeIcon = () => {
-  return <Icon icon="fas fa-home" />;
-};
-
-const ContactIcon = () => {
-  return <Icon icon="far fa-paper-plane" />;
-};
-
-const KofiIcon = () => {
-  return <Icon icon="fas fa-coffee" />;
-};
-
-const NavIcon = ({ to, icon, end }) => {
-  return (
-    <NavLink
-      exact
-      to={to}
-      className={`navbar-item is-hidden-desktop ${
-        end ? "navbar-item-right" : ""
-      }`}
-    >
-      <span className="icon is-medium">
-        <i className={`${icon} fa-lg`}></i>
-      </span>
-    </NavLink>
-  );
-};
-
-const Banner = () => {
-  return (
-    <NavLink exact to="/" className="navbar-item">
-      <img
-        src={banner}
-        height="28"
-        width="135"
-        alt="Site logo"
-        className="is-hidden-touch"
-      />
-      <img
-        src={logo}
-        height="28"
-        width="28"
-        alt="Site logo mobile"
-        className="is-hidden-desktop"
-      />
-    </NavLink>
-  );
 };
 
 const KofiItem = () => {
