@@ -1,6 +1,6 @@
 import { Route, Router } from "react-router-dom";
 
-import Nav from "../components/Nav";
+import Nav from "../components/nav/Nav";
 import { Contact, Home } from "../containers";
 import { history } from "../util/history";
 
