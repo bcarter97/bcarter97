@@ -4,6 +4,7 @@
 $family-sans-serif: "Comfortaa", sans-serif;
 
 $primary: hsl(171, 100%, 41%);
+$danger: hsl(348, 100%, 61%);
 $grey-light: hsl(0, 0%, 71%);
 $grey-lighter: hsl(0, 0%, 86%);
 $grey-lightest: #ececec;
@@ -65,6 +66,18 @@ html {
   color: black !important;
   margin-left: 2rem !important;
   transition: 200ms ease-in-out all;
+
+  &.kofi-item {
+    &:before {
+      background: $danger !important;
+    }
+
+    &:active {
+      &:before {
+        background: $danger !important;
+      }
+    }
+  }
 
   &:before {
     content: "";
@@ -206,6 +219,13 @@ html {
 .message-next-button {
   width: 4rem !important;
   height: 4rem !important;
+}
+
+.kofi-item-mobile {
+  &:hover,
+  &:active {
+    color: $danger !important;
+  }
 }
 
 @import "bulma";
