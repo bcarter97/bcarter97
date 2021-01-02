@@ -1,4 +1,4 @@
-import AboutInfo from "../../components/AboutInfo";
+import AboutInfo from "../../components/aboutInfo/AboutInfo";
 import Seo from "../../components/Seo";
 import ProfilePicture from "../../media/ProfilePicture";
 import useMessage from "../../util/useMessage";
