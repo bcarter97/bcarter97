@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import { MemoryRouter, NavLink } from "react-router-dom";
 
-import Nav from "../../components/Nav";
+import Nav from "../../components/nav/Nav";
 
 describe(`<Nav />`, () => {
   it(`renders a nav element`, () => {

@@ -1,9 +1,10 @@
-name: ci pipeline
+name: dev pipeline
 
 on:
   push:
+  pull_request:
     branches:
-      - master
+      - dev
 
 jobs:
   deploy:
@@ -24,15 +25,10 @@ jobs:
       - run: npm run ci:test
       - run: npm run build --if-present
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not needed for public repo, included in case it goes private
-
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=build --prod
+          args: deploy --dir=build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
