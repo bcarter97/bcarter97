@@ -14,13 +14,11 @@
     <img alt="David" src="https://img.shields.io/david/bcarter97/bcarter97?style=flat-square">
   </a>
 
-  <a href="https://david-dm.org/bcarter97/bcarter97" title="dev dependencies status">
-    <img alt="David" src="https://img.shields.io/david/dev/bcarter97/bcarter97?style=flat-square">
-  </a>
-
   <a href="https://codecov.io/gh/bcarter97/bcarter97">
    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/bcarter97/bcarter97?style=flat-square">
   </a>
+  
+  <br>
 
   <a href="https://raw.githubusercontent.com/bcarter97/bcarter97/master/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/bcarter97/bcarter97?style=flat-square">
