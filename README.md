@@ -4,6 +4,8 @@
 
   <br>
 </p>
+
+<hr>
   
 <p align="center">
   <a href="https://github.com/bcarter97/bcarter97/actions?query=workflow%3A%22ci+pipeline%22" title="github workflow">
