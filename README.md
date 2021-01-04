@@ -9,23 +9,21 @@
   <br>
   <br>
 
-  <img src="https://github.com/bcarter97/bcarter97/workflows/ci%20pipeline/badge.svg" alt="gh actions deploy status"/>
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/bcarter97/bcarter97/ci%20pipeline?style=flat-square">
 
   <a href="https://david-dm.org/bcarter97/bcarter97" title="dependencies status">
-    <img src="https://status.david-dm.org/gh/bcarter97/bcarter97.svg" alt="dependencies status"/>
+    <img alt="David" src="https://img.shields.io/david/bcarter97/bcarter97?style=flat-square">
   </a>
-
+  
+  <a href="https://david-dm.org/bcarter97/bcarter97" title="dev dependencies status">
+    <img alt="David" src="https://img.shields.io/david/dev/bcarter97/bcarter97?style=flat-square">
+  </a>
+  
   <a href="https://codecov.io/gh/bcarter97/bcarter97">
-   <img src="https://codecov.io/gh/bcarter97/bcarter97/branch/master/graph/badge.svg?token=70MYOY4ADE"/>
+   <img alt="Codecov" src="https://img.shields.io/codecov/c/github/bcarter97/bcarter97?style=flat-square">
   </a>
-
-  <br>
-  <br>
-
-  <p align="center">
-  Source code licensed under 
+  
   <a href="https://raw.githubusercontent.com/bcarter97/bcarter97/master/LICENSE">
-    MIT
+    <img alt="GitHub" src="https://img.shields.io/github/license/bcarter97/bcarter97?style=flat-square">
   </a>
-  </p>
 </p>
