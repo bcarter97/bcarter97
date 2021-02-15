@@ -30,18 +30,6 @@
   margin-left: 2rem !important;
   transition: 200ms ease-in-out all;
 
-  &.kofi-item {
-    &:before {
-      background: $danger !important;
-    }
-
-    &:active {
-      &:before {
-        background: $danger !important;
-      }
-    }
-  }
-
   &:before {
     content: "";
     display: block;
@@ -77,11 +65,4 @@
 
 .navbar-item-right {
   margin-left: auto !important;
-}
-
-.kofi-item-mobile {
-  &:hover,
-  &:active {
-    color: $danger !important;
-  }
 }

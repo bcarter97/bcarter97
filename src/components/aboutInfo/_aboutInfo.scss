@@ -1,19 +1,14 @@
 @charset "utf-8";
 
-.about-column {
+.about-section {
   border-bottom: 2px solid #000 !important;
-}
-
-.about-hero-body {
-  padding-top: 1.5rem !important;
-  padding-bottom: 1rem !important;
 }
 
 .button-column {
   padding-top: 1.5rem !important;
 }
 
-.about-hero {
+.default-section {
   @keyframes fade-in {
     from {
       transform: translateY(50px);
