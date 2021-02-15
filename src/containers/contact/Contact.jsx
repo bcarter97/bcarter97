@@ -50,7 +50,12 @@ const ContactForm = () => {
         } = props;
 
         return (
-          <form onSubmit={handleSubmit} name="contact" data-netlify={true}>
+          <form
+            onSubmit={handleSubmit}
+            name="contact"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
             <input type="hidden" name="form-name" value="contact" />
             <div className="field">
               <h1 className="title is-size-2">Get in touch.</h1>
