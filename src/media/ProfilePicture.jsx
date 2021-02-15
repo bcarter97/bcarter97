@@ -6,7 +6,7 @@ const ProfilePicture = ({ handleClick }) => {
   const [src, { blur }] = useProgressiveImg(profilePicLow, profilePic);
 
   return (
-    <div className="image-container">
+    <div className="image-container about-image">
       <figure className="image">
         <img
           className="image-module"

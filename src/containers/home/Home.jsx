@@ -40,14 +40,14 @@ const Home = () => {
         <ProfilePicture handleClick={incrementMessage} />
       </div>
 
-      <div className="block about-section">
+      <div className="block about-section about-info">
         <h1 className="title is-size-3 has-text-centered has-text-weight-bold">
           Hi, I'm Ben.
         </h1>
         <AboutInfo message={message} />
       </div>
 
-      <div className="block has-text-right">
+      <div className="block has-text-right about-buttons">
         <MailButton />
         <LinkedinButton />
         <GitHubButton />
