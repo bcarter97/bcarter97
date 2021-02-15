@@ -1,8 +1,7 @@
-import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import Seo from "../../components/Seo";
+import { LayoutDefault } from "../../components/layout/Layout";
 
 const ContactForm = () => {
   return (
@@ -11,7 +10,7 @@ const ContactForm = () => {
         <h1 className="title is-size-2">Get in touch.</h1>
       </div>
       <div className="field">
-        <form name="contact" method="post" action="/contact?success=true">
+        <form name="contact" method="post" action="/contact#success">
           <input type="hidden" name="form-name" value="contact" />
           <div className="columns">
             <div className="column is-half">
@@ -88,29 +87,18 @@ const SubmitMessage = () => {
   );
 };
 const Contact = () => {
-  const location = useLocation();
+  const { hash } = useLocation();
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const { success } = queryString.parse(location.search);
-    setSubmitted(!!success);
-  }, [location]);
+    const success = hash && hash === "#success";
+    setSubmitted(success);
+  }, [hash]);
 
   return (
-    <>
-      <Seo title="Contact" />
-      <section className="hero about-hero">
-        <div className="hero-body">
-          <div className="container">
-            <div className="columns is-multiline is-vcentered is-centered">
-              <div className="column is-half">
-                {submitted ? <SubmitMessage /> : <ContactForm />}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    <LayoutDefault title="Contact">
+      {submitted ? <SubmitMessage /> : <ContactForm />}
+    </LayoutDefault>
   );
 };
 export default Contact;
