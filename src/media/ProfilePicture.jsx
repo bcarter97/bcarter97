@@ -2,7 +2,7 @@ import profilePic from "../images/about/profile.png";
 import profilePicLow from "../images/about/profileLow.png";
 import useProgressiveImg from "../util/imageHook";
 
-const ProfilePicture = ({ incrementMessage }) => {
+const ProfilePicture = ({ handleClick }) => {
   const [src, { blur }] = useProgressiveImg(profilePicLow, profilePic);
 
   return (
@@ -16,7 +16,7 @@ const ProfilePicture = ({ incrementMessage }) => {
             filter: blur ? "blur(10px)" : "none",
             transition: blur ? "none" : "filter 0.1s ease-out",
           }}
-          onClick={incrementMessage}
+          onClick={handleClick}
         />
       </figure>
     </div>
