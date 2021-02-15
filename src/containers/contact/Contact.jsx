@@ -63,7 +63,7 @@ const ContactForm = () => {
 
             <div className="columns is-multiline">
               <div className="column is-6">
-                <div className="field">
+                <div className="field contact-field-name">
                   <label className="label" htmlFor="name">
                     Name
                   </label>
@@ -86,7 +86,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="column is-6">
-                <div className="field">
+                <div className="field contact-field-email">
                   <label className="label" htmlFor="email">
                     Email
                   </label>
@@ -109,7 +109,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="column is-12">
-                <div className="field">
+                <div className="field contact-field-message">
                   <label className="label" htmlFor="message">
                     Message
                   </label>
@@ -132,7 +132,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="column is-12">
-                <div className="field">
+                <div className="field contact-field-submit">
                   <div className="control">
                     <button
                       type="submit"
