@@ -1,7 +1,7 @@
 import AboutInfo from "../../components/aboutInfo/AboutInfo";
 import Seo from "../../components/Seo";
+import useMessage from "../../hooks/useMessage";
 import ProfilePicture from "../../media/ProfilePicture";
-import useMessage from "../../util/useMessage";
 
 const githubUrl = "https://github.com/bcarter97";
 const linkedinUrl = "https://www.linkedin.com/in/bcarter97/";
