@@ -1,77 +1,154 @@
+import { Formik } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import * as Yup from "yup";
 
 import { LayoutDefault } from "../../components/layout/Layout";
+import { history } from "../../util/history";
+import { encode } from "../../util/submit";
 
 const ContactForm = () => {
+  const [submitError, setSubmitError] = useState();
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    message: Yup.string().required("Message is required"),
+  });
+
+  const onSubmit = (values, actions) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...values }),
+    })
+      .then(() => {
+        actions.resetForm();
+        history.push({ hash: "#success" });
+      })
+      .catch(() => {
+        setSubmitError("Something went wrong.");
+      })
+      .finally(() => actions.setSubmitting(false));
+  };
+
   return (
-    <>
-      <div className="field">
-        <h1 className="title is-size-2">Get in touch.</h1>
-      </div>
-      <div className="field">
-        <form name="contact" method="post" action="/contact#success">
-          <input type="hidden" name="form-name" value="contact" />
-          <div className="columns">
-            <div className="column is-half">
-              <div className="field">
-                <label className="label">Name</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Leonard"
-                  />
+    <Formik
+      initialValues={{ name: "", email: "", message: "" }}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {(props) => {
+        const {
+          values,
+          touched,
+          errors,
+          isSubmitting,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        } = props;
+
+        return (
+          <form onSubmit={handleSubmit} name="contact" data-netlify={true}>
+            <input type="hidden" name="form-name" value="contact" />
+            <div className="field">
+              <h1 className="title is-size-2">Get in touch.</h1>
+            </div>
+
+            <div className="columns is-multiline">
+              <div className="column is-6">
+                <div className="field">
+                  <label className="label" htmlFor="name">
+                    Name
+                  </label>
+                  <div className="control">
+                    <input
+                      id="name"
+                      placeholder="Leonard"
+                      type="text"
+                      className={`input ${
+                        errors.name && touched.name && "is-danger"
+                      }`}
+                      value={values.name}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.name && touched.name && (
+                      <p className="help is-danger">{errors.name}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="column is-6">
+                <div className="field">
+                  <label className="label" htmlFor="email">
+                    Email
+                  </label>
+                  <div className="control">
+                    <input
+                      id="email"
+                      placeholder="lmccoy@enterprise.ufp"
+                      type="email"
+                      className={`input ${
+                        errors.email && touched.email && "is-danger"
+                      }`}
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.email && touched.email && (
+                      <p className="help is-danger">{errors.email}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="column is-12">
+                <div className="field">
+                  <label className="label" htmlFor="message">
+                    Message
+                  </label>
+                  <div className="control">
+                    <textarea
+                      id="message"
+                      placeholder="Damn it Jim, I'm a doctor not a form field."
+                      type="text"
+                      className={`textarea has-fixed-size ${
+                        errors.message && touched.message && "is-danger"
+                      }`}
+                      value={values.message}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.message && touched.message && (
+                      <p className="help is-danger">{errors.message}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="column is-12">
+                <div className="field">
+                  <div className="control">
+                    <button
+                      type="submit"
+                      className={`button is-primary is-fullwidth ${
+                        isSubmitting ? "is-loading" : ""
+                      }`}
+                    >
+                      Submit
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="column is-half">
-              <div className="field">
-                <label className="label">Email</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="lmccoy@enterprise.ufp"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Message</label>
-            <div className="control">
-              <textarea
-                className="textarea has-fixed-size"
-                name="message"
-                required
-                placeholder="Damn it Jim, I'm a doctor, not a form field."
-              ></textarea>
-            </div>
-          </div>
-          <div className="columns">
-            <div className="column is-fullwidth">
-              <div className="field">
-                <div className="control">
-                  <button
-                    className="button is-primary is-fullwidth"
-                    type="submit"
-                  >
-                    Send
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </>
+            {submitError && <p className="has-text-danger">{submitError}</p>}
+          </form>
+        );
+      }}
+    </Formik>
   );
 };
+
 const SubmitMessage = () => {
   return (
     <>
