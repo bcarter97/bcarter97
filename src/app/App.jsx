@@ -1,5 +1,6 @@
 import { Route, Router } from "react-router-dom";
 
+import Background from "../components/background/Background";
 import Nav from "../components/nav/Nav";
 import { Contact, Home } from "../containers";
 import { history } from "../util/history";
@@ -11,16 +12,24 @@ const routes = [
 
 const App = () => {
   return (
-    <div className="layout-default">
-      <Router history={history}>
-        <Nav />
-        <div className="container">
-          {routes.map(({ path, exact, Component }) => (
-            <Route key={path} exact={exact} path={path} component={Component} />
-          ))}
-        </div>
-      </Router>
-    </div>
+    <>
+      <Background />
+      <div className="layout-default">
+        <Router history={history}>
+          <Nav />
+          <div className="container">
+            {routes.map(({ path, exact, Component }) => (
+              <Route
+                key={path}
+                exact={exact}
+                path={path}
+                component={Component}
+              />
+            ))}
+          </div>
+        </Router>
+      </div>
+    </>
   );
 };
 
