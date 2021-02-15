@@ -1,11 +1,8 @@
 import AboutInfo from "../../components/aboutInfo/AboutInfo";
-import Seo from "../../components/Seo";
+import { LayoutDefault } from "../../components/layout/Layout";
 import useMessage from "../../hooks/useMessage";
 import ProfilePicture from "../../media/ProfilePicture";
-
-const githubUrl = "https://github.com/bcarter97";
-const linkedinUrl = "https://www.linkedin.com/in/bcarter97/";
-const mailUrl = "mailto:ben@carter.gg";
+import { GITHUB_URL, LINKEDIN_URL, MAIL_URL } from "../../util/config";
 
 const SocialButton = ({ name, url }) => {
   const iconName = name === "mail" ? "far fa-envelope" : `fab fa-${name}`;
@@ -23,52 +20,39 @@ const SocialButton = ({ name, url }) => {
 };
 
 const GitHubButton = () => {
-  return <SocialButton name="github" url={githubUrl} />;
+  return <SocialButton name="github" url={GITHUB_URL} />;
 };
 
 const LinkedinButton = () => {
-  return <SocialButton name="linkedin-in" url={linkedinUrl} />;
+  return <SocialButton name="linkedin-in" url={LINKEDIN_URL} />;
 };
 
 const MailButton = () => {
-  return <SocialButton name="mail" url={mailUrl} />;
+  return <SocialButton name="mail" url={MAIL_URL} />;
 };
 
 const Home = () => {
   const [message, incrementMessage] = useMessage();
 
   return (
-    <>
-      <Seo title="Home" />
-      <section className="hero about-hero">
-        <div className="hero-body about-hero-body">
-          <div className="container">
-            <div className="columns is-multiline is-vcentered is-centered">
-              <div className="column image-column is-half">
-                <ProfilePicture incrementMessage={incrementMessage} />
-              </div>
-            </div>
-            <div className="columns is-multiline is-vcentered is-centered">
-              <div className="column is-half about-column">
-                <h1 className="title is-size-3 has-text-centered has-text-weight-bold">
-                  Hi, I'm Ben.
-                </h1>
+    <LayoutDefault title="Home">
+      <div className="block about-section">
+        <ProfilePicture handleClick={incrementMessage} />
+      </div>
 
-                <AboutInfo message={message} />
-              </div>
-            </div>
-          </div>
+      <div className="block about-section">
+        <h1 className="title is-size-3 has-text-centered has-text-weight-bold">
+          Hi, I'm Ben.
+        </h1>
+        <AboutInfo message={message} />
+      </div>
 
-          <div className="columns is-multiline is-vcentered is-centered">
-            <div className="column is-half is-pulled-right has-text-right button-column">
-              <MailButton />
-              <LinkedinButton />
-              <GitHubButton />
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      <div className="block has-text-right">
+        <MailButton />
+        <LinkedinButton />
+        <GitHubButton />
+      </div>
+    </LayoutDefault>
   );
 };
 
