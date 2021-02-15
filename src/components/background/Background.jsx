@@ -14,9 +14,9 @@ const Background = () => {
             value: "#FCFCFC",
           },
         },
-        fpsLimit: 60,
+        fpsLimit: 30,
         interactivity: {
-          detectsOn: "window",
+          detectsOn: "canvas",
           events: {
             onHover: {
               enable: true,
@@ -50,9 +50,9 @@ const Background = () => {
           number: {
             density: {
               enable: true,
-              value_area: 2000,
+              value_area: 3000,
             },
-            value: 500,
+            value: 400,
           },
           opacity: {
             value: 0.1,
