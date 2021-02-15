@@ -31,7 +31,3 @@ export const HomeIcon = () => {
 export const ContactIcon = () => {
   return <Icon icon="far fa-paper-plane" />;
 };
-
-export const KofiIcon = () => {
-  return <Icon icon="fas fa-coffee" />;
-};
