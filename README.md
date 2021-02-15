@@ -22,7 +22,7 @@
   
   <br>
 
-  <a href="https://raw.githubusercontent.com/bcarter97/bcarter97/master/LICENSE">
+  <a href="https://raw.githubusercontent.com/bcarter97/bcarter97/main/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/bcarter97/bcarter97?style=flat-square">
   </a>
 </p>
