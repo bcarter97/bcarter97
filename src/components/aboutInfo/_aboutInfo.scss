@@ -8,6 +8,23 @@
   padding-top: 1.5rem !important;
 }
 
+@media screen and (max-width: 768px), print {
+  .button.is-fullwidth-mobile {
+    display: flex;
+    width: 100%;
+  }
+
+  .default-section {
+    padding: 1rem !important;
+  }
+}
+
+@media screen and (min-width: 769px), print {
+  .default-section {
+    padding-top: 10vh !important;
+  }
+}
+
 .default-section {
   @keyframes bounce-up {
     from {
