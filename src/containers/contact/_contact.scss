@@ -3,7 +3,8 @@
 $about-sections: "contact-field-name" 200ms translateX(20px) translateX(0px),
   "contact-field-email" 400ms translateX(20px) translateX(0px),
   "contact-field-message" 600ms translateX(20px) translateX(0px),
-  "contact-field-submit" 800ms translateX(20px) translateX(0px);
+  "contact-field-submit" 800ms translateX(20px) translateX(0px),
+  "help" 0ms translateX(20px) translateX(0px);
 
 @each $component, $delay, $initial-translation,
   $final-translation in $about-sections
@@ -27,4 +28,9 @@ $about-sections: "contact-field-name" 200ms translateX(20px) translateX(0px),
       $delay
       forwards;
   }
+}
+
+.input,
+.textarea {
+  transition: 0.2s ease all !important;
 }

@@ -42,7 +42,7 @@ $highlight-size: 2px;
 
 button,
 .button {
-  transition: 0.3s ease all;
+  transition: 0.3s ease all !important;
   &:hover,
   &:active,
   &.active {
