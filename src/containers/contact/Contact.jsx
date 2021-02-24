@@ -161,7 +161,7 @@ const SubmitMessage = () => {
         Thanks! I'll get back to you as soon as I can.
       </p>
       <p className="is-size-4 has-text-centered">
-        <Link to="/" className="has-text-weight-semibold social-link">
+        <Link to="/" className="has-text-weight-semibold nav-link">
           Home
         </Link>
       </p>
