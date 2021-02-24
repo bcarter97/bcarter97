@@ -14,7 +14,7 @@ const Background = () => {
             value: "#FCFCFC",
           },
         },
-        fpsLimit: 30,
+        fpsLimit: 60,
         interactivity: {
           detectsOn: "canvas",
           events: {
@@ -50,7 +50,7 @@ const Background = () => {
           number: {
             density: {
               enable: true,
-              value_area: 3000,
+              value_area: 10000,
             },
             value: 400,
           },
