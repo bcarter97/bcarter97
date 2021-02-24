@@ -4,6 +4,10 @@
   border-bottom: 2px solid #000 !important;
 }
 
+.about-info {
+  padding-bottom: 1.5rem !important;
+}
+
 .button-column {
   padding-top: 1.5rem !important;
 }
@@ -65,10 +69,6 @@ $about-sections: "about-image" 200ms translateX(20px) translateX(0px),
       $delay
       forwards;
   }
-}
-
-.title {
-  margin-bottom: 5px !important;
 }
 
 .bottom-button-icon,

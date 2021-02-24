@@ -1,8 +1,8 @@
-import { Route, Router } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 
 import Background from "../components/background/Background";
 import Nav from "../components/nav/Nav";
-import { Contact, Home } from "../containers";
+import { Contact, Home, NotFound } from "../containers";
 import { history } from "../util/history";
 
 const routes = [
@@ -18,14 +18,17 @@ const App = () => {
         <Router history={history}>
           <Nav />
           <div className="container">
-            {routes.map(({ path, exact, Component }) => (
-              <Route
-                key={path}
-                exact={exact}
-                path={path}
-                component={Component}
-              />
-            ))}
+            <Switch>
+              {routes.map(({ path, exact, Component }) => (
+                <Route
+                  key={path}
+                  exact={exact}
+                  path={path}
+                  component={Component}
+                />
+              ))}
+              <Route component={NotFound} />
+            </Switch>
           </div>
         </Router>
       </div>
