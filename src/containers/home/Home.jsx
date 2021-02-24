@@ -10,6 +10,8 @@ const SocialButton = ({ name, url }) => {
     <a
       className={`icon text-icon is-large social-button ${name}-button`}
       href={url}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <i
         className={`${iconName} fa-2x bottom-button-icon`}

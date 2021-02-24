@@ -4,7 +4,12 @@ const AboutInfo = ({ message }) => {
       <div className="column is-12" data-test-id="about-info-column">
         <p className="is-size-5-touch is-size-4-desktop has-text-weight-bold">
           Associate Software Developer at{" "}
-          <a className="social-link" href="https://www.sky.com/">
+          <a
+            className="nav-link"
+            href="https://www.sky.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Sky
           </a>
           .{" "}
