@@ -1,6 +1,5 @@
-import { AboutInfo, LayoutDefault } from "../../components";
-import useMessage from "../../hooks/useMessage";
-import ProfilePicture from "../../media/ProfilePicture";
+import { AboutInfo, LayoutDefault, ProfilePicture } from "../../components";
+import { useMessage } from "../../hooks";
 import { GITHUB_URL, LINKEDIN_URL, MAIL_URL } from "../../util/config";
 
 const SocialButton = ({ name, url }) => {
