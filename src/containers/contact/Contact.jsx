@@ -4,8 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import * as Yup from "yup";
 
 import { LayoutDefault } from "../../components";
-import { history } from "../../util/history";
-import { encode } from "../../util/submit";
+import { encodeForm, history } from "../../util/common";
 
 const ContactForm = () => {
   const [submitError, setSubmitError] = useState();
@@ -20,7 +19,7 @@ const ContactForm = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values }),
+      body: encodeForm({ "form-name": "contact", ...values }),
     })
       .then(() => {
         actions.resetForm();

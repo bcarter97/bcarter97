@@ -1,6 +1,6 @@
-import profilePic from "../images/about/profile.webp";
-import profilePicLow from "../images/about/profileLow.webp";
-import useProgressiveImg from "../hooks/imageHook";
+import { useProgressiveImg } from "../../hooks";
+import profilePic from "../../images/about/profile.webp";
+import profilePicLow from "../../images/about/profileLow.webp";
 
 const ProfilePicture = ({ handleClick }) => {
   const [src, { blur }] = useProgressiveImg(profilePicLow, profilePic);
