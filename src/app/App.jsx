@@ -1,7 +1,6 @@
 import { Route, Router, Switch } from "react-router-dom";
 
-import Background from "../components/background/Background";
-import Nav from "../components/nav/Nav";
+import { Background, Nav } from "../components";
 import { Contact, Home, NotFound } from "../containers";
 import { history } from "../util/history";
 

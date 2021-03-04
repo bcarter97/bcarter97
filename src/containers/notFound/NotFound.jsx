@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { LayoutDefault } from "../../components/layout/Layout";
+import { LayoutDefault } from "../../components";
 
 const NotFound = () => {
   const { pathname } = useLocation();
