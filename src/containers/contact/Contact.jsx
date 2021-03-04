@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as Yup from "yup";
 
-import { LayoutDefault } from "../../components/layout/Layout";
+import { LayoutDefault } from "../../components";
 import { history } from "../../util/history";
 import { encode } from "../../util/submit";
 

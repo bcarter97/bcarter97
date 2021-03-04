@@ -1,4 +1,4 @@
-import Seo from "../Seo";
+import { Seo } from "../";
 
 export const LayoutDefault = ({ title, children }) => {
   return (

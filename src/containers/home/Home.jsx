@@ -1,5 +1,4 @@
-import AboutInfo from "../../components/aboutInfo/AboutInfo";
-import { LayoutDefault } from "../../components/layout/Layout";
+import { AboutInfo, LayoutDefault } from "../../components";
 import useMessage from "../../hooks/useMessage";
 import ProfilePicture from "../../media/ProfilePicture";
 import { GITHUB_URL, LINKEDIN_URL, MAIL_URL } from "../../util/config";
