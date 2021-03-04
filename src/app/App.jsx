@@ -1,7 +1,7 @@
 import { Route, Router, Switch } from "react-router-dom";
 
 import { Background, Nav } from "../components";
-import { Contact, Home, NotFound } from "../containers";
+import { Contact, Home, NotFound } from "../pages";
 import { history } from "../util/common";
 
 const routes = [
