@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
-import quirkyMessages from "../util/quirky";
+import { messageList } from "../util/common";
 
 const useMessage = () => {
   const [messageCount, setMessageCount] = useState(0);
-  const [message, setMessage] = useState(quirkyMessages[messageCount]);
+  const [message, setMessage] = useState(messageList[messageCount]);
 
   useEffect(() => {
-    setMessage(quirkyMessages[messageCount]);
+    setMessage(messageList[messageCount]);
   }, [messageCount]);
 
   const incrementMessage = () => {
-    setMessageCount((messageCount + 1) % quirkyMessages.length);
+    setMessageCount((messageCount + 1) % messageList.length);
   };
 
   return [message, incrementMessage];

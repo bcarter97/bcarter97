@@ -2,7 +2,7 @@ import { Route, Router, Switch } from "react-router-dom";
 
 import { Background, Nav } from "../components";
 import { Contact, Home, NotFound } from "../containers";
-import { history } from "../util/history";
+import { history } from "../util/common";
 
 const routes = [
   { path: "/", name: "Home", exact: true, Component: Home },

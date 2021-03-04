@@ -1,6 +1,6 @@
 import { AboutInfo, LayoutDefault, ProfilePicture } from "../../components";
 import { useMessage } from "../../hooks";
-import { GITHUB_URL, LINKEDIN_URL, MAIL_URL } from "../../util/config";
+import { GITHUB_URL, LINKEDIN_URL, MAIL_URL } from "../../util/config/config";
 
 const SocialButton = ({ name, url }) => {
   const iconName = name === "mail" ? "far fa-envelope" : `fab fa-${name}`;

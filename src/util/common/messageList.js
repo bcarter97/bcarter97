@@ -7,6 +7,4 @@ const messages = [
 
 const lastMessage = "I've run out of funny things to say";
 
-const messageList = [..._.shuffle(messages), lastMessage];
-
-export default messageList;
+export const messageList = [..._.shuffle(messages), lastMessage];
