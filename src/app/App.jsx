@@ -5,8 +5,8 @@ import { Contact, Home, NotFound } from "../pages";
 import { history } from "../util/common";
 
 const routes = [
-  { path: "/", name: "Home", exact: true, Component: Home },
-  { path: "/contact", name: "Contact", exact: true, Component: Contact },
+  { path: "/", name: "Home", exact: true, Page: Home },
+  { path: "/contact", name: "Contact", exact: true, Page: Contact },
 ];
 
 const App = () => {
@@ -18,13 +18,8 @@ const App = () => {
           <Navbar />
           <div className="container">
             <Switch>
-              {routes.map(({ path, exact, Component }) => (
-                <Route
-                  key={path}
-                  exact={exact}
-                  path={path}
-                  component={Component}
-                />
+              {routes.map(({ path, exact, Page }) => (
+                <Route key={path} exact={exact} path={path} component={Page} />
               ))}
               <Route component={NotFound} />
             </Switch>
