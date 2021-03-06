@@ -1,6 +1,6 @@
 import { Seo } from "../";
 
-export const LayoutDefault = ({ title, children }) => {
+const LayoutDefault = ({ title, children }) => {
   return (
     <>
       <Seo title={title} />
@@ -14,3 +14,5 @@ export const LayoutDefault = ({ title, children }) => {
     </>
   );
 };
+
+export default LayoutDefault;
