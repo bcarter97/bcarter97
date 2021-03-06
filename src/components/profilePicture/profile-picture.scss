@@ -1,9 +1,12 @@
 @charset "utf-8";
 
-.image {
-  max-height: 256px;
-  max-width: 256px;
+.image-container {
   margin: auto;
+
+  &.is-medium {
+    max-height: 256px;
+    max-width: 256px;
+  }
 }
 
 .image-column {
@@ -12,12 +15,7 @@
   padding-bottom: 0 !important;
 }
 
-.image-module {
+.image {
   height: 256px !important;
   width: 100% !important;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.9;
-  }
 }
