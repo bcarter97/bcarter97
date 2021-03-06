@@ -12,11 +12,7 @@ const AboutInfo = ({ message }) => {
           >
             Sky
           </a>
-          .{" "}
-          <span className="about-message" data-test-id="about-message">
-            {message}
-          </span>
-          .
+          . <span data-test-id="about-message">{message}</span>.
         </p>
       </div>
     </div>

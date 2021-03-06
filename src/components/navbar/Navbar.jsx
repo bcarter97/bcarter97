@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-import Banner from "./Banner";
-import { ContactIcon, HomeIcon, NavIcon } from "./NavIcons";
+import { Banner, Icon, NavIcon } from "..";
 
-const Nav = () => {
+const Navbar = () => {
   return (
     <nav
       id="navbar"
@@ -20,11 +19,19 @@ const Nav = () => {
         </div>
         <div id="main-navigation" className="navbar-menu">
           <div className="navbar-end">
-            <NavLink className="navbar-item navbar-icon" exact to="/">
-              <HomeIcon /> <span className="navbar-icon">Home</span>
+            <NavLink className="navbar-item is-desktop" exact to="/">
+              <Icon
+                className="navbar-content is-navbar-icon"
+                icon="fas fa-home"
+              />{" "}
+              <span className="navbar-content">Home</span>
             </NavLink>
-            <NavLink className="navbar-item navbar-icon" exact to="/contact">
-              <ContactIcon /> <span className="navbar-icon">Contact</span>
+            <NavLink className="navbar-item is-desktop" exact to="/contact">
+              <Icon
+                className="navbar-content is-navbar-icon"
+                icon="far fa-paper-plane"
+              />{" "}
+              <span className="navbar-content">Contact</span>
             </NavLink>
           </div>
         </div>
@@ -33,4 +40,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navbar;

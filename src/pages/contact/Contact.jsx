@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as Yup from "yup";
 
-import { LayoutDefault } from "../../components";
+import { Layout } from "../../components";
 import { encodeForm, history } from "../../util/common";
 
 const ContactForm = () => {
@@ -177,9 +177,9 @@ const Contact = () => {
   }, [hash]);
 
   return (
-    <LayoutDefault title="Contact">
+    <Layout title="Contact">
       {submitted ? <SubmitMessage /> : <ContactForm />}
-    </LayoutDefault>
+    </Layout>
   );
 };
 export default Contact;

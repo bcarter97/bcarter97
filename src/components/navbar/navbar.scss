@@ -1,28 +1,6 @@
 @charset "utf-8";
 
-.mobile-nav-item {
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
-  backface-visibility: hidden;
-  background-color: transparent !important;
-  position: relative;
-  color: black !important;
-  transition: 200ms ease-in-out all;
-}
-
-.navbar-item {
-  &.active {
-    color: $primary !important;
-  }
-}
-
-.text-icon {
-  margin-right: 5px !important;
-  position: relative !important;
-  top: -1px !important;
-}
-
-.navbar-item.navbar-icon {
+.navbar-item.is-desktop {
   backface-visibility: hidden;
   background-color: transparent !important;
   position: relative !important;
@@ -58,11 +36,11 @@
     }
   }
 
-  &.active {
-    color: $primary !important;
+  .navbar-content {
+    position: relative !important;
+    z-index: 5;
+    &.active {
+      color: $primary !important;
+    }
   }
-}
-
-.navbar-item-right {
-  margin-left: auto !important;
 }

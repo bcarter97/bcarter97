@@ -1,11 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { LayoutDefault } from "../../components";
+import { Layout } from "../../components";
 
 const NotFound = () => {
   const { pathname } = useLocation();
   return (
-    <LayoutDefault title="404">
+    <Layout title="404">
       <div className="block">
         <h1 className="title has-text-danger">Error: 404</h1>
         <p className="subtitle">
@@ -17,7 +17,7 @@ const NotFound = () => {
           Go home
         </Link>
       </div>
-    </LayoutDefault>
+    </Layout>
   );
 };
 

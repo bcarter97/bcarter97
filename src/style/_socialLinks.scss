@@ -31,15 +31,6 @@ $highlight-size: 2px;
   transition-timing-function: ease-in-out;
 }
 
-.social-button {
-  color: $default-text-color;
-  transition: 0.2s ease all;
-
-  &:hover {
-    color: $primary;
-  }
-}
-
 .nav-link {
   background: linear-gradient(
     to bottom,
