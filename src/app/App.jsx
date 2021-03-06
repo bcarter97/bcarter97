@@ -1,6 +1,6 @@
 import { Route, Router, Switch } from "react-router-dom";
 
-import { Background, Nav } from "../components";
+import { Background, Navbar } from "../components";
 import { Contact, Home, NotFound } from "../pages";
 import { history } from "../util/common";
 
@@ -15,7 +15,7 @@ const App = () => {
       <Background />
       <div className="layout-default">
         <Router history={history}>
-          <Nav />
+          <Navbar />
           <div className="container">
             <Switch>
               {routes.map(({ path, exact, Component }) => (
