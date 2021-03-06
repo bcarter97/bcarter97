@@ -1,6 +1,6 @@
 import { mount } from "enzyme";
 
-import AboutInfo from "../../components/aboutInfo/AboutInfo";
+import { AboutInfo } from "..";
 
 describe(`<AboutInfo />`, () => {
   it(`should render a single column`, () => {
