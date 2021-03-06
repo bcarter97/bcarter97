@@ -1,58 +1,33 @@
-import { AboutInfo, LayoutDefault, ProfilePicture } from "../../components";
+import {
+  AboutInfo,
+  AboutSection,
+  Layout,
+  ProfilePicture,
+  SocialButton,
+  Title,
+} from "../../components";
 import { useMessage } from "../../hooks";
-import { GITHUB_URL, LINKEDIN_URL, MAIL_URL } from "../../util/config/config";
-
-const SocialButton = ({ name, url }) => {
-  const iconName = name === "mail" ? "far fa-envelope" : `fab fa-${name}`;
-  return (
-    <a
-      className={`icon text-icon is-large social-button ${name}-button`}
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <i
-        className={`${iconName} fa-2x bottom-button-icon`}
-        aria-hidden="true"
-      />
-    </a>
-  );
-};
-
-const GitHubButton = () => {
-  return <SocialButton name="github" url={GITHUB_URL} />;
-};
-
-const LinkedinButton = () => {
-  return <SocialButton name="linkedin-in" url={LINKEDIN_URL} />;
-};
-
-const MailButton = () => {
-  return <SocialButton name="mail" url={MAIL_URL} />;
-};
 
 const Home = () => {
   const [message, incrementMessage] = useMessage();
 
   return (
-    <LayoutDefault title="Home">
-      <div className="block about-section">
-        <ProfilePicture handleClick={incrementMessage} />
-      </div>
+    <Layout title="Home">
+      <AboutSection>
+        <ProfilePicture onClick={incrementMessage} />
+      </AboutSection>
 
-      <div className="block about-section about-info">
-        <h1 className="title is-size-3 has-text-centered has-text-weight-bold">
-          Hi, I'm Ben.
-        </h1>
+      <AboutSection>
+        <Title text="Hi, I'm Ben." />
         <AboutInfo message={message} />
-      </div>
+      </AboutSection>
 
-      <div className="block has-text-right about-buttons">
-        <MailButton />
-        <LinkedinButton />
-        <GitHubButton />
-      </div>
-    </LayoutDefault>
+      <AboutSection>
+        <SocialButton name="mail" />
+        <SocialButton name="linkedin" />
+        <SocialButton name="github" />
+      </AboutSection>
+    </Layout>
   );
 };
 
