@@ -1,6 +1,12 @@
 export { default as AboutInfo } from "./aboutInfo/AboutInfo";
+export { default as AboutSection } from "./aboutSection/AboutSection";
 export { default as Background } from "./background/Background";
-export * from "./layout/Layout";
-export { default as Nav } from "./nav/Nav";
-export { default as Seo } from "./seo/Seo";
+export { default as Banner } from "./banner/Banner";
+export { default as Icon } from "./icon/Icon";
+export { default as Layout } from "./layout/Layout";
+export { default as Navbar } from "./navbar/Navbar";
+export { default as NavIcon } from "./navIcon/NavIcon";
 export { default as ProfilePicture } from "./profilePicture/ProfilePicture";
+export { default as Seo } from "./seo/Seo";
+export { default as SocialButton } from "./socialButton/SocialButton";
+export { default as Title } from "./title/Title";
