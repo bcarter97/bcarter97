@@ -1,15 +1,12 @@
 name: dev pipeline
 
 on:
-  push:
-    branches:
-      - dev
   pull_request:
     branches:
-      - dev
+      - main
 
 jobs:
-  deploy:
+  feature-deploy:
     runs-on: ubuntu-latest
 
     steps:
