@@ -4,14 +4,8 @@
     "jest": true,
     "es6": true
   },
-  "plugins": ["import", "simple-import-sort", "jsx-a11y"],
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended",
-    "next/core-web-vitals"
-  ],
+  "plugins": ["import", "simple-import-sort"],
+  "extends": ["plugin:prettier/recommended", "next/core-web-vitals"],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
@@ -21,15 +15,7 @@
     "no-eval": "error",
     "import/first": "error",
     "no-unused-vars": "error",
-    "simple-import-sort/imports": "error",
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
-      }
-    ]
+    "simple-import-sort/imports": "error"
   },
   "overrides": [
     {
