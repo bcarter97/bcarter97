@@ -9,7 +9,7 @@ const NotFound = () => {
       <div className="block">
         <h1 className="title has-text-danger">Error: 404</h1>
         <p className="subtitle">
-          We couldn't find the page at <code>{asPath}</code>
+          We couldn&apos;t find the page at <code>{asPath}</code>
         </p>
       </div>
       <div className="block">
