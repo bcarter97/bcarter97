@@ -21,5 +21,10 @@
     "import/first": "error",
     "no-unused-vars": "error",
     "simple-import-sort/imports": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["{components,hooks,util,pages}/**/*.{js,jsx}"]
+    }
+  ]
 }
