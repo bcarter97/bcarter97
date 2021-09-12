@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import bannerSmall from "public/bannerSmall.webp";
-import logoSmall from "public/logoSmall.webp";
+import bannerSmall from "public/bannerSmall.png";
+import logoSmall from "public/logoSmall.png";
 
 const Banner = () => {
   return (

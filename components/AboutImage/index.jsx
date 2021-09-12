@@ -1,5 +1,5 @@
 import Image from "next/image";
-import profilePic from "public/profile.webp";
+import profilePic from "public/profile.png";
 
 const AboutImage = ({ onClick }) => {
   return (
