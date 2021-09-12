@@ -4,8 +4,13 @@
     "jest": true,
     "es6": true
   },
-  "plugins": ["import", "simple-import-sort"],
-  "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended"],
+  "plugins": ["import", "simple-import-sort", "jsx-a11y"],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
