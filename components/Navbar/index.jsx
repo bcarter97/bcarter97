@@ -1,7 +1,7 @@
-import Link from "next/link";
 import Banner from "components/Banner";
 import Icon from "components/Icon";
 import MobileIcon from "components/MobileIcon";
+import Link from "next/link";
 
 const Navbar = () => {
   return (

@@ -4,8 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint 'pages/**/*.{js,jsx}'",
-    "lint:fix": "eslint 'pages/**/*.{js,jsx}' --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
