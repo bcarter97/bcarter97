@@ -1,0 +1,31 @@
+$animation-delay: 0.2s;
+
+@mixin bounce-animation($initial-translation, $final-translation) {
+  @keyframes bounce {
+    from {
+      transform: $initial-translation;
+      opacity: 0;
+    }
+    to {
+      transform: $final-translation;
+      opacity: 1;
+    }
+  }
+}
+
+.about-section {
+  // Start it invisible
+  // opacity: 0;
+
+  // Make the transitions stack
+  @for $i from 1 through 2 {
+    &:nth-child(#{$i}) {
+      animation: bounce
+        200ms
+        cubic-bezier(0.4, 0.885, 0.32, 1.275)
+        #{$i *
+        $animation-delay}
+        forwards;
+    }
+  }
+}

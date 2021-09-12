@@ -1,0 +1,44 @@
+.navbar-item.is-desktop {
+  backface-visibility: hidden;
+  background-color: transparent !important;
+  position: relative !important;
+  color: black !important;
+  margin-left: 2rem !important;
+  transition: 200ms ease-in-out all;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 4;
+    opacity: 0;
+    transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
+    transform: scale(0.9);
+    background: $grey-lightest;
+    border-radius: 10000px;
+    left: -5%;
+    width: 110%;
+    height: 100%;
+  }
+
+  &:hover {
+    &:before {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    &::before {
+      background: $grey-lighter !important;
+    }
+  }
+
+  .navbar-content {
+    position: relative !important;
+    z-index: 5;
+    &.active {
+      color: $primary !important;
+    }
+  }
+}
