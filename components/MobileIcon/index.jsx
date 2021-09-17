@@ -1,8 +1,8 @@
-import Link from "next/link";
+import NavLink from "components/NavLink";
 
 const MobileIcon = ({ to, icon, end }) => {
   return (
-    <Link href={to}>
+    <NavLink href={to} exact>
       <a
         className={`navbar-item is-hidden-desktop ${
           end ? "navbar-item-right" : ""
@@ -12,7 +12,7 @@ const MobileIcon = ({ to, icon, end }) => {
           <i className={`${icon} fa-lg`}></i>
         </span>
       </a>
-    </Link>
+    </NavLink>
   );
 };
 

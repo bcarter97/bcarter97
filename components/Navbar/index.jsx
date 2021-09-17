@@ -1,7 +1,7 @@
 import Banner from "components/Banner";
 import Icon from "components/Icon";
 import MobileIcon from "components/MobileIcon";
-import Link from "next/link";
+import NavLink from "components/NavLink";
 
 const Navbar = () => {
   return (
@@ -21,7 +21,7 @@ const Navbar = () => {
         <div id="main-navigation" className="navbar-menu">
           <div className="navbar-end">
             <div className="navbar-end">
-              <Link href="/">
+              <NavLink href="/" exact>
                 <a className="navbar-item is-desktop">
                   <Icon
                     className="navbar-content is-navbar-icon"
@@ -29,8 +29,8 @@ const Navbar = () => {
                   />{" "}
                   <span className="navbar-content">Home</span>
                 </a>
-              </Link>
-              <Link href="/contact">
+              </NavLink>
+              <NavLink href="/contact" exact>
                 <a className="navbar-item is-desktop">
                   <Icon
                     className="navbar-content is-navbar-icon"
@@ -38,7 +38,7 @@ const Navbar = () => {
                   />{" "}
                   <span className="navbar-content">Contact</span>
                 </a>
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
