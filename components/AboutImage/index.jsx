@@ -10,6 +10,7 @@ const AboutImage = ({ onClick }) => {
         layout="fill"
         className="about-image"
         onClick={onClick}
+        placeholder="blur"
       />
     </div>
   );
