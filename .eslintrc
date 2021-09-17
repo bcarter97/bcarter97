@@ -15,7 +15,8 @@
     "no-eval": "error",
     "import/first": "error",
     "no-unused-vars": "error",
-    "simple-import-sort/imports": "error"
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
   "overrides": [
     {
