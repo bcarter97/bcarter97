@@ -66,6 +66,7 @@ const ContactForm = ({ setSubmit }) => {
                   <div className="control">
                     <input
                       id="name"
+                      name="name"
                       placeholder="Leonard"
                       type="text"
                       className={`input ${
@@ -89,6 +90,7 @@ const ContactForm = ({ setSubmit }) => {
                   <div className="control">
                     <input
                       id="email"
+                      name="email"
                       placeholder="lmccoy@enterprise.com"
                       type="email"
                       className={`input ${
@@ -112,6 +114,7 @@ const ContactForm = ({ setSubmit }) => {
                   <div className="control">
                     <textarea
                       id="message"
+                      name="message"
                       placeholder="Damn it Jim, I'm a doctor not a form field."
                       type="text"
                       className={`textarea has-fixed-size ${
