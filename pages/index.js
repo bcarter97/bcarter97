@@ -8,12 +8,14 @@ import useMessage from "hooks/useMessage";
 const Home = () => {
   const [message, incrementMessage] = useMessage();
   return (
-    <Layout>
+    <Layout title="Home">
       <AboutSection>
         <AboutImage onClick={incrementMessage} />
       </AboutSection>
       <AboutSection>
         <Title text="Hi, I'm Ben." />
+      </AboutSection>
+      <AboutSection>
         <AboutInfo message={message} />
       </AboutSection>
     </Layout>
