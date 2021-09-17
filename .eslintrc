@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "plugins": ["import", "simple-import-sort"],
+  "extends": ["plugin:prettier/recommended", "next/core-web-vitals"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "error",
+    "no-eval": "error",
+    "import/first": "error",
+    "no-unused-vars": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  },
+  "overrides": [
+    {
+      "files": ["{components,hooks,util,pages}/**/*.{js,jsx}"]
+    }
+  ]
+}

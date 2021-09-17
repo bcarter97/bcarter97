@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  feature-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,14 +17,12 @@ jobs:
           node-version: "12"
       - uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-      - run: npm ci # install dependencies
-      - run: npm run ci:test
-      - run: npm run build --if-present
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - run: yarn install --frozen-lockfile
+      - run: yarn run test
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not needed for public repo, included in case it goes private
+      # - name: Upload coverage to Codecov
+      # uses: codecov/codecov-action@v1
+      # with:
+      # token: ${{ secrets.CODECOV_TOKEN }} # not needed for public repo, included in case it goes private

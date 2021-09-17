@@ -1,0 +1,65 @@
+$highlight-size: 2px;
+
+.social-link {
+  background: linear-gradient(
+    to bottom,
+    lighten($sky, 30%),
+    lighten($sky, 30%) 100%
+  );
+}
+
+.social-link:hover {
+  border-radius: 5px;
+  background-size: 4px 100%;
+  color: $sky;
+}
+
+.social-link {
+  cursor: pointer;
+  border-radius: 0px;
+  padding: $highlight-size;
+  margin: -$highlight-size;
+  color: $default-text-color;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 3px;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  transition-property: background-size, border-radius, color;
+  transition-timing-function: ease-in-out;
+}
+
+.nav-link {
+  background: linear-gradient(
+    to bottom,
+    lighten(#0356e0, 40%),
+    lighten(#0356e0, 40%) 100%
+  );
+
+  border-radius: 0px;
+  padding: 2px;
+  margin: -2px;
+  color: #0356e0;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 3px;
+  text-decoration: none;
+  transition: 0.2s ease all;
+
+  &:hover {
+    border-radius: 5px;
+    background-size: 4px 100%;
+    color: #0356e0;
+  }
+}
+
+button,
+.button {
+  transition: 0.3s ease all !important;
+  &:hover,
+  &:active,
+  &.active {
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+      0 0px 0 1px rgb(10 10 10 / 2%) !important;
+  }
+}
