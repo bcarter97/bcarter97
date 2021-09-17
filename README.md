@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://carter.gg/" target="_blank" rel="noopener noreferrer">
-	  <img src="https://carter.gg/android-chrome-512x512.png" alt="carter.gg" width="200"/>
+	  <img src="https://raw.githubusercontent.com/bcarter97/bcarter97/main/public/logo.png" alt="carter.gg" width="200"/>
   </a>
 </p>
 <hr/>
