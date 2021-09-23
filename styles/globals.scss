@@ -6,6 +6,7 @@ $family-sans-serif: "Comfortaa", sans-serif;
 $dimensions: 16 24 32 48 64 96 128 256 512 !default;
 
 @import "~bulma/bulma";
+@import "./background";
 @import "./navbar";
 @import "./layout";
 @import "./mobileIcon";
