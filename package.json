@@ -27,6 +27,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "^2.4.1",
-    "sass": "^1.41.1"
+    "sass": "^1.42.1"
   }
 }
