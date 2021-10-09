@@ -15,6 +15,7 @@ const Home = () => {
             alt="Ben Carter"
             className="rounded-xl"
             onClick={incrementMessage}
+            placeholder="blur"
           />
         </div>
         <p className="text-3xl font-bold py-2 text-center">Hi, I&apos;m Ben.</p>
