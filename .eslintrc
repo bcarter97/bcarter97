@@ -20,7 +20,7 @@
   },
   "overrides": [
     {
-      "files": ["{components,hooks,util,pages}/**/*.{js,jsx}"]
+      "files": ["{components,util,hooks,context,src,pages}/**/*.{js,jsx}"]
     }
   ]
 }
