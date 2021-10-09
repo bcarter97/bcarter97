@@ -1,14 +1,9 @@
-import Layout from "components/Layout";
-import NotFound from "components/NotFound";
-import Head from "next/head";
+import { Layout } from "components";
 
-const Custom404 = () => (
-  <Layout>
-    <Head>
-      <title>Ben Carter / 404</title>
-    </Head>
-    <NotFound />
+const NotFound = () => (
+  <Layout title="Not Found">
+    <div>Not found!</div>
   </Layout>
 );
 
-export default Custom404;
+export default NotFound;
