@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <Layout>
       <Column>
-        <div className="h-48 w-48 mx-auto">
+        <div className="h-64 w-64 mx-auto">
           <Image
             src={ProfilePic}
             alt="Ben Carter"
@@ -18,8 +18,10 @@ const Home = () => {
             placeholder="blur"
           />
         </div>
-        <p className="text-3xl font-bold py-2 text-center">Hi, I&apos;m Ben.</p>
-        <p className="text-xl">
+        <p className="text-4xl font-semibold mt-6 mb-4 text-center">
+          Hi, I&apos;m Ben.
+        </p>
+        <p className="text-2xl font-semibold">
           Associate Software Developer at Sky. {message}.
         </p>
       </Column>
