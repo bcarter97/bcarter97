@@ -1,4 +1,5 @@
 import {
+  CodeIcon,
   HomeIcon,
   MailIcon,
   MoonIcon,
@@ -22,7 +23,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="flex-1 flex items-center">
-            <div className="flex-shrink-0 flex items-center">
+            <div className="flex-shrink-0 flex items-center space-x-4">
               <NavLink href="/">
                 <a className="block h-8 w-8 relative">
                   <Image
@@ -33,6 +34,18 @@ const Navbar = () => {
                   />
                 </a>
               </NavLink>
+              <a
+                href="https://github.com/bcarter97"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-900 color-fade rounded-md"
+              >
+                <CodeIcon
+                  className="h-6 w-6 text inline align-bottom"
+                  aria-hidden="true"
+                />
+                <span className="ml-2 hidden lg:inline">GitHub</span>
+              </a>
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
