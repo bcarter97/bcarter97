@@ -45,6 +45,9 @@ module.exports = {
         "bounce-left":
           "bounce-left cubic-bezier(0.4, 0.885, 0.32, 1.275) 0.2s 0.2s forwards",
       },
+      backgroundImage: {
+        "hero-pattern": "url('public/meteor.svg')",
+      },
     },
   },
   variants: {

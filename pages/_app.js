@@ -6,7 +6,7 @@ import { ThemeContext } from "context";
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeContext>
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="min-h-screen bg-cover bg-hero-pattern bg-gray-200 dark:bg-gray-900">
         <Navbar />
         <Component {...pageProps} />
       </div>
