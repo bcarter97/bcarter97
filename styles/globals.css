@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+@layer base {
+  div,
+  nav,
+  p {
+    @apply transition-all ease-in-out duration-300;
+  }
+
+  span,
+  p {
+    @apply text-gray-900 dark:text-gray-50;
+  }
+}
+
+.text {
+  @apply text-gray-900 dark:text-gray-50;
+}
+
+.color-fade {
+  @apply transition-colors ease-in-out duration-300;
+}
+
+.bounce-left {
+  opacity: 0;
+}

@@ -1,23 +1,30 @@
-import AboutImage from "components/AboutImage";
-import AboutInfo from "components/AboutInfo";
-import AboutSection from "components/AboutSection";
-import Layout from "components/Layout";
-import Title from "components/Title";
-import useMessage from "hooks/useMessage";
+import { Column, Layout } from "components";
+import { useMessage } from "hooks";
+import Image from "next/image";
+import ProfilePic from "public/profile.png";
 
 const Home = () => {
   const [message, incrementMessage] = useMessage();
+
   return (
-    <Layout title="Home">
-      <AboutSection>
-        <AboutImage onClick={incrementMessage} />
-      </AboutSection>
-      <AboutSection>
-        <Title text="Hi, I'm Ben." />
-      </AboutSection>
-      <AboutSection>
-        <AboutInfo message={message} />
-      </AboutSection>
+    <Layout>
+      <Column>
+        <div className="h-64 w-64 mx-auto">
+          <Image
+            src={ProfilePic}
+            alt="Ben Carter"
+            className="rounded-xl"
+            onClick={incrementMessage}
+            placeholder="blur"
+          />
+        </div>
+        <p className="text-4xl font-semibold mt-6 mb-4 text-center">
+          Hi, I&apos;m Ben.
+        </p>
+        <p className="text-2xl font-semibold">
+          Associate Software Developer at Sky. {message}.
+        </p>
+      </Column>
     </Layout>
   );
 };

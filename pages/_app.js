@@ -1,19 +1,17 @@
-import "styles/globals.scss";
-import "@fortawesome/fontawesome-free/css/all.css";
+import "../styles/globals.css";
 
-import Navbar from "components/Navbar";
-import Head from "next/head";
+import { Navbar } from "components";
+import { ThemeContext } from "context";
 
-function MyApp({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return (
-    <div className="layout-default">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Navbar />
-      <Component {...pageProps} />
-    </div>
+    <ThemeContext>
+      <div className="min-h-screen bg-cover bg-hero-pattern bg-gray-200 dark:bg-gray-900">
+        <Navbar />
+        <Component {...pageProps} />
+      </div>
+    </ThemeContext>
   );
-}
+};
 
-export default MyApp;
+export default App;
