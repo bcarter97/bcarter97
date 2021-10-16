@@ -1,5 +1,9 @@
 export { default as Button } from "./Button";
 export { default as Column } from "./Column";
+export { default as ErrorMessage } from "./ErrorMessage";
+export { default as Input } from "./Input";
+export { default as Label } from "./Label";
 export { default as Layout } from "./Layout";
 export { default as Navbar } from "./Navbar";
 export { default as NavLink } from "./NavLink";
+export { default as TextArea } from "./TextArea";
