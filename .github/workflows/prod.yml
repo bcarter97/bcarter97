@@ -20,6 +20,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
+      - run: yarn run lint
       - run: yarn run test
 
       # - name: Upload coverage to Codecov
