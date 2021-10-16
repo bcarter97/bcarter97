@@ -28,7 +28,7 @@ const SubmitMessage = () => (
   </>
 );
 
-const ContactForm = ({ submit }) => {
+const ContactForm = ({ setSubmitted }) => {
   const [submitError, setSubmitError] = useState();
 
   const validationSchema = Yup.object().shape({
@@ -37,20 +37,20 @@ const ContactForm = ({ submit }) => {
     message: Yup.string().required("Message is required"),
   });
 
-  const onSubmit = (values, actions) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeForm({ "form-name": "contact", ...values }),
-    })
-      .then(() => {
-        submit();
-        actions.resetForm();
-      })
-      .catch(() => {
-        setSubmitError("Something went wrong.");
-      })
-      .finally(() => actions.setSubmitting(false));
+  const onSubmit = async (values, actions) => {
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm({ "form-name": "contact", ...values }),
+      });
+      setSubmitted(true);
+      actions.resetForm();
+    } catch (e) {
+      setSubmitError("Something went wrong.");
+    } finally {
+      actions.setSubmitting(false);
+    }
   };
 
   return (
@@ -147,12 +147,14 @@ const ContactForm = ({ submit }) => {
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
-  const submit = () => setSubmitted(true);
-
   return (
     <Layout title="Contact">
       <Column>
-        {submitted ? <SubmitMessage /> : <ContactForm submit={submit} />}
+        {submitted ? (
+          <SubmitMessage />
+        ) : (
+          <ContactForm setSubmitted={setSubmitted} />
+        )}
       </Column>
     </Layout>
   );
