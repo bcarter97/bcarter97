@@ -1,5 +1,13 @@
 import { encodeForm } from "common";
-import { Button, Column, Layout } from "components";
+import {
+  Button,
+  Column,
+  ErrorMessage,
+  Input,
+  Label,
+  Layout,
+  TextArea,
+} from "components";
 import { Formik } from "formik";
 import Link from "next/link";
 import { useState } from "react";
@@ -7,7 +15,7 @@ import * as Yup from "yup";
 
 const SubmitMessage = () => (
   <>
-    <p className="text-4xl">
+    <p className="text-3xl mb-12">
       Thanks! I&apos;ll get back to you as soon as I can.
     </p>
     <Link href="/">
@@ -73,83 +81,47 @@ const ContactForm = ({ submit }) => {
 
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
-                <label
-                  className="text block tracking-wide text-gray-700 font-bold mb-1"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
+                <Label htmlFor="name">Name</Label>
+                <Input
                   id="name"
-                  name="name"
                   placeholder="Leonard"
-                  type="text"
-                  className={`
-                    "block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none outline-none" ${
-                      errors.name && touched.name && "border-red-500"
-                    }`}
                   value={values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  errorCondition={errors.name && touched.name}
                 />
                 {errors.name && touched.name && (
-                  <p className="text-red-500 dark:text-red-500 text-xs italic -mt-2">
-                    {errors.name}
-                  </p>
+                  <ErrorMessage error={errors.name} />
                 )}
               </div>
               <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
-                <label
-                  className="text block tracking-wide text-gray-700 font-bold mb-1"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
+                <Label htmlFor="email">Email</Label>
+                <Input
                   id="email"
-                  name="email"
                   placeholder="lmccoy@enterprise.com"
-                  type="email"
-                  className={`
-                    "block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none outline-none" ${
-                      errors.email && touched.email && "border-red-500"
-                    }`}
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  errorCondition={errors.email && touched.email}
                 />
                 {errors.email && touched.email && (
-                  <p className="text-red-500 dark:text-red-500 text-xs italic -mt-2">
-                    {errors.email}
-                  </p>
+                  <ErrorMessage error={errors.email} />
                 )}
               </div>
             </div>
             <div className="flex flex-wrap -mx-3">
               <div className="w-full px-3">
-                <label
-                  className="text block tracking-wide text-gray-700 font-bold mb-1"
-                  htmlFor="message"
-                >
-                  Message
-                </label>
-                <textarea
+                <Label htmlFor="message">Message</Label>
+                <TextArea
                   id="message"
-                  name="message"
-                  placeholder="Damn it Jim, I'm a doctor not a form field."
-                  type="text"
-                  className={`
-                    "form-textarea block h-32 resize-none w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none outline-none" ${
-                      errors.message && touched.message && "border-red-500"
-                    }`}
                   value={values.message}
+                  placeholder="Damn it Jim, I'm a doctor not a form field."
+                  errorCondition={errors.message && touched.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 {errors.message && touched.message && (
-                  <p className="text-red-500 dark:text-red-500 text-xs italic -mt-2">
-                    {errors.message}
-                  </p>
+                  <ErrorMessage error={errors.message} />
                 )}
               </div>
             </div>
@@ -161,7 +133,7 @@ const ContactForm = ({ submit }) => {
             </div>
 
             {submitError && (
-              <p className="text-red-500 dark:text-red-500 text-xs italic mt-5">
+              <p className="text-red-500 dark:text-red-500 text-center italic mt-5">
                 {submitError}
               </p>
             )}
