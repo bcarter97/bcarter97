@@ -31,6 +31,7 @@ const Navbar = () => {
                     alt="carter.gg"
                     objectFit="contain"
                     layout="fill"
+                    placeholder="blur"
                   />
                 </a>
               </NavLink>
