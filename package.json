@@ -10,7 +10,7 @@
     "test": "echo \"No tests yet!\" && exit 0"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.4",
+    "@heroicons/react": "^1.0.5",
     "formik": "^2.2.9",
     "next": "^11.1.2",
     "path-to-regexp": "^6.2.0",
