@@ -52,19 +52,19 @@ const Navbar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="sm:block mr-6">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
+                {navigation.map(({ name, href, Icon }) => (
                   <NavLink
                     exact
-                    href={item.href}
-                    key={item.name}
+                    href={href}
+                    key={name}
                     activeClassName="bg-green-500 hover:bg-green-500 dark:hover:bg-green-500 text-white rounded-md"
                   >
                     <a className="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-900 color-fade rounded-md">
-                      <item.Icon
+                      <Icon
                         className="h-6 w-6 text inline align-bottom"
                         aria-hidden="true"
                       />
-                      <span className="ml-2 hidden lg:inline">{item.name}</span>
+                      <span className="ml-2 hidden lg:inline">{name}</span>
                     </a>
                   </NavLink>
                 ))}
