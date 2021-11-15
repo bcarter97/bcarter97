@@ -33,7 +33,7 @@ module.exports = {
           "bounce-up cubic-bezier(0.4, 0.885, 0.32, 1.275) 0.2s forwards",
       },
       backgroundImage: {
-        "hero-pattern": "url('public/meteor.svg')",
+        "hero-pattern": "url('/public/meteor.svg')",
       },
     },
   },
