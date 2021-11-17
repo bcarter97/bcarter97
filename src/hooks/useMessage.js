@@ -1,13 +1,9 @@
 import { messages } from "common";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useMessage = () => {
   const [messageCount, setMessageCount] = useState(0);
-  const [message, setMessage] = useState(messages[messageCount]);
-
-  useEffect(() => {
-    setMessage(messages[messageCount]);
-  }, [messageCount]);
+  const message = messages[messageCount];
 
   const incrementMessage = () => {
     setMessageCount((curr) => (curr + 1) % messages.length);
