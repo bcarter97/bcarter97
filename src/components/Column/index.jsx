@@ -16,20 +16,22 @@ const columns = [
   },
 ];
 
-const responsiveCols = columns.reduce(
-  (acc, { size, start, span }) =>
-    `${acc} ${size}:col-start-${start} ${size}:col-span-${span}`.trim(),
-  ""
-);
+const Column = ({ children }) => {
+  const responsiveCols = columns.reduce(
+    (acc, { size, start, span }) =>
+      `${acc} ${size}:col-start-${start} ${size}:col-span-${span}`.trim(),
+    ""
+  );
 
-const Column = ({ children }) => (
-  <div className="grid grid-cols-12 p-6 md:py-12 animate-bounce-up">
-    <div
-      className={`col-start-1 col-span-12 ${responsiveCols} bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg`}
-    >
-      {children}
+  return (
+    <div className="grid grid-cols-12 p-6 md:py-12 animate-bounce-up">
+      <div
+        className={`col-start-1 col-span-12 ${responsiveCols} bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg`}
+      >
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Column;
