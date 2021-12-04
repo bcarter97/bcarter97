@@ -9,7 +9,7 @@ const useMessage = () => {
     setMessageCount((curr) => (curr + 1) % messages.length);
   };
 
-  return [message, incrementMessage];
+  return [message, incrementMessage] as const;
 };
 
 export default useMessage;

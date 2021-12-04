@@ -1,6 +1,8 @@
 import Head from "next/head";
 
-const Layout = ({ title = "Home", children }) => (
+type LayoutProps = React.PropsWithChildren<{ title?: string }>;
+
+const Layout = ({ title = "Home", children }: LayoutProps) => (
   <>
     <Head>
       <title>Ben Carter / {title}</title>

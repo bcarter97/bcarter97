@@ -19,7 +19,7 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav as="nav" className="bg-white dark:bg-gray-800 shadow-md lg:p-3">
+    <nav className="bg-white dark:bg-gray-800 shadow-md lg:p-3">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="flex-1 flex items-center">
@@ -54,7 +54,6 @@ const Navbar = () => {
               <div className="flex space-x-4">
                 {navigation.map(({ name, href, Icon }) => (
                   <NavLink
-                    exact
                     href={href}
                     key={name}
                     activeClassName="bg-green-500 hover:bg-green-500 dark:hover:bg-green-500 text-white rounded-md"

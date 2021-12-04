@@ -8,10 +8,16 @@ import {
   Layout,
   TextArea,
 } from "components";
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import Link from "next/link";
 import { useState } from "react";
 import * as Yup from "yup";
+
+interface FormValues {
+  name: string;
+  email: string;
+  message: string;
+}
 
 const SubmitMessage = () => (
   <>
@@ -28,8 +34,8 @@ const SubmitMessage = () => (
   </>
 );
 
-const ContactForm = ({ setSubmitted }) => {
-  const [submitError, setSubmitError] = useState();
+const ContactForm = ({ setSubmitted }: { setSubmitted: () => void }) => {
+  const [submitError, setSubmitError] = useState("");
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
@@ -37,14 +43,19 @@ const ContactForm = ({ setSubmitted }) => {
     message: Yup.string().required("Message is required"),
   });
 
-  const onSubmit = async (values, actions) => {
+  const initialValues: FormValues = { name: "", email: "", message: "" };
+
+  const onSubmit = async (
+    values: FormValues,
+    actions: FormikHelpers<FormValues>
+  ) => {
     try {
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encodeForm({ "form-name": "contact", ...values }),
       });
-      setSubmitted(true);
+      setSubmitted();
       actions.resetForm();
     } catch (e) {
       setSubmitError("Something went wrong.");
@@ -55,7 +66,7 @@ const ContactForm = ({ setSubmitted }) => {
 
   return (
     <Formik
-      initialValues={{ name: "", email: "", message: "" }}
+      initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
@@ -87,7 +98,7 @@ const ContactForm = ({ setSubmitted }) => {
                 value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorCondition={errors.name && touched.name}
+                errorCondition={Boolean(errors.name && touched.name)}
               />
               {errors.name && touched.name && (
                 <ErrorMessage error={errors.name} />
@@ -101,7 +112,7 @@ const ContactForm = ({ setSubmitted }) => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorCondition={errors.email && touched.email}
+                errorCondition={Boolean(errors.email && touched.email)}
               />
               {errors.email && touched.email && (
                 <ErrorMessage error={errors.email} />
@@ -115,7 +126,7 @@ const ContactForm = ({ setSubmitted }) => {
                 id="message"
                 value={values.message}
                 placeholder="Damn it Jim, I'm a doctor not a form field."
-                errorCondition={errors.message && touched.message}
+                errorCondition={Boolean(errors.message && touched.message)}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
@@ -145,13 +156,15 @@ const ContactForm = ({ setSubmitted }) => {
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
+  const handleSubmit = () => setSubmitted(true);
+
   return (
     <Layout title="Contact">
       <Column>
         {submitted ? (
           <SubmitMessage />
         ) : (
-          <ContactForm setSubmitted={setSubmitted} />
+          <ContactForm setSubmitted={handleSubmit} />
         )}
       </Column>
     </Layout>

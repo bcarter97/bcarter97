@@ -6,7 +6,8 @@
 @layer base {
   div,
   nav,
-  p {
+  p,
+  a {
     @apply transition-all ease-in-out duration-300;
   }
 
