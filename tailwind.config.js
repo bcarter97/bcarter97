@@ -17,20 +17,9 @@ module.exports = {
             opacity: "1",
           },
         },
-        "bounce-up": {
-          from: {
-            transform: "translateY(50px)",
-          },
-          to: {
-            opacity: "1",
-            transform: "translateY(0px)",
-          },
-        },
       },
       animation: {
         "fade-in": "fade-in 0.5s ease-in-out",
-        "bounce-up":
-          "bounce-up cubic-bezier(0.4, 0.885, 0.32, 1.275) 0.2s forwards",
       },
       backgroundImage: {
         "hero-pattern": "url('../public/meteor.svg')",
