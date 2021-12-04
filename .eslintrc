@@ -1,9 +1,4 @@
 {
-  "env": {
-    "browser": true,
-    "jest": true,
-    "es6": true
-  },
   "plugins": ["import", "simple-import-sort"],
   "extends": ["plugin:prettier/recommended", "next/core-web-vitals"],
   "parserOptions": {
@@ -17,10 +12,5 @@
     "no-unused-vars": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
-  },
-  "overrides": [
-    {
-      "files": ["**/*.js[x]"]
-    }
-  ]
+  }
 }
