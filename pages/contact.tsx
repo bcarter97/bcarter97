@@ -98,7 +98,7 @@ const ContactForm = ({ setSubmitted }: { setSubmitted: () => void }) => {
                 value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorCondition={errors.name && touched.name}
+                errorCondition={Boolean(errors.name && touched.name)}
               />
               {errors.name && touched.name && (
                 <ErrorMessage error={errors.name} />
@@ -112,7 +112,7 @@ const ContactForm = ({ setSubmitted }: { setSubmitted: () => void }) => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorCondition={errors.email && touched.email}
+                errorCondition={Boolean(errors.email && touched.email)}
               />
               {errors.email && touched.email && (
                 <ErrorMessage error={errors.email} />
