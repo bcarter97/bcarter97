@@ -1,9 +1,10 @@
 import { Column, Layout } from "components";
 import { useMessage } from "hooks";
+import type { NextPage } from "next";
 import Image from "next/image";
 import ProfilePic from "public/profile.png";
 
-const Home = () => {
+const Home: NextPage = () => {
   const [message, incrementMessage] = useMessage();
 
   return (
