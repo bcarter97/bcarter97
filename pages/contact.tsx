@@ -126,7 +126,7 @@ const ContactForm = ({ setSubmitted }: { setSubmitted: () => void }) => {
                 id="message"
                 value={values.message}
                 placeholder="Damn it Jim, I'm a doctor not a form field."
-                errorCondition={errors.message && touched.message}
+                errorCondition={Boolean(errors.message && touched.message)}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
