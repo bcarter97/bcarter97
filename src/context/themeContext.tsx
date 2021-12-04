@@ -1,12 +1,9 @@
-import { createContext, useContext, useEffect, useState, FC } from "react";
+import { createContext, FC, useContext, useEffect, useState } from "react";
 
 interface IThemeContext {
   theme: string;
   toggleTheme: () => void;
 }
-
-// const CustomThemeContext = createContext<IThemeContext | null>(null);
-// export const useTheme = () => useContext(CustomThemeContext);
 
 const createCtx = <A extends {} | null>() => {
   const ctx = createContext<A | undefined>(undefined);
@@ -46,7 +43,7 @@ const getDefaultTheme = (): string => {
     : "light";
 };
 
-const ThemeContext: FC = ({ children }) => {
+export const ThemeContext: FC = ({ children }) => {
   const [theme, setTheme] = useState<string>("");
 
   useEffect(() => {
@@ -68,5 +65,3 @@ const ThemeContext: FC = ({ children }) => {
     </CustomThemeContextProvider>
   );
 };
-
-export default ThemeContext;
