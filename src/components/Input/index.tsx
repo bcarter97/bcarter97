@@ -1,8 +1,8 @@
 import { FC, InputHTMLAttributes } from "react";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   errorCondition: Boolean;
-}
+};
 
 const Input: FC<InputProps> = ({ id, name = id, errorCondition, ...props }) => (
   <input
