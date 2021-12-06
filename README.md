@@ -5,8 +5,8 @@
 </p>
 <hr/>
 <p align="center">
-  <a href="https://github.com/bcarter97/bcarter97/actions?query=workflow%3A%22ci+pipeline%22" title="github workflow">
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/bcarter97/bcarter97/ci%20pipeline?style=flat-square"/>
+  <a href="https://carter.gg/" title="netlify workflow">
+    <img alt="Netlify Workflow Status" src="https://img.shields.io/netlify/de459d64-61de-4845-827a-acc4e00810ca?style=flat-square"/>
   </a>
   <a href="https://raw.githubusercontent.com/bcarter97/bcarter97/main/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/bcarter97/bcarter97?style=flat-square"/>
