@@ -8,7 +8,7 @@ import {
   Layout,
   TextArea,
 } from "components";
-import { Formik, FormikHelpers } from "formik";
+import { FormikHelpers, useFormik } from "formik";
 import Link from "next/link";
 import { useState } from "react";
 import * as Yup from "yup";
@@ -18,6 +18,14 @@ interface FormValues {
   email: string;
   message: string;
 }
+
+const MAX_MESSAGE_LENGTH = 250;
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  message: Yup.string().max(MAX_MESSAGE_LENGTH).required("Message is required"),
+});
 
 const SubmitMessage = () => (
   <>
@@ -36,12 +44,6 @@ const SubmitMessage = () => (
 
 const ContactForm = ({ setSubmitted }: { setSubmitted: () => void }) => {
   const [submitError, setSubmitError] = useState("");
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    message: Yup.string().required("Message is required"),
-  });
 
   const initialValues: FormValues = { name: "", email: "", message: "" };
 
@@ -64,92 +66,120 @@ const ContactForm = ({ setSubmitted }: { setSubmitted: () => void }) => {
     }
   };
 
+  const {
+    values,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    errors,
+    touched,
+    isSubmitting,
+  } = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema,
+  });
+
+  const messageLength = values.message.length;
+
+  const messageLengthHint = () => {
+    if (messageLength > 0 && messageLength <= MAX_MESSAGE_LENGTH) {
+      return (
+        <span className="float-right">
+          {messageLength} / {MAX_MESSAGE_LENGTH}
+        </span>
+      );
+    }
+
+    if (messageLength > MAX_MESSAGE_LENGTH) {
+      return (
+        <span className="float-right">
+          A lot to say? Send me an{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-500 underline"
+            href="mailto:ben@carter.gg"
+          >
+            email
+          </a>
+        </span>
+      );
+    }
+
+    return null;
+  };
+
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
+    <form
+      className="w-full mb-4"
+      onSubmit={handleSubmit}
+      name="contact"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
     >
-      {({
-        values,
-        touched,
-        errors,
-        isSubmitting,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-      }) => (
-        <form
-          className="w-full mb-4"
-          onSubmit={handleSubmit}
-          name="contact"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <h1 className="text text-4xl font-semibold mb-4">Get in touch.</h1>
-
-          <div className="flex flex-wrap -mx-3">
-            <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
-              <Label htmlFor="name">Name</Label>
-              <Input
-                id="name"
-                placeholder="Leonard"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                errorCondition={Boolean(errors.name && touched.name)}
-              />
-              {errors.name && touched.name && (
-                <ErrorMessage error={errors.name} />
-              )}
-            </div>
-            <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                placeholder="lmccoy@enterprise.com"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                errorCondition={Boolean(errors.email && touched.email)}
-              />
-              {errors.email && touched.email && (
-                <ErrorMessage error={errors.email} />
-              )}
-            </div>
-          </div>
-          <div className="flex flex-wrap -mx-3">
-            <div className="w-full px-3">
-              <Label htmlFor="message">Message</Label>
-              <TextArea
-                id="message"
-                value={values.message}
-                placeholder="Damn it Jim, I'm a doctor not a form field."
-                errorCondition={Boolean(errors.message && touched.message)}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.message && touched.message && (
-                <ErrorMessage error={errors.message} />
-              )}
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <Button type="submit" disabled={isSubmitting}>
-              Submit
-            </Button>
-          </div>
-
-          {submitError && (
-            <p className="text-red-500 dark:text-red-500 text-center italic mt-5">
-              {submitError}
-            </p>
+      <input type="hidden" name="form-name" value="contact" />
+      <h1 className="text text-4xl font-semibold mb-4">Get in touch.</h1>
+      <div className="flex flex-wrap -mx-3">
+        <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            placeholder="Leonard"
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            errorCondition={Boolean(errors.name && touched.name)}
+          />
+          {errors.name && touched.name && <ErrorMessage error={errors.name} />}
+        </div>
+        <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            placeholder="lmccoy@enterprise.com"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            errorCondition={Boolean(errors.email && touched.email)}
+          />
+          {errors.email && touched.email && (
+            <ErrorMessage error={errors.email} />
           )}
-        </form>
+        </div>
+      </div>
+      <div className="flex flex-wrap -mx-3">
+        <div className="w-full px-3">
+          <Label htmlFor="message">
+            Message
+            {messageLengthHint()}
+          </Label>
+          <TextArea
+            id="message"
+            value={values.message}
+            placeholder="Damn it Jim, I'm a doctor not a form field."
+            errorCondition={Boolean(errors.message && touched.message)}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {errors.message && touched.message && (
+            <ErrorMessage error={errors.message} />
+          )}
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <Button type="submit" disabled={isSubmitting}>
+          Submit
+        </Button>
+      </div>
+
+      {submitError && (
+        <p className="text-red-500 dark:text-red-500 text-center italic mt-5">
+          {submitError}
+        </p>
       )}
-    </Formik>
+    </form>
   );
 };
 
