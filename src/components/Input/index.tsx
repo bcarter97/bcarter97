@@ -9,8 +9,8 @@ const Input: FC<InputProps> = ({ id, name = id, errorCondition, ...props }) => (
     id={id}
     name={name}
     type="text"
-    className={`block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none outline-none ${
-      errorCondition && "border-red-500"
+    className={`block w-full text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none outline-none ${
+      errorCondition && "ring ring-inset ring-red-500"
     }`}
     {...props}
   />
