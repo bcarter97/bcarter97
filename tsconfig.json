@@ -19,7 +19,7 @@
       "components": ["./src/components"],
       "context": ["./src/context"],
       "hooks": ["./src/hooks"],
-      "common": ["src/common"]
+      "common": ["./src/common"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
