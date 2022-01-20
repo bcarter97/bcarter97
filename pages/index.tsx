@@ -23,7 +23,7 @@ const Home: NextPage = () => {
           Hi, I&apos;m Ben.
         </p>
         <p className="text-2xl font-semibold">
-          Associate Software Developer at Sky. {message}.
+          Software Developer at Sky. {message}.
         </p>
       </Column>
     </Layout>
