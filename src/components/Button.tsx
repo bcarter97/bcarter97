@@ -10,7 +10,7 @@ const Button: FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
       disabled
         ? "cursor-not-allowed"
         : "hover:bg-green-600 dark:hover:bg-green-600"
-    } dark:bg-green-500 active:bg-green-700 dark:active:bg-green-700 color-fade`}
+    } dark:bg-green-500 active:bg-green-700 dark:active:bg-green-700`}
     disabled={disabled}
     {...props}
   >

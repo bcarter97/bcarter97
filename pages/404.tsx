@@ -14,7 +14,7 @@ const NotFound: NextPage = () => (
       </p>
       <Link href="/">
         <a>
-          <p className="text-3xl text-green-500 hover:text-green-800 dark:text-green-400 dark:hover:text-green-100 text-center color-fade">
+          <p className="text-3xl text-green-500 hover:text-green-800 dark:text-green-400 dark:hover:text-green-100 text-center">
             &larr; Back to home
           </p>
         </a>
