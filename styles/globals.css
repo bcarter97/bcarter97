@@ -9,15 +9,8 @@
   }
 
   span,
-  p {
+  p,
+  .text {
     @apply text-gray-900 dark:text-gray-50;
   }
-}
-
-.text {
-  @apply text-gray-900 dark:text-gray-50;
-}
-
-.color-fade {
-  @apply transition-colors ease-in-out duration-300;
 }

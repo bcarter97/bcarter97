@@ -39,7 +39,7 @@ const Navbar = () => {
                 href="https://github.com/bcarter97"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-900 color-fade rounded-md"
+                className="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-900 rounded-md"
               >
                 <CodeIcon
                   className="h-6 w-6 text inline align-bottom"
@@ -58,7 +58,7 @@ const Navbar = () => {
                     key={name}
                     activeClassName="bg-green-500 hover:bg-green-500 dark:hover:bg-green-500 text-white rounded-md"
                   >
-                    <a className="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-900 color-fade rounded-md">
+                    <a className="px-3 py-2 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-900 rounded-md">
                       <Icon
                         className="h-6 w-6 text inline align-bottom"
                         aria-hidden="true"
@@ -71,15 +71,9 @@ const Navbar = () => {
             </div>
             <button className="p-1 text" onClick={toggleTheme}>
               {theme === "light" ? (
-                <SunIcon
-                  className="h-6 w-6 animate-fade-in"
-                  aria-hidden="true"
-                />
+                <SunIcon className="h-6 w-6" aria-hidden="true" />
               ) : (
-                <MoonIcon
-                  className="h-6 w-6 animate-fade-in"
-                  aria-hidden="true"
-                />
+                <MoonIcon className="h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
