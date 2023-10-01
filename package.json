@@ -19,7 +19,7 @@
     "yup": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.8.0",
     "@types/react": "^17.0.43",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.39.0",
