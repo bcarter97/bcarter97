@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 # setup the repository in the runner
+      - uses: actions/checkout@v4 # setup the repository in the runner
       - name: Setup Node.js # setup Node.js in the runner
         uses: actions/setup-node@v2
         with:
