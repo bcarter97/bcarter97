@@ -28,7 +28,7 @@ const Navbar = () => {
                 <a className="block h-8 w-8 relative">
                   <Image
                     src={Logo}
-                    alt="carter.gg"
+                    alt="website logo"
                     objectFit="contain"
                     layout="fill"
                     placeholder="blur"

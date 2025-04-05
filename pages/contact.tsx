@@ -99,7 +99,7 @@ const ContactForm = ({ setSubmitted }: { setSubmitted: () => void }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-green-500 underline"
-            href="mailto:ben@carter.gg"
+            href="mailto:benjohn.carter@gmail.com"
           >
             email
           </a>
